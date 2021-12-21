@@ -82,6 +82,9 @@ export default function Skills(props) {
           />
           {skillTotal(SkillsEnum.str.athletics, str)}
         </li>
+      </ul>
+      <h4>Dexterity</h4>
+      <ul>
         <li>
           {SkillsEnum.dex.acrobatics}
           <input
