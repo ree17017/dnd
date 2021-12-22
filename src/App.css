@@ -1,38 +1,83 @@
-.App {
-  text-align: center;
+.header {
+    grid-area: header;
+    text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.stats {
+    grid-area: stat;
+    text-align: center;
+    align-items: center;
+    border: 1px dashed black;
+    margin: 5px;
+    width: 120px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.savingthrows {
+    grid-area: savingthrows;
+    border: 1px dashed black;
+    padding-left: 12px;
+    padding-top: 8px;
+    margin-bottom: 4px;
+    display: flex;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+span {
+    padding: 0px 20px 0 0px;
 }
 
-.App-link {
-  color: #61dafb;
+.skills {
+    grid-area: skill;
+    border: 1px dashed black;
+    padding-left: 12px;
+    padding-top: 8px;
+    margin-top: 4px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.health {
+    grid-area: health;
+    border: 1px dashed black;
+    padding-left: 12px;
+    margin-left: 12px;
+}
+
+.otherProficiencies {
+    grid-area: otherProficiencies;
+}
+
+.footer {
+    grid-area: footer;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas: "header header header header header" "stat savingthrows health health health" "stat skill health health health" "stat skill health health health" "footer footer footer footer footer";
+}
+
+.grid-container>div {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+input {
+    max-width: 25px;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px;
+}
+
+.savingthrows>li {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h4 {
+    padding: 0;
+    margin: 0;
 }

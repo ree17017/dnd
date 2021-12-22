@@ -1,6 +1,8 @@
 import React from "react";
 import useLocalStorage from "react-localstorage-hook";
 import { modifier } from "../tools/modifier";
+import { SkillsEnum } from "./enums";
+import styled from "styled-components";
 
 export default function Skills(props) {
   const [str] = useLocalStorage("str");
@@ -13,37 +15,6 @@ export default function Skills(props) {
   const [skills, setSkills] = useLocalStorage("skills", []);
 
   const index = (name) => skills.indexOf(name);
-
-  const SkillsEnum = {
-    str: {
-      athletics: "Athletics",
-    },
-    dex: {
-      acrobatics: "Acrobatics",
-      slight_of_hand: "Slight of Hand",
-      stealth: "Stealth",
-    },
-    int: {
-      arcana: "Arcana",
-      history: "History",
-      investigation: "Investigation",
-      nature: "Nature",
-      religion: "Religion",
-    },
-    wis: {
-      animal_handling: "Animal Handling",
-      insight: "Insight",
-      medicine: "Medicine",
-      perception: "Perception",
-      survival: "Survival",
-    },
-    cha: {
-      deception: "Deception",
-      intimidation: "Intimidation",
-      performance: "Performance",
-      persuasion: "Persuasion",
-    },
-  };
 
   const skillTotal = (name, stat) => {
     if (skills.indexOf(name) > -1) {
@@ -92,7 +63,7 @@ export default function Skills(props) {
             name={SkillsEnum.dex.acrobatics}
             onChange={(event) => handleOnChange(event)}
             checked={isChecked(SkillsEnum.dex.acrobatics)}
-          />{" "}
+          />
           {skillTotal(SkillsEnum.dex.acrobatics, dex)}
         </li>
         <li>
@@ -104,6 +75,29 @@ export default function Skills(props) {
             checked={isChecked(SkillsEnum.dex.slight_of_hand)}
           />{" "}
           {skillTotal(SkillsEnum.dex.slight_of_hand, dex)}
+        </li>
+        <li>
+          {SkillsEnum.dex.stealth}
+          <input
+            type="checkbox"
+            name={SkillsEnum.dex.stealth}
+            onChange={(event) => handleOnChange(event)}
+            checked={isChecked(SkillsEnum.dex.stealth)}
+          />
+          {skillTotal(SkillsEnum.dex.stealth, dex)}
+        </li>
+      </ul>
+      <h4>Intelligence</h4>
+      <ul>
+        <li>
+          {SkillsEnum.int.arcana}
+          <input
+            type="checkbox"
+            name={SkillsEnum.int.arcana}
+            onChange={(event) => handleOnChange(event)}
+            checked={isChecked(SkillsEnum.int.arcana)}
+          />
+          {skillTotal(SkillsEnum.int.arcana, int)}
         </li>
       </ul>
     </div>

@@ -11,7 +11,7 @@ export default function Stats(props) {
   const [cha, setCha] = useLocalStorage("cha");
 
   return (
-    <div>
+    <>
       <ul>
         <li>
           <div>Strength</div>
@@ -68,6 +68,6 @@ export default function Stats(props) {
           />
         </li>
       </ul>
-    </div>
+    </>
   );
 }
