@@ -3,6 +3,11 @@
     text-align: center;
 }
 
+.header>input {
+    max-width: 130px;
+    text-align: center;
+}
+
 .stats {
     grid-area: stat;
     text-align: center;
@@ -63,11 +68,6 @@ span {
     background-color: rgba(255, 255, 255, 0.8);
 }
 
-input {
-    max-width: 25px;
-    text-align: center;
-}
-
 ul {
     list-style-type: none;
     padding: 0;
@@ -87,7 +87,16 @@ ul {
     justify-content: space-between;
 }
 
+.skill>input[type="number"] {
+    width: 10px;
+}
+
 h4 {
     padding: 0;
     margin: 0;
+}
+
+.stats>ul>*>input[type="text"] {
+    width: 30px;
+    text-align: center;
 }

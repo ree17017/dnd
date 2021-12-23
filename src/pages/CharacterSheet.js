@@ -3,12 +3,14 @@ import SavingThrows from "../components/SavingThrows";
 import Stats from "../components/Stats";
 import Skills from "../components/Skills";
 import Proficiency from "../components/Proficiency";
+import CharacterInfo from "../components/CharacterInfo";
 
 function CharacterSheet(props) {
   return (
     <div className="grid-container">
       <div class="header">
         <h1>CharacterSheet Page</h1>
+        <CharacterInfo />
       </div>
       <div class="stats">
         <Stats />
