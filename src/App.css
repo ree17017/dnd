@@ -19,6 +19,7 @@
     padding-top: 8px;
     margin-bottom: 4px;
     display: flex;
+    width: 180px;
 }
 
 span {
@@ -30,6 +31,11 @@ span {
     border: 1px dashed black;
     padding-left: 12px;
     padding-top: 8px;
+    margin-top: 4px;
+    width: 180px;
+}
+
+.skills>ul {
     margin-top: 4px;
 }
 
@@ -65,7 +71,6 @@ input {
 ul {
     list-style-type: none;
     padding: 0;
-    margin: 10px;
 }
 
 .savingthrows>li {
@@ -75,6 +80,11 @@ ul {
     align-content: flex-start;
     justify-content: space-between;
     align-items: center;
+}
+
+.skill>span {
+    display: flex;
+    justify-content: space-between;
 }
 
 h4 {
