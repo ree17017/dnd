@@ -42,10 +42,10 @@ export default function Skills(props) {
       <h4>Strength</h4>
       <ul>
         {Object.keys(SkillsEnum.str).map((skill) => {
-          console.log(skill);
           return (
             <Skill
               name={SkillsEnum.str[skill]}
+              save={skill}
               handleOnChange={handleOnChange}
               isChecked={isChecked(skill)}
               stat={skillTotal(skill, str)}
@@ -60,6 +60,7 @@ export default function Skills(props) {
           return (
             <Skill
               name={SkillsEnum.dex[skill]}
+              skill={skill}
               handleOnChange={handleOnChange}
               isChecked={isChecked(skill)}
               stat={skillTotal(skill, dex)}
@@ -69,11 +70,11 @@ export default function Skills(props) {
       </ul>
       <h4>Intelligence</h4>
       <ul>
-        {Object.keys(SkillsEnum.int).map((skill, index) => {
-          console.log(skill);
+        {Object.keys(SkillsEnum.int).map((skill) => {
           return (
             <Skill
               name={SkillsEnum.int[skill]}
+              skill={skill}
               handleOnChange={handleOnChange}
               isChecked={isChecked(skill)}
               stat={skillTotal(skill, int)}
@@ -84,10 +85,10 @@ export default function Skills(props) {
       <h4>Wisdom</h4>
       <ul>
         {Object.keys(SkillsEnum.wis).map((skill) => {
-          console.log(skill);
           return (
             <Skill
               name={SkillsEnum.wis[skill]}
+              skill={skill}
               handleOnChange={handleOnChange}
               isChecked={isChecked(skill)}
               stat={skillTotal(skill, wis)}
@@ -98,7 +99,6 @@ export default function Skills(props) {
       <h4>Charisma</h4>
       <ul>
         {Object.keys(SkillsEnum.cha).map((skill) => {
-          console.log(skill);
           return (
             <Skill
               name={SkillsEnum.cha[skill]}
@@ -113,12 +113,12 @@ export default function Skills(props) {
   );
 }
 
-function Skill({ name, handleOnChange, isChecked, stat }) {
+function Skill({ name, skill, handleOnChange, isChecked, stat }) {
   return (
-    <li>
+    <li key={skill}>
       <input
         type="checkbox"
-        name={name.toLowerCase()}
+        name={skill}
         onChange={(event) => handleOnChange(event)}
         checked={isChecked}
       />
