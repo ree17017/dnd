@@ -13,8 +13,8 @@ export default function Stats(props) {
   return (
     <>
       <ul>
+        <div>Strength</div>
         <li>
-          <div>Strength</div>
           <div>{modifier(str)}</div>
           <input
             type="text"
@@ -22,8 +22,8 @@ export default function Stats(props) {
             onChange={(event) => setStr(event.target.value)}
           />
         </li>
+        <div>Dexterity</div>
         <li>
-          Dexterity
           <div>{modifier(dex)}</div>
           <input
             type="text"
@@ -31,8 +31,8 @@ export default function Stats(props) {
             onChange={(event) => setDex(event.target.value)}
           />
         </li>
+        Constitution
         <li>
-          Constitution
           <div>{modifier(con)}</div>
           <input
             type="text"
@@ -40,8 +40,8 @@ export default function Stats(props) {
             onChange={(event) => setCon(event.target.value)}
           />
         </li>
+        Intelligence
         <li>
-          Intelligence
           <div>{modifier(int)}</div>
           <input
             type="text"
@@ -49,8 +49,8 @@ export default function Stats(props) {
             onChange={(event) => setInt(event.target.value)}
           />
         </li>
+        Wisdom
         <li>
-          Wisdom
           <div>{modifier(wis)}</div>
           <input
             type="text"
@@ -58,8 +58,8 @@ export default function Stats(props) {
             onChange={(event) => setWis(event.target.value)}
           />
         </li>
+        Charisma
         <li>
-          Charisma
           <div>{modifier(cha)}</div>
           <input
             type="text"

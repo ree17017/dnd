@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import useLocalStorage from "react-localstorage-hook";
+import ReactModal from "react-modal";
 
 export default function CharacterInfo(props) {
   const [characterName, setCharacterName] = useLocalStorage("characterInfo");
@@ -12,71 +13,159 @@ export default function CharacterInfo(props) {
   const [alignment, setAlignment] = useLocalStorage("alignment");
   const [experience, setExperience] = useLocalStorage("experience");
 
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div>
-      Character Name:
-      <input
-        type="text"
-        value={characterName}
-        onChange={(event) => setCharacterName(event.target.value)}
-        name="characterName"
+      <CharacterInfoLayout
+        characterName={characterName}
+        characterclass={characterclass}
+        level={level}
+        background={background}
+        playerName={playerName}
+        race={race}
+        speed={speed}
+        alignment={alignment}
+        experience={experience}
       />
-      Class:
-      <input
-        type="text"
-        name="class"
-        value={characterclass}
-        onChange={(event) => setCharacterClass(event.target.value)}
-      />
-      Level:
-      <input
-        type="number"
-        name="level"
-        value={level}
-        onChange={(event) => setLevel(event.target.value)}
-      />
-      Background:
-      <input
-        type="text"
-        name="Background"
-        value={background}
-        onChange={(event) => setBackground(event.target.value)}
-      />
-      Player Name:
-      <input
-        type="text"
-        name="playerName"
-        value={playerName}
-        onChange={(event) => setPlayerName(event.target.value)}
-      />
-      Race:
-      <input
-        type="text"
-        name="race"
-        value={race}
-        onChange={(event) => setRace(event.target.value)}
-      />
-      Speed:
-      <input
-        type="text"
-        name="speed"
-        value={speed}
-        onChange={(event) => setSpeed(event.target.value)}
-      />
-      Alignment:
-      <input
-        type="text"
-        name="alignment"
-        value={alignment}
-        onChange={(event) => setAlignment(event.target.value)}
-      />
-      Experience Points:
-      <input
-        type="text"
-        name="experience"
-        value={experience}
-        onChang={(event) => setExperience(event.target.value)}
-      />
+      <button onClick={() => setIsOpen(true)}>Edit Character Info</button>
+      <ReactModal isOpen={isOpen}>
+        <h1>Edit Character Info</h1>
+        <div>
+          <ul>
+            <li>
+              Character Name:
+              <input
+                type="text"
+                value={characterName}
+                onChange={(event) => setCharacterName(event.target.value)}
+                name="characterName"
+              />
+            </li>
+            <li>
+              Class:
+              <input
+                type="text"
+                name="class"
+                value={characterclass}
+                onChange={(event) => setCharacterClass(event.target.value)}
+              />
+            </li>
+            <li>
+              Level:
+              <input
+                type="number"
+                name="level"
+                value={level}
+                onChange={(event) => setLevel(event.target.value)}
+              />
+            </li>
+            <li>
+              Background:
+              <input
+                type="text"
+                name="Background"
+                value={background}
+                onChange={(event) => setBackground(event.target.value)}
+              />
+            </li>
+            <li>
+              Player Name:
+              <input
+                type="text"
+                name="playerName"
+                value={playerName}
+                onChange={(event) => setPlayerName(event.target.value)}
+              />
+            </li>
+            <li>
+              Race:
+              <input
+                type="text"
+                name="race"
+                value={race}
+                onChange={(event) => setRace(event.target.value)}
+              />
+            </li>
+            <li>
+              Speed:
+              <input
+                type="text"
+                name="speed"
+                value={speed}
+                onChange={(event) => setSpeed(event.target.value)}
+              />
+            </li>
+            <li>
+              Alignment:
+              <input
+                type="text"
+                name="alignment"
+                value={alignment}
+                onChange={(event) => setAlignment(event.target.value)}
+              />
+            </li>
+            <li>
+              Experience Points:
+              <input
+                type="number"
+                name="experience"
+                value={experience}
+                onChange={(event) => setExperience(event.target.value)}
+              />
+            </li>
+          </ul>
+        </div>
+        <button onClick={() => setIsOpen(false)}>Close</button>
+      </ReactModal>
     </div>
+  );
+}
+
+function CharacterInfoLayout({
+  characterName,
+  characterclass,
+  level,
+  background,
+  playerName,
+  race,
+  speed,
+  alignment,
+  experience,
+}) {
+  return (
+    <div style={{ display: "flex" }}>
+      <div className="character-flex-container">
+        <div>
+          <div>
+            <img src=".\Logo.png" alt="Logo" />
+          </div>
+          <DisplayInfo item={characterName} title={"Character Name"} />
+        </div>
+      </div>
+      <div className="character-info-flex-container">
+        <div>
+          <DisplayInfo item={characterclass} title={"Class & Level"} />
+          <DisplayInfo item={level} title={"Level"} />
+          <DisplayInfo item={background} title={"Background"} />
+          <DisplayInfo item={playerName} title={"Player Name"} />
+        </div>
+        <div>
+          <DisplayInfo item={race} title={"Race"} />
+          <DisplayInfo item={speed} title={"Speed"} />
+          <DisplayInfo item={alignment} title={"Alignment"} />
+          <DisplayInfo item={experience} title={"Experience"} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function DisplayInfo({ item, title }) {
+  return (
+    <ul data-testid={`${item}-${title}-ul`}>
+      <li className="item-text">{item}</li>
+      <li className="name-text">{title}</li>
+    </ul>
   );
 }

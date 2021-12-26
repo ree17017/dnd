@@ -1,3 +1,7 @@
+* {
+    font-family: "Merriweather Sans", sans-serif;
+}
+
 .header {
     grid-area: header;
     text-align: center;
@@ -11,10 +15,26 @@
 .stats {
     grid-area: stat;
     text-align: center;
-    align-items: center;
     border: 1px dashed black;
-    margin: 5px;
-    width: 120px;
+    margin-right: 16px;
+}
+
+.stats>ul>li {
+    background-image: url("C:\Users\reedj\dnd\dnd\public\img\stat_shield.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    height: 90px;
+    padding-top: 30px;
+    font-size: 20px;
+}
+
+.stats>ul>li>div {
+    color: white;
+}
+
+.stats_modifier {
+    font-size: 18px;
 }
 
 .savingthrows {
@@ -24,7 +44,6 @@
     padding-top: 8px;
     margin-bottom: 4px;
     display: flex;
-    width: 180px;
 }
 
 span {
@@ -34,10 +53,9 @@ span {
 .skills {
     grid-area: skill;
     border: 1px dashed black;
-    padding-left: 12px;
+    padding-left: 8px;
     padding-top: 8px;
     margin-top: 4px;
-    width: 180px;
 }
 
 .skills>ul {
@@ -70,7 +88,6 @@ span {
 
 ul {
     list-style-type: none;
-    padding: 0;
 }
 
 .savingthrows>li {
@@ -99,4 +116,47 @@ h4 {
 .stats>ul>*>input[type="text"] {
     width: 30px;
     text-align: center;
+}
+
+.character-flex-container {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.character-flex-container>div {
+    text-align: center;
+    font-size: 30px;
+    padding: 8px;
+}
+
+.name-text {
+    text-align: left;
+    font-size: 15px;
+}
+
+.item-text {
+    border-bottom: 1px solid black;
+}
+
+.character-info-flex-container {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+.character-info-flex-container>div {
+    margin-top: 40px;
+    display: flex;
+    text-align: center;
+    font-size: 30px;
+    flex-direction: row;
+}
+
+.character-info-flex-container>div>ul {
+    margin: 0;
+}
+
+img {
+    width: 300px;
+    margin-left: 16px;
 }

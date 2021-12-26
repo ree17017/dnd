@@ -8,24 +8,23 @@ import CharacterInfo from "../components/CharacterInfo";
 function CharacterSheet(props) {
   return (
     <div className="grid-container">
-      <div class="header">
-        <h1>CharacterSheet Page</h1>
+      <div className="header">
         <CharacterInfo />
       </div>
-      <div class="stats">
+      <div className="stats">
         <Stats />
       </div>
-      <div class="savingthrows">
+      <div className="savingthrows">
         <SavingThrows />
       </div>
-      <div class="skills">
+      <div className="skills">
         <Skills />
       </div>
-      <div class="health">
+      <div className="health">
         <Proficiency />
       </div>
-      <div class="otherProficiencies"></div>
-      <div class="footer">footer</div>
+      <div className="otherProficiencies"></div>
+      <div className="footer">footer</div>
     </div>
   );
 }
