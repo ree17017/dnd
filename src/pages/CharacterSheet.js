@@ -24,7 +24,7 @@ function CharacterSheet(props) {
         <Proficiency />
       </div>
       <div className="otherProficiencies"></div>
-      <div className="footer">footer</div>
+      <div className="footer"></div>
     </div>
   );
 }

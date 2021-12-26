@@ -20,7 +20,7 @@
 }
 
 .stats>ul>li {
-    background-image: url("C:\Users\reedj\dnd\dnd\public\img\stat_shield.png");
+    background-image: url(./img/stat_shield.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position-x: center;
