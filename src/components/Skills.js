@@ -14,12 +14,16 @@ export default function Skills(props) {
 
   const index = (name) => skills.indexOf(name);
 
-  const skillTotal = (name, stat) => {
-    if (skills.indexOf(name) > -1) {
-      return +modifier(stat) + +proficiency;
+  const skillTotal = (skill, stat) => {
+    console.log({ stat });
+    console.log(+modifier(stat.stat) + +proficiency + +stat.otherModifier);
+
+    if (skills.indexOf(skill) > -1) {
+      return +modifier(stat.stat) + +proficiency + +stat.otherModifier;
     }
 
-    return modifier(stat);
+    console.log(stat);
+    return +modifier(stat.stat) + +stat.otherModifier;
   };
 
   const handleOnChange = (event) => {
@@ -46,7 +50,7 @@ export default function Skills(props) {
             <Skill
               key={`str-${skill}`}
               name={SkillsEnum.str[skill]}
-              save={skill}
+              skill={skill}
               handleOnChange={handleOnChange}
               isChecked={isChecked(skill)}
               stat={skillTotal(skill, str)}
@@ -105,6 +109,7 @@ export default function Skills(props) {
           return (
             <Skill
               key={`cha-${skill}`}
+              skill={skill}
               name={SkillsEnum.cha[skill]}
               handleOnChange={handleOnChange}
               isChecked={isChecked(skill)}
