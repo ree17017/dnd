@@ -7,6 +7,10 @@
     text-align: center;
 }
 
+.header button {
+    margin-bottom: 8px;
+}
+
 .header>input {
     max-width: 130px;
     text-align: center;

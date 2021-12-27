@@ -134,7 +134,7 @@ function CharacterInfoLayout({
   experience,
 }) {
   return (
-    <div style={{ display: "flex" }}>
+    <div style={{ display: "flex", height: "204px" }}>
       <div className="character-flex-container">
         <div>
           <div>
