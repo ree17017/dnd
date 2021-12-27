@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import useLocalStorage from "react-localstorage-hook";
 import { modifier } from "../tools/modifier";
 
@@ -33,7 +33,10 @@ export default function SavingThrows(props) {
   };
 
   const saveStat = (name, stat) => {
-    return index(name) > -1 ? add(modifier(stat), proficiency) : modifier(stat);
+    console.log(name, stat);
+    return isChecked(name)
+      ? add(modifier(stat.stat), proficiency) + +stat.otherModifier
+      : modifier(stat.stat) + +stat.otherModifier;
   };
 
   const isChecked = (name) => index(name) > -1;
@@ -50,7 +53,7 @@ export default function SavingThrows(props) {
             checked={isChecked("str")}
             id="str"
             name="str"
-            value={str}
+            value={str.stat}
           />
           <span> {saveStat("str", str)} </span>
         </li>
@@ -62,7 +65,7 @@ export default function SavingThrows(props) {
             checked={isChecked("dex")}
             id="dex"
             name="dex"
-            value={dex}
+            value={dex.stat}
           />
           <span> {saveStat("dex", dex)} </span>
         </li>
@@ -74,7 +77,7 @@ export default function SavingThrows(props) {
             checked={isChecked("con")}
             id="con"
             name="con"
-            value={con}
+            value={con.stat}
           />
           <span> {saveStat("con", con)} </span>
         </li>
@@ -86,7 +89,7 @@ export default function SavingThrows(props) {
             checked={isChecked("int")}
             id="int"
             name="int"
-            value={int}
+            value={int.stat}
           />
           <span> {saveStat("int", int)} </span>
         </li>
@@ -98,7 +101,7 @@ export default function SavingThrows(props) {
             checked={isChecked("wis")}
             id="wis"
             name="wis"
-            value={wis}
+            value={wis.stat}
           />
           <span> {saveStat("wis", wis)} </span>
         </li>
@@ -110,7 +113,7 @@ export default function SavingThrows(props) {
             checked={isChecked("cha")}
             id="cha"
             name="cha"
-            value={cha}
+            value={cha.stat}
           />
           <span> {saveStat("cha", cha)} </span>
         </li>
