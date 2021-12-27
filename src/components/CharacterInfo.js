@@ -33,85 +33,94 @@ export default function CharacterInfo(props) {
         <h1>Edit Character Info</h1>
         <div>
           <ul>
-            <li>
+            <li className="modal_li">
               Character Name:
               <input
                 type="text"
                 value={characterName}
                 onChange={(event) => setCharacterName(event.target.value)}
                 name="characterName"
+                className="modal_input"
               />
             </li>
-            <li>
+            <li className="modal_li">
               Class:
               <input
                 type="text"
                 name="class"
                 value={characterclass}
                 onChange={(event) => setCharacterClass(event.target.value)}
+                className="modal_input"
               />
             </li>
-            <li>
+            <li className="modal_li">
               Level:
               <input
                 type="number"
                 name="level"
                 value={level}
                 onChange={(event) => setLevel(event.target.value)}
+                className="modal_input"
               />
             </li>
-            <li>
+            <li className="modal_li">
               Background:
               <input
                 type="text"
                 name="Background"
                 value={background}
                 onChange={(event) => setBackground(event.target.value)}
+                className="modal_input"
               />
             </li>
-            <li>
+            <li className="modal_li">
               Player Name:
               <input
                 type="text"
                 name="playerName"
                 value={playerName}
                 onChange={(event) => setPlayerName(event.target.value)}
+                className="modal_input"
               />
             </li>
-            <li>
+            <li className="modal_li">
               Race:
               <input
                 type="text"
                 name="race"
                 value={race}
                 onChange={(event) => setRace(event.target.value)}
+                className="modal_input"
               />
             </li>
-            <li>
+            <li className="modal_li">
               Speed:
               <input
                 type="text"
                 name="speed"
                 value={speed}
                 onChange={(event) => setSpeed(event.target.value)}
+                className="modal_input"
               />
             </li>
-            <li>
+            <li className="modal_li">
               Alignment:
               <input
                 type="text"
                 name="alignment"
                 value={alignment}
                 onChange={(event) => setAlignment(event.target.value)}
+                className="modal_input"
               />
             </li>
-            <li>
+            <li className="modal_li">
               Experience Points:
               <input
                 type="number"
                 name="experience"
                 value={experience}
                 onChange={(event) => setExperience(event.target.value)}
+                className="modal_input"
               />
             </li>
           </ul>

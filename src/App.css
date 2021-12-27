@@ -164,3 +164,11 @@ img {
     width: 300px;
     margin-left: 16px;
 }
+
+.modal_li {
+    padding: 12px;
+}
+
+.modal_input {
+    margin-left: 12px;
+}
