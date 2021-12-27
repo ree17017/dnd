@@ -20,25 +20,21 @@
     grid-area: stat;
     text-align: center;
     border: 1px dashed black;
-    margin-right: 16px;
+    margin: 0 16px 0 4px;
 }
 
-.stats>ul>li {
-    background-image: url(./img/stat_shield.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position-x: center;
-    height: 90px;
-    padding-top: 30px;
-    font-size: 20px;
+.stats li {
+    display: flex;
+    flex-flow: row;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
-.stats>ul>li>div {
-    color: white;
-}
-
-.stats_modifier {
-    font-size: 18px;
+.input_small {
+    width: 30px;
 }
 
 .savingthrows {
@@ -115,11 +111,6 @@ ul {
 h4 {
     padding: 0;
     margin: 0;
-}
-
-.stats>ul>*>input[type="text"] {
-    width: 30px;
-    text-align: center;
 }
 
 .character-flex-container {

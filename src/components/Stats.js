@@ -3,71 +3,147 @@ import { modifier } from "../tools/modifier";
 import useLocalStorage from "react-localstorage-hook";
 
 export default function Stats(props) {
-  const [str, setStr] = useLocalStorage("str");
-  const [dex, setDex] = useLocalStorage("dex");
-  const [con, setCon] = useLocalStorage("con");
-  const [int, setInt] = useLocalStorage("int");
-  const [wis, setWis] = useLocalStorage("wis");
-  const [cha, setCha] = useLocalStorage("cha");
+  const [str, setStr] = useLocalStorage("str", { stat: 0, otherModifier: 0 });
+  const [dex, setDex] = useLocalStorage("dex", { stat: 0, otherModifier: 0 });
+  const [con, setCon] = useLocalStorage("con", { stat: 0, otherModifier: 0 });
+  const [int, setInt] = useLocalStorage("int", { stat: 0, otherModifier: 0 });
+  const [wis, setWis] = useLocalStorage("wis", { stat: 0, otherModifier: 0 });
+  const [cha, setCha] = useLocalStorage("cha", { stat: 0, otherModifier: 0 });
+
+  const handleStatChange = (event) => {
+    console.log("StatChange", event);
+    switch (event.target.name) {
+      case "Strength":
+        setStr({ ...str, stat: event.target.value });
+        break;
+      case "Dexterity":
+        setDex({ ...dex, stat: event.target.value });
+        break;
+      case "Constitution":
+        setCon({ ...con, stat: event.target.value });
+        break;
+      case "Intelligence":
+        setInt({ ...int, stat: event.target.value });
+        break;
+      case "Wisdom":
+        setWis({ ...wis, stat: event.target.value });
+        break;
+      case "Charisma":
+        setCha({ ...cha, stat: event.target.value });
+        break;
+      default:
+        console.error("Something went wrong", event);
+    }
+  };
+  const handleOtherModifierChange = (event) => {
+    console.log("otherModifierChange", event);
+    switch (event.target.name) {
+      case "Strength":
+        setStr({ ...str, otherModifier: event.target.value });
+        break;
+      case "Dexterity":
+        setDex({ ...dex, otherModifier: event.target.value });
+        break;
+      case "Constitution":
+        setCon({ ...con, otherModifier: event.target.value });
+        break;
+      case "Intelligence":
+        setInt({ ...int, otherModifier: event.target.value });
+        break;
+      case "Wisdom":
+        setWis({ ...wis, otherModifier: event.target.value });
+        break;
+      case "Charisma":
+        setCha({ ...cha, otherModifier: event.target.value });
+        break;
+      default:
+        console.error("Something went wrong", event);
+    }
+  };
 
   return (
-    <>
-      <ul>
-        <div>Strength</div>
-        <li>
-          <div>{modifier(str)}</div>
-          <input
-            type="text"
-            value={str}
-            onChange={(event) => setStr(event.target.value)}
-          />
-        </li>
-        <div>Dexterity</div>
-        <li>
-          <div>{modifier(dex)}</div>
-          <input
-            type="text"
-            value={dex}
-            onChange={(event) => setDex(event.target.value)}
-          />
-        </li>
-        Constitution
-        <li>
-          <div>{modifier(con)}</div>
-          <input
-            type="text"
-            value={con}
-            onChange={(event) => setCon(event.target.value)}
-          />
-        </li>
-        Intelligence
-        <li>
-          <div>{modifier(int)}</div>
-          <input
-            type="text"
-            value={int}
-            onChange={(event) => setInt(event.target.value)}
-          />
-        </li>
-        Wisdom
-        <li>
-          <div>{modifier(wis)}</div>
-          <input
-            type="text"
-            value={wis}
-            onChange={(event) => setWis(event.target.value)}
-          />
-        </li>
-        Charisma
-        <li>
-          <div>{modifier(cha)}</div>
-          <input
-            type="text"
-            value={cha}
-            onChange={(event) => setCha(event.target.value)}
-          />
-        </li>
-      </ul>
-    </>
+    <ul>
+      <Stat
+        name={"Strength"}
+        modifier={+modifier(str.stat) + +str.otherModifier}
+        handleStatChange={handleStatChange}
+        handleOtherModifierChange={handleOtherModifierChange}
+        stat={str.stat}
+        otherModifier={str.otherModifier}
+      />
+      <Stat
+        name={"Dexterity"}
+        modifier={+modifier(dex.stat) + +dex.otherModifier}
+        handleStatChange={handleStatChange}
+        handleOtherModifierChange={handleOtherModifierChange}
+        stat={dex.stat}
+        otherModifier={dex.otherModifier}
+      />
+      <Stat
+        name={"Constitution"}
+        modifier={+modifier(con.stat) + +con.otherModifier}
+        handleStatChange={handleStatChange}
+        handleOtherModifierChange={handleOtherModifierChange}
+        stat={con.stat}
+        otherModifier={con.otherModifier}
+      />
+      <Stat
+        name={"Intelligence"}
+        modifier={+modifier(int.stat) + +int.otherModifier}
+        handleStatChange={handleStatChange}
+        handleOtherModifierChange={handleOtherModifierChange}
+        stat={int.stat}
+        otherModifier={int.otherModifier}
+      />
+      <Stat
+        name={"Wisdom"}
+        modifier={+modifier(wis.stat) + +wis.otherModifier}
+        handleStatChange={handleStatChange}
+        handleOtherModifierChange={handleOtherModifierChange}
+        stat={wis.stat}
+        otherModifier={wis.otherModifier}
+      />
+      <Stat
+        name={"Charisma"}
+        modifier={+modifier(cha.stat) + +cha.otherModifier}
+        handleStatChange={handleStatChange}
+        handleOtherModifierChange={handleOtherModifierChange}
+        stat={cha.stat}
+        otherModifier={cha.otherModifier}
+      />
+    </ul>
+  );
+}
+
+function Stat({
+  name,
+  modifier,
+  stat,
+  handleStatChange,
+  handleOtherModifierChange,
+  otherModifier,
+}) {
+  const statChange = (event) => handleStatChange(event);
+  const otherModifierChange = (event) => handleOtherModifierChange(event);
+  return (
+    <li key={name}>
+      <h3>{name}</h3>
+      <input
+        type="number"
+        name={name}
+        value={stat}
+        className="input_small"
+        onChange={(event) => statChange(event)}
+      />
+      <h3> + Other Modifier</h3>
+      <input
+        type="number"
+        name={name}
+        value={otherModifier}
+        className="input_small"
+        onChange={(event) => otherModifierChange(event)}
+      />
+      <div style={{ marginLeft: "16px" }}>= {modifier}</div>
+    </li>
   );
 }

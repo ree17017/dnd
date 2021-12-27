@@ -44,6 +44,7 @@ export default function Skills(props) {
         {Object.keys(SkillsEnum.str).map((skill) => {
           return (
             <Skill
+              key={`str-${skill}`}
               name={SkillsEnum.str[skill]}
               save={skill}
               handleOnChange={handleOnChange}
@@ -56,9 +57,9 @@ export default function Skills(props) {
       <h4>Dexterity</h4>
       <ul>
         {Object.keys(SkillsEnum.dex).map((skill) => {
-          console.log(skill);
           return (
             <Skill
+              key={`dex-${skill}`}
               name={SkillsEnum.dex[skill]}
               skill={skill}
               handleOnChange={handleOnChange}
@@ -73,6 +74,7 @@ export default function Skills(props) {
         {Object.keys(SkillsEnum.int).map((skill) => {
           return (
             <Skill
+              key={`int-${skill}`}
               name={SkillsEnum.int[skill]}
               skill={skill}
               handleOnChange={handleOnChange}
@@ -87,6 +89,7 @@ export default function Skills(props) {
         {Object.keys(SkillsEnum.wis).map((skill) => {
           return (
             <Skill
+              key={`wis-${skill}`}
               name={SkillsEnum.wis[skill]}
               skill={skill}
               handleOnChange={handleOnChange}
@@ -101,6 +104,7 @@ export default function Skills(props) {
         {Object.keys(SkillsEnum.cha).map((skill) => {
           return (
             <Skill
+              key={`cha-${skill}`}
               name={SkillsEnum.cha[skill]}
               handleOnChange={handleOnChange}
               isChecked={isChecked(skill)}
@@ -115,7 +119,7 @@ export default function Skills(props) {
 
 function Skill({ name, skill, handleOnChange, isChecked, stat }) {
   return (
-    <li key={skill}>
+    <li key={`${name}-${skill}`}>
       <input
         type="checkbox"
         name={skill}

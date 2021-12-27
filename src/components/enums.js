@@ -29,4 +29,13 @@ const SkillsEnum = {
   },
 };
 
-export { SkillsEnum };
+const StatsEnum = [
+  { name: "Strength", key: "str" },
+  { name: "Dexterity", key: "dex" },
+  { name: "Constitution", key: "con" },
+  { name: "Intelligence", key: "int" },
+  { name: "Wisdom", key: "wis" },
+  { name: "Charisma", key: "cha" },
+];
+
+export { SkillsEnum, StatsEnum };
