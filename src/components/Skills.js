@@ -9,37 +9,57 @@ export default function Skills(props) {
   const [int] = useLocalStorage("int");
   const [wis] = useLocalStorage("wis");
   const [cha] = useLocalStorage("cha");
-  const [proficiency] = useLocalStorage("proficiency", 2);
-  const [skills, setSkills] = useLocalStorage("skills", []);
+  const [proficiency] = useLocalStorage("proficiency");
+  const [skills, setSkills] = useLocalStorage("skills");
+  const [expertise, setExpertise] = useLocalStorage("expertise");
 
-  const index = (name) => skills.indexOf(name);
+  const skillIndex = (name) => skills.indexOf(name);
+  const expertiseIndex = (name) => expertise.indexOf(name);
 
   const skillTotal = (skill, stat) => {
-    console.log({ stat });
-    console.log(+modifier(stat.stat) + +proficiency + +stat.otherModifier);
-
-    if (skills.indexOf(skill) > -1) {
-      return +modifier(stat.stat) + +proficiency + +stat.otherModifier;
+    let total = 0;
+    if (skillIndex(skill) > -1) {
+      total += +proficiency;
     }
 
-    console.log(stat);
-    return +modifier(stat.stat) + +stat.otherModifier;
+    if (expertiseIndex(`expertise-${skill}`) > -1) {
+      total += +proficiency;
+    }
+
+    return +modifier(stat.stat) + +stat.otherModifier + +total;
   };
 
-  const handleOnChange = (event) => {
-    if (index(event.target.name) === -1) {
+  const handleSkillChange = (event) => {
+    if (skillIndex(event.target.name) === -1) {
       setSkills([...skills, event.target.name]);
       return;
     }
 
-    if (index(event.target.name) > -1) {
-      let thisIndex = index(event.target.name);
+    if (skillIndex(event.target.name) > -1) {
+      let thisIndex = skillIndex(event.target.name);
       let saveThis = skills.slice(thisIndex - 1, thisIndex);
 
       setSkills(saveThis);
     }
   };
-  const isChecked = (name) => skills.indexOf(name) > -1;
+
+  const handleExpertiseChange = (event) => {
+    if (expertiseIndex(event.target.name) === -1) {
+      setExpertise([...expertise, event.target.name]);
+      return;
+    }
+
+    if (expertiseIndex(event.target.name) > -1) {
+      let thisIndex = expertiseIndex(event.target.name);
+      let saveThis = expertise.slice(thisIndex - 1, thisIndex);
+
+      setExpertise(saveThis);
+    }
+  };
+
+  const isSkillChecked = (name) => skills.indexOf(name) > -1;
+  const isExpertiseChecked = (name) =>
+    expertise.indexOf(`expertise-${name}`) > -1;
 
   return (
     <div>
@@ -51,8 +71,10 @@ export default function Skills(props) {
               key={`str-${skill}`}
               name={SkillsEnum.str[skill]}
               skill={skill}
-              handleOnChange={handleOnChange}
-              isChecked={isChecked(skill)}
+              handleSkillChange={handleSkillChange}
+              handleExpertiseChange={handleExpertiseChange}
+              isSkillChecked={isSkillChecked(skill)}
+              isExpertiseChecked={isExpertiseChecked(skill)}
               stat={skillTotal(skill, str)}
             />
           );
@@ -66,8 +88,10 @@ export default function Skills(props) {
               key={`dex-${skill}`}
               name={SkillsEnum.dex[skill]}
               skill={skill}
-              handleOnChange={handleOnChange}
-              isChecked={isChecked(skill)}
+              handleSkillChange={handleSkillChange}
+              handleExpertiseChange={handleExpertiseChange}
+              isSkillChecked={isSkillChecked(skill)}
+              isExpertiseChecked={isExpertiseChecked(skill)}
               stat={skillTotal(skill, dex)}
             />
           );
@@ -81,8 +105,10 @@ export default function Skills(props) {
               key={`int-${skill}`}
               name={SkillsEnum.int[skill]}
               skill={skill}
-              handleOnChange={handleOnChange}
-              isChecked={isChecked(skill)}
+              handleSkillChange={handleSkillChange}
+              handleExpertiseChange={handleExpertiseChange}
+              isSkillChecked={isSkillChecked(skill)}
+              isExpertiseChecked={isExpertiseChecked(skill)}
               stat={skillTotal(skill, int)}
             />
           );
@@ -96,8 +122,10 @@ export default function Skills(props) {
               key={`wis-${skill}`}
               name={SkillsEnum.wis[skill]}
               skill={skill}
-              handleOnChange={handleOnChange}
-              isChecked={isChecked(skill)}
+              handleSkillChange={handleSkillChange}
+              handleExpertiseChange={handleExpertiseChange}
+              isSkillChecked={isSkillChecked(skill)}
+              isExpertiseChecked={isExpertiseChecked(skill)}
               stat={skillTotal(skill, wis)}
             />
           );
@@ -111,8 +139,10 @@ export default function Skills(props) {
               key={`cha-${skill}`}
               skill={skill}
               name={SkillsEnum.cha[skill]}
-              handleOnChange={handleOnChange}
-              isChecked={isChecked(skill)}
+              handleSkillChange={handleSkillChange}
+              handleExpertiseChange={handleExpertiseChange}
+              isSkillChecked={isSkillChecked(skill)}
+              isExpertiseChecked={isExpertiseChecked(skill)}
               stat={skillTotal(skill, cha)}
             />
           );
@@ -122,14 +152,28 @@ export default function Skills(props) {
   );
 }
 
-function Skill({ name, skill, handleOnChange, isChecked, stat }) {
+function Skill({
+  name,
+  skill,
+  handleExpertiseChange,
+  handleSkillChange,
+  isSkillChecked,
+  isExpertiseChecked,
+  stat,
+}) {
   return (
     <li key={`${name}-${skill}`}>
       <input
         type="checkbox"
+        name={`expertise-${skill}`}
+        onChange={(event) => handleExpertiseChange(event)}
+        checked={isExpertiseChecked}
+      />
+      <input
+        type="checkbox"
         name={skill}
-        onChange={(event) => handleOnChange(event)}
-        checked={isChecked}
+        onChange={(event) => handleSkillChange(event)}
+        checked={isSkillChecked}
       />
       <span>{name}</span>
       <span>{stat}</span>
