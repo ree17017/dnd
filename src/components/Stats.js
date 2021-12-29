@@ -127,8 +127,8 @@ function Stat({
   const otherModifierChange = (event) => handleOtherModifierChange(event);
   return (
     <li key={name} className="stats_padding">
-      <div>{name}: </div>
-      <div className="big-font">= {modifier}</div>
+      <div>{name} </div>
+      <div className="big-font">{modifier}</div>
       <div className="stats_input-border">
         <input
           type="number"
