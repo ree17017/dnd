@@ -15,6 +15,9 @@ export default function Skills(props) {
 
   const skillIndex = (name) => skills.indexOf(name);
   const expertiseIndex = (name) => expertise.indexOf(name);
+  const isSkillChecked = (name) => skills.indexOf(name) > -1;
+  const isExpertiseChecked = (name) =>
+    expertise.indexOf(`expertise-${name}`) > -1;
 
   const skillTotal = (skill, stat) => {
     let total = 0;
@@ -36,20 +39,21 @@ export default function Skills(props) {
     }
 
     if (skillIndex(event.target.name) > -1) {
-      let thisIndex = skillIndex(event.target.name);
-      let saveThis = skills.slice(thisIndex - 1, thisIndex);
+      let saveThis = skills.filter((skills) => skills !== event.target.name);
 
       setSkills(saveThis);
+    }
+
+    if (expertiseIndex(`expertise-${event.target.name}`) > -1) {
+      let saveThis = expertise.filter(
+        (expertise) => expertise !== `expertise-${event.target.name}`
+      );
+
+      setExpertise(saveThis);
     }
   };
 
   const handleExpertiseChange = (event) => {
-    console.log(
-      "expertise Index",
-      event.target.name,
-      expertiseIndex(event.target.name) === -1
-    );
-    console.log("skill", event.target.name, skillIndex(event.target.name));
     if (
       expertiseIndex(event.target.name) === -1 &&
       skillIndex(event.target.name) === -1
@@ -59,16 +63,13 @@ export default function Skills(props) {
     }
 
     if (expertiseIndex(event.target.name) > -1) {
-      let thisIndex = expertiseIndex(event.target.name);
-      let saveThis = expertise.slice(thisIndex - 1, thisIndex);
+      let saveThis = expertise.filter(
+        (expertise) => expertise !== event.target.name
+      );
 
       setExpertise(saveThis);
     }
   };
-
-  const isSkillChecked = (name) => skills.indexOf(name) > -1;
-  const isExpertiseChecked = (name) =>
-    expertise.indexOf(`expertise-${name}`) > -1;
 
   return (
     <div style={{ width: "227px" }}>
