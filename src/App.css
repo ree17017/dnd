@@ -16,20 +16,21 @@
     text-align: center;
     border: 1px dashed black;
     margin: 0 16px 0 4px;
+    padding: 0 8px 0 0;
 }
 
 .stats li {
     display: flex;
-    flex-flow: row;
-    flex-direction: row;
+    flex-flow: column;
     flex-wrap: nowrap;
     align-content: center;
-    justify-content: space-evenly;
+    justify-content: end;
     align-items: center;
 }
 
 .input_small {
-    width: 30px;
+    width: 40px;
+    text-align: center;
 }
 
 .savingthrows {
@@ -39,7 +40,6 @@
     padding-top: 8px;
     margin-bottom: 4px;
     display: flex;
-    width: 223px;
 }
 
 span {
@@ -52,7 +52,6 @@ span {
     padding-left: 8px;
     padding-top: 8px;
     margin-top: 4px;
-    width: 227px;
 }
 
 .health {
@@ -173,4 +172,15 @@ img {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-end;
+}
+
+.big-font {
+    font-size: 20px;
+}
+
+.stats_padding {
+    margin: 8px 0;
+    padding: 8px 0;
+    border: 2px black solid;
+    border-radius: 10px;
 }

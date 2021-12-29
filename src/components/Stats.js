@@ -126,8 +126,9 @@ function Stat({
   const statChange = (event) => handleStatChange(event);
   const otherModifierChange = (event) => handleOtherModifierChange(event);
   return (
-    <li key={name}>
-      <h3>{name}: </h3>
+    <li key={name} className="stats_padding">
+      <div>{name}: </div>
+      <div className="big-font">= {modifier}</div>
       <input
         type="number"
         name={name}
@@ -135,7 +136,7 @@ function Stat({
         className="input_small"
         onChange={(event) => statChange(event)}
       />
-      <h3> + Other Modifier</h3>
+      <div> Other Modifier</div>
       <input
         type="number"
         name={name}
@@ -143,7 +144,6 @@ function Stat({
         className="input_small"
         onChange={(event) => otherModifierChange(event)}
       />
-      <div style={{ marginLeft: "16px" }}>= {modifier}</div>
     </li>
   );
 }
