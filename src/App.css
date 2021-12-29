@@ -184,3 +184,10 @@ img {
     border: 2px black solid;
     border-radius: 10px;
 }
+
+.stats_input-border {
+    border: 1px black solid;
+    border-radius: 40px;
+    padding: 8px;
+    font-size: 12px;
+}

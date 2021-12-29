@@ -129,21 +129,23 @@ function Stat({
     <li key={name} className="stats_padding">
       <div>{name}: </div>
       <div className="big-font">= {modifier}</div>
-      <input
-        type="number"
-        name={name}
-        value={stat}
-        className="input_small"
-        onChange={(event) => statChange(event)}
-      />
-      <div> Other Modifier</div>
-      <input
-        type="number"
-        name={name}
-        value={otherModifier}
-        className="input_small"
-        onChange={(event) => otherModifierChange(event)}
-      />
+      <div className="stats_input-border">
+        <input
+          type="number"
+          name={name}
+          value={stat}
+          className="input_small"
+          onChange={(event) => statChange(event)}
+        />
+        <div> Other Modifier</div>
+        <input
+          type="number"
+          name={name}
+          value={otherModifier}
+          className="input_small"
+          onChange={(event) => otherModifierChange(event)}
+        />
+      </div>
     </li>
   );
 }
