@@ -39,6 +39,7 @@
     padding-top: 8px;
     margin-bottom: 4px;
     display: flex;
+    width: 223px;
 }
 
 span {
@@ -51,6 +52,7 @@ span {
     padding-left: 8px;
     padding-top: 8px;
     margin-top: 4px;
+    width: 227px;
 }
 
 .health {
@@ -153,6 +155,7 @@ img {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-end;
+    width: 227px;
 }
 
 .skill_flex-container>div:nth-child(2) {

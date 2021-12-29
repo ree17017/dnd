@@ -71,7 +71,7 @@ export default function Skills(props) {
     expertise.indexOf(`expertise-${name}`) > -1;
 
   return (
-    <div style={{ width: "200px" }}>
+    <div style={{ width: "227px" }}>
       <div className="skill_title">Strength</div>
       {Object.keys(SkillsEnum.str).map((skill) => {
         return (
