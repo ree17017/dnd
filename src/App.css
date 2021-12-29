@@ -11,11 +11,6 @@
     margin-bottom: 8px;
 }
 
-.header>input {
-    max-width: 130px;
-    text-align: center;
-}
-
 .stats {
     grid-area: stat;
     text-align: center;
@@ -58,10 +53,6 @@ span {
     margin-top: 4px;
 }
 
-.skills>ul {
-    margin-top: 4px;
-}
-
 .health {
     grid-area: health;
     border: 1px dashed black;
@@ -90,22 +81,9 @@ ul {
     list-style-type: none;
 }
 
-.savingthrows>li {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: flex-start;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .skill>span {
     display: flex;
     justify-content: space-between;
-}
-
-.skill>input[type="number"] {
-    width: 10px;
 }
 
 h4 {
@@ -168,4 +146,28 @@ img {
     background: lightgray;
     text-align: left;
     padding: 4px;
+}
+
+.skill_flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+}
+
+.skill_flex-container>div:nth-child(2) {
+    margin-left: 24px;
+    margin-right: 8px;
+}
+
+.skill_flex-container>div:nth-child(3) {
+    font-size: 1.3em;
+    margin-right: 8px;
+}
+
+.savingthrows_flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
 }

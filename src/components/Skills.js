@@ -71,104 +71,90 @@ export default function Skills(props) {
     expertise.indexOf(`expertise-${name}`) > -1;
 
   return (
-    <div>
-      <table>
-        <tr>
-          <th colSpan="3" className="skill_title">
-            Strength
-          </th>
-        </tr>
-        {Object.keys(SkillsEnum.str).map((skill) => {
-          return (
-            <Skill
-              key={`str-${skill}`}
-              name={SkillsEnum.str[skill]}
-              skill={skill}
-              handleSkillChange={handleSkillChange}
-              handleExpertiseChange={handleExpertiseChange}
-              isSkillChecked={isSkillChecked(skill)}
-              isExpertiseChecked={isExpertiseChecked(skill)}
-              stat={skillTotal(skill, str)}
-            />
-          );
-        })}
-        <tr>
-          <th colSpan="3" className="skill_title">
-            Dexterity
-          </th>
-        </tr>
-        {Object.keys(SkillsEnum.dex).map((skill) => {
-          return (
-            <Skill
-              key={`dex-${skill}`}
-              name={SkillsEnum.dex[skill]}
-              skill={skill}
-              handleSkillChange={handleSkillChange}
-              handleExpertiseChange={handleExpertiseChange}
-              isSkillChecked={isSkillChecked(skill)}
-              isExpertiseChecked={isExpertiseChecked(skill)}
-              stat={skillTotal(skill, dex)}
-            />
-          );
-        })}
-        <tr>
-          <th colSpan={3} className="skill_title">
-            Intelligence
-          </th>
-        </tr>
-        {Object.keys(SkillsEnum.int).map((skill) => {
-          return (
-            <Skill
-              key={`int-${skill}`}
-              name={SkillsEnum.int[skill]}
-              skill={skill}
-              handleSkillChange={handleSkillChange}
-              handleExpertiseChange={handleExpertiseChange}
-              isSkillChecked={isSkillChecked(skill)}
-              isExpertiseChecked={isExpertiseChecked(skill)}
-              stat={skillTotal(skill, int)}
-            />
-          );
-        })}
-        <tr>
-          <th colSpan={3} className="skill_title">
-            Wisdom
-          </th>
-        </tr>
-        {Object.keys(SkillsEnum.wis).map((skill) => {
-          return (
-            <Skill
-              key={`wis-${skill}`}
-              name={SkillsEnum.wis[skill]}
-              skill={skill}
-              handleSkillChange={handleSkillChange}
-              handleExpertiseChange={handleExpertiseChange}
-              isSkillChecked={isSkillChecked(skill)}
-              isExpertiseChecked={isExpertiseChecked(skill)}
-              stat={skillTotal(skill, wis)}
-            />
-          );
-        })}
-        <tr>
-          <th colSpan={3} className="skill_title">
-            Charisma
-          </th>
-        </tr>
-        {Object.keys(SkillsEnum.cha).map((skill) => {
-          return (
-            <Skill
-              key={`cha-${skill}`}
-              skill={skill}
-              name={SkillsEnum.cha[skill]}
-              handleSkillChange={handleSkillChange}
-              handleExpertiseChange={handleExpertiseChange}
-              isSkillChecked={isSkillChecked(skill)}
-              isExpertiseChecked={isExpertiseChecked(skill)}
-              stat={skillTotal(skill, cha)}
-            />
-          );
-        })}
-      </table>
+    <div style={{ width: "200px" }}>
+      <div className="skill_title">Strength</div>
+      {Object.keys(SkillsEnum.str).map((skill) => {
+        return (
+          <Skill
+            key={`str-${skill}`}
+            name={SkillsEnum.str[skill]}
+            skill={skill}
+            handleSkillChange={handleSkillChange}
+            handleExpertiseChange={handleExpertiseChange}
+            isSkillChecked={isSkillChecked(skill)}
+            isExpertiseChecked={isExpertiseChecked(skill)}
+            stat={skillTotal(skill, str)}
+          />
+        );
+      })}
+      <div colSpan="3" className="skill_title">
+        Dexterity
+      </div>
+      {Object.keys(SkillsEnum.dex).map((skill) => {
+        return (
+          <Skill
+            key={`dex-${skill}`}
+            name={SkillsEnum.dex[skill]}
+            skill={skill}
+            handleSkillChange={handleSkillChange}
+            handleExpertiseChange={handleExpertiseChange}
+            isSkillChecked={isSkillChecked(skill)}
+            isExpertiseChecked={isExpertiseChecked(skill)}
+            stat={skillTotal(skill, dex)}
+          />
+        );
+      })}
+      <div colSpan={3} className="skill_title">
+        Intelligence
+      </div>
+      {Object.keys(SkillsEnum.int).map((skill) => {
+        return (
+          <Skill
+            key={`int-${skill}`}
+            name={SkillsEnum.int[skill]}
+            skill={skill}
+            handleSkillChange={handleSkillChange}
+            handleExpertiseChange={handleExpertiseChange}
+            isSkillChecked={isSkillChecked(skill)}
+            isExpertiseChecked={isExpertiseChecked(skill)}
+            stat={skillTotal(skill, int)}
+          />
+        );
+      })}
+      <div colSpan={3} className="skill_title">
+        Wisdom
+      </div>
+      {Object.keys(SkillsEnum.wis).map((skill) => {
+        return (
+          <Skill
+            key={`wis-${skill}`}
+            name={SkillsEnum.wis[skill]}
+            skill={skill}
+            handleSkillChange={handleSkillChange}
+            handleExpertiseChange={handleExpertiseChange}
+            isSkillChecked={isSkillChecked(skill)}
+            isExpertiseChecked={isExpertiseChecked(skill)}
+            stat={skillTotal(skill, wis)}
+          />
+        );
+      })}
+      <div colSpan={3} className="skill_title">
+        Charisma
+      </div>
+      {Object.keys(SkillsEnum.cha).map((skill) => {
+        return (
+          <Skill
+            key={`cha-${skill}`}
+            skill={skill}
+            name={SkillsEnum.cha[skill]}
+            handleSkillChange={handleSkillChange}
+            handleExpertiseChange={handleExpertiseChange}
+            isSkillChecked={isSkillChecked(skill)}
+            isExpertiseChecked={isExpertiseChecked(skill)}
+            stat={skillTotal(skill, cha)}
+          />
+        );
+      })}
     </div>
   );
 }
@@ -183,9 +169,9 @@ function Skill({
   stat,
 }) {
   return (
-    <tr>
-      <td> {name} </td>
-      <td className="skill_checkbox" key={`${name}-${skill}`}>
+    <div className="skill_flex-container">
+      <div> {name} </div>
+      <div className="skill_checkbox" key={`${name}-${skill}`}>
         <input
           type="checkbox"
           name={`expertise-${skill}`}
@@ -199,8 +185,8 @@ function Skill({
           onChange={(event) => handleSkillChange(event)}
           checked={isSkillChecked}
         />
-      </td>
-      <td>{stat}</td>
-    </tr>
+      </div>
+      <div className="skill_stat-size">{stat}</div>
+    </div>
   );
 }

@@ -45,8 +45,8 @@ export default function SavingThrows(props) {
     <div>
       <h4> Saving Throws </h4>
       <ul>
-        <li>
-          <span> Strength </span>
+        <li className="savingthrows_flex-container">
+          <div> Strength </div>
           <input
             type="checkbox"
             onChange={(event) => handleChecked(event)}
@@ -55,10 +55,10 @@ export default function SavingThrows(props) {
             name="str"
             value={str.stat}
           />
-          <span> {saveStat("str", str)} </span>
+          <div> {saveStat("str", str)} </div>
         </li>
-        <li>
-          <span> Dexterity </span>
+        <li className="savingthrows_flex-container">
+          <div> Dexterity </div>
           <input
             type="checkbox"
             onChange={(event) => handleChecked(event)}
@@ -67,10 +67,10 @@ export default function SavingThrows(props) {
             name="dex"
             value={dex.stat}
           />
-          <span> {saveStat("dex", dex)} </span>
+          <div> {saveStat("dex", dex)} </div>
         </li>
-        <li>
-          <span> Constitution </span>
+        <li className="savingthrows_flex-container">
+          <div> Constitution </div>
           <input
             type="checkbox"
             onChange={(event) => handleChecked(event)}
@@ -79,10 +79,10 @@ export default function SavingThrows(props) {
             name="con"
             value={con.stat}
           />
-          <span> {saveStat("con", con)} </span>
+          <div> {saveStat("con", con)} </div>
         </li>
-        <li>
-          <span> Intelligence </span>
+        <li className="savingthrows_flex-container">
+          <div> Intelligence </div>
           <input
             type="checkbox"
             onChange={(event) => handleChecked(event)}
@@ -91,10 +91,10 @@ export default function SavingThrows(props) {
             name="int"
             value={int.stat}
           />
-          <span> {saveStat("int", int)} </span>
+          <div> {saveStat("int", int)} </div>
         </li>
-        <li>
-          <span> Wisdom </span>
+        <li className="savingthrows_flex-container">
+          <div> Wisdom </div>
           <input
             type="checkbox"
             onChange={(event) => handleChecked(event)}
@@ -103,10 +103,10 @@ export default function SavingThrows(props) {
             name="wis"
             value={wis.stat}
           />
-          <span> {saveStat("wis", wis)} </span>
+          <div> {saveStat("wis", wis)} </div>
         </li>
-        <li>
-          <span> Charisma </span>
+        <li className="savingthrows_flex-container">
+          <div> Charisma </div>
           <input
             type="checkbox"
             onChange={(event) => handleChecked(event)}
@@ -115,7 +115,7 @@ export default function SavingThrows(props) {
             name="cha"
             value={cha.stat}
           />
-          <span> {saveStat("cha", cha)} </span>
+          <div> {saveStat("cha", cha)} </div>
         </li>
       </ul>
     </div>
