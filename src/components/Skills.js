@@ -44,7 +44,16 @@ export default function Skills(props) {
   };
 
   const handleExpertiseChange = (event) => {
-    if (expertiseIndex(event.target.name) === -1) {
+    console.log(
+      "expertise Index",
+      event.target.name,
+      expertiseIndex(event.target.name) === -1
+    );
+    console.log("skill", event.target.name, skillIndex(event.target.name));
+    if (
+      expertiseIndex(event.target.name) === -1 &&
+      skillIndex(event.target.name) === -1
+    ) {
       setExpertise([...expertise, event.target.name]);
       return;
     }
@@ -63,8 +72,12 @@ export default function Skills(props) {
 
   return (
     <div>
-      <h4>Strength</h4>
-      <ul>
+      <table>
+        <tr>
+          <th colSpan="3" className="skill_title">
+            Strength
+          </th>
+        </tr>
         {Object.keys(SkillsEnum.str).map((skill) => {
           return (
             <Skill
@@ -79,9 +92,11 @@ export default function Skills(props) {
             />
           );
         })}
-      </ul>
-      <h4>Dexterity</h4>
-      <ul>
+        <tr>
+          <th colSpan="3" className="skill_title">
+            Dexterity
+          </th>
+        </tr>
         {Object.keys(SkillsEnum.dex).map((skill) => {
           return (
             <Skill
@@ -96,9 +111,11 @@ export default function Skills(props) {
             />
           );
         })}
-      </ul>
-      <h4>Intelligence</h4>
-      <ul>
+        <tr>
+          <th colSpan={3} className="skill_title">
+            Intelligence
+          </th>
+        </tr>
         {Object.keys(SkillsEnum.int).map((skill) => {
           return (
             <Skill
@@ -113,9 +130,11 @@ export default function Skills(props) {
             />
           );
         })}
-      </ul>
-      <h4>Wisdom</h4>
-      <ul>
+        <tr>
+          <th colSpan={3} className="skill_title">
+            Wisdom
+          </th>
+        </tr>
         {Object.keys(SkillsEnum.wis).map((skill) => {
           return (
             <Skill
@@ -130,9 +149,11 @@ export default function Skills(props) {
             />
           );
         })}
-      </ul>
-      <h4>Charisma</h4>
-      <ul>
+        <tr>
+          <th colSpan={3} className="skill_title">
+            Charisma
+          </th>
+        </tr>
         {Object.keys(SkillsEnum.cha).map((skill) => {
           return (
             <Skill
@@ -147,7 +168,7 @@ export default function Skills(props) {
             />
           );
         })}
-      </ul>
+      </table>
     </div>
   );
 }
@@ -162,21 +183,24 @@ function Skill({
   stat,
 }) {
   return (
-    <li key={`${name}-${skill}`}>
-      <input
-        type="checkbox"
-        name={`expertise-${skill}`}
-        onChange={(event) => handleExpertiseChange(event)}
-        checked={isExpertiseChecked}
-      />
-      <input
-        type="checkbox"
-        name={skill}
-        onChange={(event) => handleSkillChange(event)}
-        checked={isSkillChecked}
-      />
-      <span>{name}</span>
-      <span>{stat}</span>
-    </li>
+    <tr>
+      <td> {name} </td>
+      <td className="skill_checkbox" key={`${name}-${skill}`}>
+        <input
+          type="checkbox"
+          name={`expertise-${skill}`}
+          onChange={(event) => handleExpertiseChange(event)}
+          checked={isExpertiseChecked && isSkillChecked}
+          disabled={!isSkillChecked}
+        />
+        <input
+          type="checkbox"
+          name={skill}
+          onChange={(event) => handleSkillChange(event)}
+          checked={isSkillChecked}
+        />
+      </td>
+      <td>{stat}</td>
+    </tr>
   );
 }

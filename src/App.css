@@ -163,3 +163,9 @@ img {
 .modal_input {
     margin-left: 12px;
 }
+
+.skill_title {
+    background: lightgray;
+    text-align: left;
+    padding: 4px;
+}

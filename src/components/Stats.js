@@ -127,7 +127,7 @@ function Stat({
   const otherModifierChange = (event) => handleOtherModifierChange(event);
   return (
     <li key={name}>
-      <h3>{name}</h3>
+      <h3>{name}: </h3>
       <input
         type="number"
         name={name}
