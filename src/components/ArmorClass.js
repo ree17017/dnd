@@ -8,11 +8,10 @@ export default function ArmorClass(props) {
   const [wornArmor] = useLocalStorage("wornArmor");
   const [acBonus, setAcBonus] = useLocalStorage("acBonus");
 
-  const tooltip = document.querySelector("#tooltip");
-  const popcorn = document.querySelector("#acBonus");
-
   const dexModifierTotal = +modifier(dex.stat) + +dex.otherModifier;
-  const wornArmorTotal = +wornArmor.armor_AC + +wornArmor.shield_AC;
+  const armor_AC = wornArmor.armor_AC ? wornArmor.armor_AC : 0;
+  const shield_AC = wornArmor.shield_AC ? wornArmor.armor_AC : 0;
+  const wornArmorTotal = +armor_AC + +shield_AC;
   const total = 10 + dexModifierTotal + wornArmorTotal + +acBonus;
 
   return (

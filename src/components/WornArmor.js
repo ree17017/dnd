@@ -10,7 +10,7 @@ export default function WornArmor(props) {
   };
   return (
     <div>
-      <div>
+      <div className="armor">
         <div>Armor</div>
         <input
           type="text"
@@ -18,12 +18,14 @@ export default function WornArmor(props) {
           onChange={handleWornArmor}
           name="armor_name"
         />
+        <div>AC</div>
         <input
           type="text"
           onChange={handleWornArmor}
           value={wornArmor.armor_AC}
           name="armor_AC"
         />
+        <div>Weight</div>
         <input
           type="number"
           value={wornArmor.armor_weight}
@@ -31,7 +33,7 @@ export default function WornArmor(props) {
           onChange={handleWornArmor}
         />
       </div>
-      <div>
+      <div className="shield">
         <div>Shield</div>
         <input
           type="text"
@@ -39,12 +41,14 @@ export default function WornArmor(props) {
           value={wornArmor.shield_name}
           onChange={handleWornArmor}
         />
+        <div>AC</div>
         <input
           type="text"
           name="shield_AC"
           value={wornArmor.shield_AC}
           onChange={handleWornArmor}
         />
+        <div>Weight</div>
         <input
           type="number"
           name="shield_weight"
