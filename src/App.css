@@ -65,6 +65,10 @@ span {
     grid-area: otherProficiencies;
 }
 
+.wornArmor {
+    grid-area: wornArmor;
+}
+
 .footer {
     grid-area: footer;
 }

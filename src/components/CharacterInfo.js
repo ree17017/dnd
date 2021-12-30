@@ -15,6 +15,14 @@ export default function CharacterInfo(props) {
 
   const [isOpen, setIsOpen] = useState(false);
 
+  const clearLocalStorage = () => {
+    // eslint-disable-next-line no-restricted-globals
+    if (confirm("Are you sure?")) {
+      localStorage.clear();
+      window.location.reload();
+    }
+  };
+
   return (
     <div>
       <CharacterInfoLayout
@@ -28,6 +36,7 @@ export default function CharacterInfo(props) {
         alignment={alignment}
         experience={experience}
       />
+      <button onClick={clearLocalStorage}>Clear your Character</button>
       <button onClick={() => setIsOpen(true)}>Edit Character Info</button>
       <ReactModal isOpen={isOpen}>
         <h1>Edit Character Info</h1>

@@ -2,8 +2,8 @@ import React from "react";
 import SavingThrows from "../components/SavingThrows";
 import Stats from "../components/Stats";
 import Skills from "../components/Skills";
-import Proficiency from "../components/Proficiency";
 import CharacterInfo from "../components/CharacterInfo";
+import Vitals from "./Vitals";
 
 function CharacterSheet(props) {
   return (
@@ -21,7 +21,7 @@ function CharacterSheet(props) {
         <Skills />
       </div>
       <div className="health">
-        <Proficiency />
+        <Vitals />
       </div>
       <div className="otherProficiencies"></div>
       <div className="footer"></div>
