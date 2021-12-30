@@ -134,6 +134,8 @@ function Stat({
           type="number"
           name={name}
           value={stat}
+          min="0"
+          step="1"
           className="input_small"
           onChange={(event) => statChange(event)}
         />
@@ -141,6 +143,8 @@ function Stat({
         <input
           type="number"
           name={name}
+          min="0"
+          step="1"
           value={otherModifier}
           className="input_small"
           onChange={(event) => otherModifierChange(event)}

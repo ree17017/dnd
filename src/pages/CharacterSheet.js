@@ -4,6 +4,7 @@ import Stats from "../components/Stats";
 import Skills from "../components/Skills";
 import CharacterInfo from "../components/CharacterInfo";
 import Vitals from "./Vitals";
+import WornArmor from "../components/WornArmor";
 
 function CharacterSheet(props) {
   return (
@@ -24,6 +25,9 @@ function CharacterSheet(props) {
         <Vitals />
       </div>
       <div className="otherProficiencies"></div>
+      <div className="wornArmor">
+        <WornArmor />
+      </div>
       <div className="footer"></div>
     </div>
   );

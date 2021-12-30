@@ -75,7 +75,7 @@ span {
 
 .grid-container {
     display: grid;
-    grid-template-areas: "header header header header header" "stat savingthrows health health health" "stat skill health health health" "stat skill health health health" "footer footer footer footer footer";
+    grid-template-areas: "header header header header header" "stat savingthrows health health health" "stat skill health health health" "stat skill health health health" "wornArmor wornArmor wornArmor wornArmor wornArmor" "footer footer footer footer footer";
 }
 
 .grid-container>div {
@@ -194,4 +194,18 @@ img {
     border-radius: 40px;
     padding: 8px;
     font-size: 12px;
+}
+
+.armorClass {
+    border: 1px black solid;
+    border-radius: 20px;
+    padding: 8px;
+    font-size: 12px;
+    width: 124px;
+    text-align: center;
+    margin: 8px 0 8px 0;
+}
+
+.armorClass_AC {
+    font-size: 20px;
 }
