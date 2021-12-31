@@ -196,6 +196,8 @@ img {
     font-size: 12px;
 }
 
+.proficiency,
+.hitpoints,
 .armorClass {
     border: 1px black solid;
     border-radius: 20px;

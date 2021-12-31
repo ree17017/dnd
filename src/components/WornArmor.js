@@ -24,6 +24,7 @@ export default function WornArmor(props) {
           onChange={handleWornArmor}
           value={wornArmor.armor_AC}
           name="armor_AC"
+          className="input_small"
         />
         <div>Weight</div>
         <input
@@ -31,6 +32,7 @@ export default function WornArmor(props) {
           value={wornArmor.armor_weight}
           name="armor_weight"
           onChange={handleWornArmor}
+          className="input_small"
         />
       </div>
       <div className="shield">
@@ -47,6 +49,7 @@ export default function WornArmor(props) {
           name="shield_AC"
           value={wornArmor.shield_AC}
           onChange={handleWornArmor}
+          className="input_small"
         />
         <div>Weight</div>
         <input
@@ -54,6 +57,7 @@ export default function WornArmor(props) {
           name="shield_weight"
           value={wornArmor.shield_weight}
           onChange={handleWornArmor}
+          className="input_small"
         />
       </div>
     </div>

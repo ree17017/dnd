@@ -33,7 +33,6 @@ export default function SavingThrows(props) {
   };
 
   const saveStat = (name, stat) => {
-    console.log(name, stat);
     return isChecked(name)
       ? add(modifier(stat.stat), proficiency) + +stat.otherModifier
       : modifier(stat.stat) + +stat.otherModifier;
