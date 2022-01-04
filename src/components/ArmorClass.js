@@ -9,9 +9,11 @@ export default function ArmorClass(props) {
   const [acBonus, setAcBonus] = useLocalStorage("acBonus");
 
   const dexModifierTotal = +modifier(dex.stat) + +dex.otherModifier;
-  const armor_AC = wornArmor.armor_AC ? wornArmor.armor_AC : 0;
-  const shield_AC = wornArmor.shield_AC ? wornArmor.armor_AC : 0;
+  console.log(wornArmor.shield_AC, wornArmor.armor_AC);
+  const armor_AC = wornArmor.armor_AC >= 0 ? wornArmor.armor_AC : 0;
+  const shield_AC = wornArmor.shield_AC >= 0 ? wornArmor.shield_AC : 0;
   const wornArmorTotal = +armor_AC + +shield_AC;
+  console.log({ armor_AC, shield_AC });
   const total = dexModifierTotal + wornArmorTotal + +acBonus;
 
   return (

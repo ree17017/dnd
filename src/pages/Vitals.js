@@ -6,9 +6,13 @@ import Proficiency from "../components/Proficiency";
 export default function Vitals(props) {
   return (
     <>
-      <ArmorClass />
-      <HitPoints />
-      <Proficiency />
+      <div>
+        <ArmorClass />
+        <Proficiency />
+      </div>
+      <div>
+        <HitPoints />
+      </div>
     </>
   );
 }
