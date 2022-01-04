@@ -196,6 +196,9 @@ img {
     font-size: 12px;
 }
 
+.temporaryHitPoints,
+.hitDice,
+.deathSaves,
 .proficiency,
 .hitpoints,
 .armorClass {
@@ -205,13 +208,15 @@ img {
     font-size: 12px;
     width: 124px;
     text-align: center;
-    margin: 8px 0 8px 0;
+    margin: 8px 4px 8px 4px;
+    height: 105px;
 }
 
 .armorClass_AC {
     font-size: 20px;
 }
 
+.vitals,
 .shield,
 .armor {
     margin: 8px;

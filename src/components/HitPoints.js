@@ -5,8 +5,8 @@ export default function HitPoints(props) {
   const [hitPoints, setHitPoints] = useLocalStorage("hitpoints", {
     hp: 0,
     max: 0,
+    temp: 0,
   });
-  const [temporaryHitPoints] = useLocalStorage("temporaryHitPoints", 0);
 
   const handleHitPoints = (event) => {
     setHitPoints({ ...hitPoints, [event.target.name]: event.target.value });
@@ -18,9 +18,15 @@ export default function HitPoints(props) {
       : setHitPoints({ ...hitPoints, hp: hitPoints.hp - 1 });
   };
 
+  const totalHitPoints = +hitPoints.hp + (+hitPoints.temp | 0);
+  console.log(totalHitPoints);
+
   return (
     <div className="hitpoints">
       <div>HP</div>
+      <div>
+        {hitPoints.hp} + {hitPoints.temp} =
+      </div>
       <button onClick={handleHitPointChange} name="minus">
         -
       </button>
@@ -29,7 +35,7 @@ export default function HitPoints(props) {
         name="hp"
         className="input_small"
         onChange={handleHitPoints}
-        value={hitPoints.hp}
+        value={totalHitPoints}
         step={1}
       />
       <button onClick={handleHitPointChange} name="plus">
