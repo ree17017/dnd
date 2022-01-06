@@ -134,7 +134,7 @@ export default function CharacterInfo(props) {
             </li>
           </ul>
         </div>
-        <button onClick={() => setIsOpen(false)}>Close</button>
+        <button onClick={() => setIsOpen(false)}>Save/Close</button>
       </ReactModal>
     </div>
   );
