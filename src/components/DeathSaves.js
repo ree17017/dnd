@@ -26,19 +26,19 @@ export default function DeathSaves(props) {
           type="checkbox"
           name="successes_1"
           checked={isDeathSaveChecked("successes_1")}
-          onClick={handleDeathSaves}
+          onChange={handleDeathSaves}
         />
         <input
           type="checkbox"
           name="successes_2"
           checked={isDeathSaveChecked("successes_2")}
-          onClick={handleDeathSaves}
+          onChange={handleDeathSaves}
         />
         <input
           type="checkbox"
           name="successes_3"
           checked={isDeathSaveChecked("successes_3")}
-          onClick={handleDeathSaves}
+          onChange={handleDeathSaves}
         />
       </div>
       <div>
@@ -47,19 +47,19 @@ export default function DeathSaves(props) {
           type="checkbox"
           name="failed_1"
           checked={isDeathSaveChecked("failed_1")}
-          onClick={handleDeathSaves}
+          onChange={handleDeathSaves}
         />
         <input
           type="checkbox"
           name="failed_2"
           checked={isDeathSaveChecked("failed_2")}
-          onClick={handleDeathSaves}
+          onChange={handleDeathSaves}
         />
         <input
           type="checkbox"
           name="failed_3"
           checked={isDeathSaveChecked("failed_3")}
-          onClick={handleDeathSaves}
+          onChange={handleDeathSaves}
         />
       </div>
     </div>
