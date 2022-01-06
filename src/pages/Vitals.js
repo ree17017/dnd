@@ -21,7 +21,6 @@ export default function Vitals(props) {
         </div>
         <div>
           <HitDice />
-          <TemporaryHitPoints />
         </div>
       </div>
       <Attacks />
