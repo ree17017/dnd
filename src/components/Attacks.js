@@ -110,8 +110,8 @@ export default function Attacks(props) {
 
 function Attack({ attackValue, attackNumber, handleAttacks }) {
   return (
-    <div style={{ marginBottom: "16px" }}>
-      <div style={{ display: "flex" }}>
+    <div className="attack">
+      <div className="attack_titles">
         <div style={{ marginRight: "112px" }}>Name</div>
         <div>Range</div>
       </div>
@@ -154,7 +154,7 @@ function Attack({ attackValue, attackNumber, handleAttacks }) {
           name={`type${attackNumber}`}
         />
       </div>
-      <div style={{ display: "flex" }}>
+      <div className="attack_titles">
         <div style={{ marginRight: "80px" }}>Atk Bonus</div>
         <div style={{ marginRight: "94px" }}>Damage</div>
         <div>Type / Weight</div>
