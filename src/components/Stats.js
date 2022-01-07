@@ -9,6 +9,7 @@ export default function Stats(props) {
   const [int, setInt] = useLocalStorage("int", { stat: 0, otherModifier: 0 });
   const [wis, setWis] = useLocalStorage("wis", { stat: 0, otherModifier: 0 });
   const [cha, setCha] = useLocalStorage("cha", { stat: 0, otherModifier: 0 });
+  const [lockStats, setLockStats] = useLocalStorage("lockStats", false);
 
   const handleStatChange = (event) => {
     console.log("StatChange", event);
@@ -61,62 +62,78 @@ export default function Stats(props) {
     }
   };
 
+  const handleLockStats = () => {
+    setLockStats(!lockStats);
+  };
+
+  const isLocked = lockStats ? "Locked" : "Lock";
+
   return (
-    <ul>
-      <Stat
-        name={"Strength"}
-        modifier={+modifier(str.stat) + +str.otherModifier}
-        handleStatChange={handleStatChange}
-        handleOtherModifierChange={handleOtherModifierChange}
-        stat={str.stat}
-        otherModifier={str.otherModifier}
-      />
-      <Stat
-        name={"Dexterity"}
-        modifier={+modifier(dex.stat) + +dex.otherModifier}
-        handleStatChange={handleStatChange}
-        handleOtherModifierChange={handleOtherModifierChange}
-        stat={dex.stat}
-        otherModifier={dex.otherModifier}
-      />
-      <Stat
-        name={"Constitution"}
-        modifier={+modifier(con.stat) + +con.otherModifier}
-        handleStatChange={handleStatChange}
-        handleOtherModifierChange={handleOtherModifierChange}
-        stat={con.stat}
-        otherModifier={con.otherModifier}
-      />
-      <Stat
-        name={"Intelligence"}
-        modifier={+modifier(int.stat) + +int.otherModifier}
-        handleStatChange={handleStatChange}
-        handleOtherModifierChange={handleOtherModifierChange}
-        stat={int.stat}
-        otherModifier={int.otherModifier}
-      />
-      <Stat
-        name={"Wisdom"}
-        modifier={+modifier(wis.stat) + +wis.otherModifier}
-        handleStatChange={handleStatChange}
-        handleOtherModifierChange={handleOtherModifierChange}
-        stat={wis.stat}
-        otherModifier={wis.otherModifier}
-      />
-      <Stat
-        name={"Charisma"}
-        modifier={+modifier(cha.stat) + +cha.otherModifier}
-        handleStatChange={handleStatChange}
-        handleOtherModifierChange={handleOtherModifierChange}
-        stat={cha.stat}
-        otherModifier={cha.otherModifier}
-      />
-    </ul>
+    <div>
+      <button onClick={handleLockStats}>{isLocked}</button>
+      <ul>
+        <Stat
+          name={"Strength"}
+          modifier={+modifier(str.stat) + +str.otherModifier}
+          handleStatChange={handleStatChange}
+          handleOtherModifierChange={handleOtherModifierChange}
+          stat={str.stat}
+          otherModifier={str.otherModifier}
+          lockStats={lockStats}
+        />
+        <Stat
+          name={"Dexterity"}
+          modifier={+modifier(dex.stat) + +dex.otherModifier}
+          handleStatChange={handleStatChange}
+          handleOtherModifierChange={handleOtherModifierChange}
+          stat={dex.stat}
+          otherModifier={dex.otherModifier}
+          lockStats={lockStats}
+        />
+        <Stat
+          name={"Constitution"}
+          modifier={+modifier(con.stat) + +con.otherModifier}
+          handleStatChange={handleStatChange}
+          handleOtherModifierChange={handleOtherModifierChange}
+          stat={con.stat}
+          otherModifier={con.otherModifier}
+          lockStats={lockStats}
+        />
+        <Stat
+          name={"Intelligence"}
+          modifier={+modifier(int.stat) + +int.otherModifier}
+          handleStatChange={handleStatChange}
+          handleOtherModifierChange={handleOtherModifierChange}
+          stat={int.stat}
+          otherModifier={int.otherModifier}
+          lockStats={lockStats}
+        />
+        <Stat
+          name={"Wisdom"}
+          modifier={+modifier(wis.stat) + +wis.otherModifier}
+          handleStatChange={handleStatChange}
+          handleOtherModifierChange={handleOtherModifierChange}
+          stat={wis.stat}
+          otherModifier={wis.otherModifier}
+          lockStats={lockStats}
+        />
+        <Stat
+          name={"Charisma"}
+          modifier={+modifier(cha.stat) + +cha.otherModifier}
+          handleStatChange={handleStatChange}
+          handleOtherModifierChange={handleOtherModifierChange}
+          stat={cha.stat}
+          otherModifier={cha.otherModifier}
+          lockStats={lockStats}
+        />
+      </ul>
+    </div>
   );
 }
 
 function Stat({
   name,
+  lockStats,
   modifier,
   stat,
   handleStatChange,
@@ -138,6 +155,7 @@ function Stat({
           step="1"
           className="input_small"
           onChange={(event) => statChange(event)}
+          readOnly={lockStats}
         />
         <div> Other Modifier</div>
         <input
