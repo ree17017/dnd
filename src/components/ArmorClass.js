@@ -10,15 +10,17 @@ export default function ArmorClass(props) {
   const dexModifierTotal = +modifier(dex.stat) + +dex.otherModifier;
   const armor_AC = wornArmor.armor_AC >= 0 ? wornArmor.armor_AC : 0;
   const shield_AC = wornArmor.shield_AC >= 0 ? wornArmor.shield_AC : 0;
-  const wornArmorTotal = armor_AC ? +armor_AC + +shield_AC : 10;
+  const wornArmorTotal = armor_AC > 0 ? +armor_AC + +shield_AC : 10;
   const total = dexModifierTotal + wornArmorTotal + +acBonus;
+
+  const armorType = armor_AC ? "armor" : "natural";
 
   return (
     <div className="armorClass">
       <div className="armorClass_AC">{total}</div>
       <hr />
       <div>
-        dex: {dexModifierTotal} + armor: {wornArmorTotal} + spell bonus{" "}
+        dex: {dexModifierTotal} + {armorType}: {wornArmorTotal} + spell bonus{" "}
         <input
           type="text"
           name="acBonus"
