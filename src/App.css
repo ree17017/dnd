@@ -161,7 +161,7 @@ img {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-end;
-    width: 227px;
+    width: 250px;
 }
 
 .skill_flex-container>div:nth-child(2) {

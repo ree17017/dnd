@@ -72,7 +72,7 @@ export default function Skills(props) {
   };
 
   return (
-    <div style={{ width: "227px" }}>
+    <div style={{ width: "250px" }}>
       <div className="skill_title">Strength</div>
       {Object.keys(SkillsEnum.str).map((skill) => {
         return (
