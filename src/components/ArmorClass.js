@@ -10,7 +10,7 @@ export default function ArmorClass(props) {
   const dexModifierTotal = +modifier(dex.stat) + +dex.otherModifier;
   const armor_AC = wornArmor.armor_AC >= 0 ? wornArmor.armor_AC : 0;
   const shield_AC = wornArmor.shield_AC >= 0 ? wornArmor.shield_AC : 0;
-  const wornArmorTotal = +armor_AC + +shield_AC;
+  const wornArmorTotal = armor_AC ? +armor_AC + +shield_AC : 10;
   const total = dexModifierTotal + wornArmorTotal + +acBonus;
 
   return (

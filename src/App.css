@@ -61,8 +61,11 @@ span {
     margin-left: 12px;
 }
 
-.otherProficiencies {
-    grid-area: otherProficiencies;
+.personality {
+    grid-area: personality;
+    border: 1px dashed black;
+    padding-left: 12px;
+    margin-left: 12px;
 }
 
 .wornArmor {
@@ -75,7 +78,7 @@ span {
 
 .grid-container {
     display: grid;
-    grid-template-areas: "header header header header header" "stat savingthrows health health health" "stat skill health health health" "stat skill health health health" "wornArmor wornArmor wornArmor wornArmor wornArmor" "footer footer footer footer footer";
+    grid-template-areas: "header header header header header" "stat savingthrows health health personality" "stat skill health health personality" "stat skill health health personality" "wornArmor wornArmor wornArmor wornArmor wornArmor" "footer footer footer footer footer";
 }
 
 .grid-container>div {
