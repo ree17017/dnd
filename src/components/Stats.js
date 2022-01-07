@@ -66,7 +66,7 @@ export default function Stats(props) {
     setLockStats(!lockStats);
   };
 
-  const isLocked = lockStats ? "Locked" : "Lock";
+  const isLocked = lockStats ? "Locked" : "Unlock";
 
   return (
     <div>
