@@ -159,9 +159,11 @@ function SpellsList({
   const spellCont = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   return (
     <div>
-      <h1>{spellLevel}:</h1>
-      {spellCont.map((count) => (
-        <div key={`${spellLevel}-${count}-${title}`}>
+      <div>
+        <h1>{spellLevel}:</h1>
+      </div>
+      <div className="spell-level">
+        {spellCont.map((count) => (
           <SpellInfo
             title={count}
             spellList={spellList}
@@ -171,8 +173,8 @@ function SpellsList({
             domainSpells={domainSpells}
             handlePreparedDomainSpells={handlePreparedDomainSpells}
           />
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
@@ -190,112 +192,106 @@ function SpellInfo({
   const isPreparedChecked = (name) => preparedCount.indexOf(name) > -1;
 
   return (
-    <table key={`spell-${spellLevel}-${title}`} className="spell-info">
-      <tr>
+    <div key={`spell-${spellLevel}-${title}`} className="spell-info">
+      <div></div>
+      <div></div>
+      <div>
         {spellLevel !== "Cantrip" && (
           <>
-            <th>D:</th>
-            <th>P:</th>
+            <span>Domain:</span>
+            <input
+              type="checkbox"
+              onChange={handlePreparedDomainSpells}
+              name={`spell-${spellLevel}-${title}-domain`}
+              checked={isDomainChecked(`spell-${spellLevel}-${title}-domain`)}
+              disabled={isPreparedChecked(
+                `spell-${spellLevel}-${title}-prepared`
+              )}
+            />
+            <span>Prepared Spell:</span>
+            <input
+              type="checkbox"
+              onChange={handlePreparedDomainSpells}
+              name={`spell-${spellLevel}-${title}-prepared`}
+              disabled={isDomainChecked(`spell-${spellLevel}-${title}-domain`)}
+              checked={isPreparedChecked(
+                `spell-${spellLevel}-${title}-prepared`
+              )}
+            />
           </>
         )}
-        <th>Name:</th>
-        <th>Casting Time:</th>
-        <th>Range</th>
-        <th>Components</th>
-        <th>Duration</th>
-        <th>Damage type</th>
-        <th>Save Type</th>
-        <th>Dice</th>
-        <th>Description</th>
-        <th>At Higher Levels</th>
-        <th>Notes</th>
-      </tr>
-      <tr>
-        {spellLevel !== "Cantrip" && (
-          <>
-            <td>
-              <input
-                type="checkbox"
-                onChange={handlePreparedDomainSpells}
-                name={`spell-${spellLevel}-${title}-domain`}
-                checked={isDomainChecked(`spell-${spellLevel}-${title}-domain`)}
-                disabled={isPreparedChecked(
-                  `spell-${spellLevel}-${title}-prepared`
-                )}
-              />
-            </td>
-            <td>
-              <input
-                type="checkbox"
-                onChange={handlePreparedDomainSpells}
-                name={`spell-${spellLevel}-${title}-prepared`}
-                disabled={isDomainChecked(
-                  `spell-${spellLevel}-${title}-domain`
-                )}
-                checked={isPreparedChecked(
-                  `spell-${spellLevel}-${title}-prepared`
-                )}
-              />
-            </td>
-          </>
-        )}
-        <td>
+        <div>
+          <div>Name:</div>
           <input
             type="text"
             onChange={handleSpellList}
             name={`spell-${spellLevel}-${title}-name`}
             value={spellList[`spell-${spellLevel}-${title}-name`]}
           />
-        </td>
-        <td>
+        </div>
+      </div>
+      <div>
+        <div>
+          <div>Casting Time:</div>
           <input
             type="text"
             onChange={handleSpellList}
             name={`spell-${spellLevel}-${title}-casting-time`}
             value={spellList[`spell-${spellLevel}-${title}-casting-time`]}
           />
-        </td>
-        <td>
+        </div>
+
+        <div>
+          <div>Range</div>
           <input
             type="text"
             onChange={handleSpellList}
             name={`spell-${spellLevel}-${title}-range`}
             value={spellList[`spell-${spellLevel}-${title}-range`]}
           />
-        </td>
-        <td>
-          <input
-            type="text"
-            onChange={handleSpellList}
-            name={`spell-${spellLevel}-${title}-components`}
-            value={spellList[`spell-${spellLevel}-${title}-components`]}
-          />
-        </td>
-        <td>
+        </div>
+        <div>
+          <div>Duration</div>
           <input
             type="text"
             onChange={handleSpellList}
             name={`spell-${spellLevel}-${title}-duration`}
             value={spellList[`spell-${spellLevel}-${title}-duration`]}
           />
-        </td>
-        <td>
+        </div>
+        <div>
+          <div>Damage type</div>
           <input
             type="text"
             onChange={handleSpellList}
             name={`spell-${spellLevel}-${title}-damage-type`}
             value={spellList[`spell-${spellLevel}-${title}-damage-type`]}
           />
-        </td>
-        <td>
+        </div>
+      </div>
+      <div></div>
+      <div>
+        <div>
+          <div>Components</div>
+          <input
+            type="text"
+            onChange={handleSpellList}
+            name={`spell-${spellLevel}-${title}-components`}
+            value={spellList[`spell-${spellLevel}-${title}-components`]}
+          />
+        </div>
+
+        <div>
+          <div>Save Type</div>
           <input
             type="text"
             onChange={handleSpellList}
             name={`spell-${spellLevel}-${title}-save-type`}
             value={spellList[`spell-${spellLevel}-${title}-save-type`]}
           />
-        </td>
-        <td>
+        </div>
+        <div>
+          <div>Dice</div>
           <input
             type="text"
             onChange={handleSpellList}
@@ -311,32 +307,41 @@ function SpellInfo({
             name={`spell-${spellLevel}-${title}-dice-side`}
             value={spellList[`spell-${spellLevel}-${title}-dice-side`]}
           />
-        </td>
-        <td>
+        </div>
+      </div>
+      <div></div>
+      <div>
+        <div>
+          <div>Description</div>
           <textarea
             type="text"
             onChange={handleSpellList}
             name={`spell-${spellLevel}-${title}-desc`}
             value={spellList[`spell-${spellLevel}-${title}-desc`]}
+            className="spell-info_textarea"
           />
-        </td>
-        <td>
+        </div>
+        <div>
+          <div>At Higher Levels</div>
           <textarea
             type="text"
             onChange={handleSpellList}
             name={`spell-${spellLevel}-${title}-at-higher-levels`}
             value={spellList[`spell-${spellLevel}-${title}-at-higher-levels`]}
+            className="spell-info_textarea"
           />
-        </td>
-        <td>
+        </div>
+        <div>
+          <div>Notes</div>
           <textarea
             type="text"
+            className="spell-info_textarea"
             onChange={handleSpellList}
             name={`spell-${spellLevel}-${title}-notes`}
             value={spellList[`spell-${spellLevel}-${title}-notes`]}
           />
-        </td>
-      </tr>
-    </table>
+        </div>
+      </div>
+    </div>
   );
 }

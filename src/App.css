@@ -42,10 +42,6 @@
     display: flex;
 }
 
-span {
-    padding: 0px 20px 0 0px;
-}
-
 .skills {
     grid-area: skill;
     border: 1px dashed black;
@@ -255,11 +251,25 @@ img {
     margin-bottom: 16px;
 }
 
+.spell-level {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .spell-info {
+    display: flex;
+    justify-content: flex-start;
     border: solid 1px black;
     border-radius: 10px;
-    padding: 4px;
+    padding: 8px;
     margin-bottom: 16px;
+    flex-direction: column;
+    width: 250px;
+}
+
+.spell-info_textarea {
+    height: 430px;
+    width: 245px;
 }
 
 .characterSpellInfo {
