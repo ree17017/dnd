@@ -4,8 +4,11 @@ import ReactModal from "react-modal";
 
 export default function CharacterInfo(props) {
   const [characterName, setCharacterName] = useLocalStorage("characterInfo");
-  const [characterclass, setCharacterClass] = useLocalStorage("class");
-  const [level, setLevel] = useLocalStorage("level");
+  const [characterclass, setCharacterClass] = useLocalStorage(
+    "class",
+    "cleric"
+  );
+  const [level, setLevel] = useLocalStorage("level", 1);
   const [background, setBackground] = useLocalStorage("background");
   const [playerName, setPlayerName] = useLocalStorage("playername");
   const [race, setRace] = useLocalStorage("race");

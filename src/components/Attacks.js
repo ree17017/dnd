@@ -47,7 +47,6 @@ export default function Attacks(props) {
 
   //{"attackName1":"","attackRange1":"","attackBonus1":"","damage1":"","type1":""}
   const handleAttacks = (event) => {
-    console.log(event.target.title);
     switch (event.target.title) {
       case "1":
         setAttack1({ ...attack1, [event.target.name]: event.target.value });
@@ -110,55 +109,81 @@ export default function Attacks(props) {
 
 function Attack({ attackValue, attackNumber, handleAttacks }) {
   return (
-    <div className="attack">
-      <div className="attack_titles">
-        <div style={{ marginRight: "112px" }}>Name</div>
-        <div>Range</div>
-      </div>
-      <div>
-        <input
-          type="text"
-          value={attackValue[`attackName${attackNumber}`]}
-          onChange={handleAttacks}
-          name={`attackName${attackNumber}`}
-          title={attackNumber}
-        />
-        <input
-          type="text"
-          name={`attackRange${attackNumber}`}
-          value={attackValue[`attackRange${attackNumber}`]}
-          onChange={handleAttacks}
-          title={attackNumber}
-        />
-      </div>
-      <div>
-        <input
-          type="text"
-          value={attackValue[`attackBonus${attackNumber}`]}
-          onChange={handleAttacks}
-          name={`attackBonus${attackNumber}`}
-          title={attackNumber}
-        />
-        <input
-          type="text"
-          value={attackValue[`damage${attackNumber}`]}
-          onChange={handleAttacks}
-          name={`damage${attackNumber}`}
-          title={attackNumber}
-        />
-        <input
-          type="text"
-          value={attackValue[`type${attackNumber}`]}
-          onChange={handleAttacks}
-          title={attackNumber}
-          name={`type${attackNumber}`}
-        />
-      </div>
-      <div className="attack_titles">
-        <div style={{ marginRight: "80px" }}>Atk Bonus</div>
-        <div style={{ marginRight: "94px" }}>Damage</div>
-        <div>Type / Weight</div>
-      </div>
-    </div>
+    <table className="attack_titles">
+      <tr>
+        <th style={{ marginRight: "112px" }}>Name</th>
+        <th>Range</th>
+        <th>
+          <span>Prof</span>
+          <span>Str</span>
+        </th>
+        <th>Dex</th>
+        <th>Spell Power</th>
+      </tr>
+      <tr>
+        <td>
+          <input
+            type="text"
+            value={attackValue[`attackName${attackNumber}`]}
+            onChange={handleAttacks}
+            name={`attackName${attackNumber}`}
+            title={attackNumber}
+          />
+        </td>
+        <td>
+          <input
+            type="text"
+            name={`attackRange${attackNumber}`}
+            value={attackValue[`attackRange${attackNumber}`]}
+            onChange={handleAttacks}
+            title={attackNumber}
+          />
+        </td>
+        <td>
+          <input type="checkbox" name="attackProficiency" />
+          <input type="radio" value="str" name="modType" />
+        </td>
+        <td>
+          <input type="radio" value="dex" name="modType" />
+        </td>
+        <td>
+          <input type="radio" value="spellPower" name="modType" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input
+            type="text"
+            value={attackValue[`attackBonus${attackNumber}`]}
+            onChange={handleAttacks}
+            name={`attackBonus${attackNumber}`}
+            title={attackNumber}
+          />
+        </td>
+        <td>
+          <input
+            type="text"
+            value={attackValue[`damage${attackNumber}`]}
+            onChange={handleAttacks}
+            name={`damage${attackNumber}`}
+            title={attackNumber}
+          />
+        </td>
+        <td>
+          <input
+            type="text"
+            value={attackValue[`type${attackNumber}`]}
+            onChange={handleAttacks}
+            title={attackNumber}
+            name={`type${attackNumber}`}
+          />
+        </td>
+      </tr>
+      <tr className="attack_titles">
+        <td style={{ marginRight: "80px" }}>Atk Bonus</td>
+        <td style={{ marginRight: "94px" }}>Damage</td>
+        <td>Type / Weight</td>
+      </tr>
+    </table>
   );
 }

@@ -68,6 +68,13 @@ span {
     margin-left: 12px;
 }
 
+.spells {
+    grid-area: spells;
+    border: 1px dashed black;
+    padding-left: 12px;
+    margin-left: 12px;
+}
+
 .wornArmor {
     grid-area: wornArmor;
 }
@@ -78,7 +85,7 @@ span {
 
 .grid-container {
     display: grid;
-    grid-template-areas: "header header header header header" "stat savingthrows health health personality" "stat skill health health personality" "stat skill health health personality" "wornArmor wornArmor wornArmor wornArmor wornArmor" "footer footer footer footer footer";
+    grid-template-areas: "header header header header header" "stat savingthrows health health personality" "stat skill health health personality" "stat skill health health personality" "wornArmor wornArmor wornArmor wornArmor wornArmor" "spells spells spells spells spells " "footer footer footer footer footer";
 }
 
 .grid-container>div {
@@ -248,6 +255,28 @@ img {
     margin-bottom: 16px;
 }
 
-.attack_titles {
+.spell-info {
+    border: solid 1px black;
+    border-radius: 10px;
+    padding: 4px;
+    margin-bottom: 16px;
+}
+
+.characterSpellInfo {
     display: flex;
+}
+
+.characterSpellInfo>div {
+    margin: 8px;
+}
+
+.characterSpellInfo-info {
+    margin-top: 4px;
+    font-size: 10px;
+    color: gray;
+    width: 200px;
+}
+
+.proficiency-font {
+    font-size: 18px;
 }

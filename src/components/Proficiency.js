@@ -1,27 +1,29 @@
 import React from "react";
 import useLocalStorage from "react-localstorage-hook";
 import { modifier } from "../tools/modifier";
+import classStats from "../tools/classStats";
 
 export default function Proficiency(props) {
-  const [proficiency, setProficiency] = useLocalStorage("proficiency");
-  const [wis] = useLocalStorage("wis");
-  const passivePreception =
-    10 + +modifier(wis.stat) + (+wis.temp | 0) + +proficiency;
-  console.log(modifier(wis.stat), wis.temp, proficiency);
-  console.log(passivePreception);
+  const [wis] = useLocalStorage("wis", { stat: 0, otherModifier: 0 });
+  const [characterClass] = useLocalStorage("class", "cleric");
+  const [level] = useLocalStorage("level", 1);
+  const currentClass = classStats(characterClass, 1);
+  console.log(currentClass);
+
+  console.log(modifier(wis.stat));
+  const passivePerception =
+    10 +
+    +modifier(wis.stat || 0) +
+    +wis.otherModifier +
+    currentClass.proficiency;
   return (
     <div className="proficiency">
-      <input
-        className="input_small"
-        type="number"
-        value={proficiency}
-        onChange={(event) => setProficiency(event.target.value)}
-      />
+      <div className="proficiency-font">{currentClass.proficiency}</div>
       <div style={{ padding: "8px" }}>Proficiency Bonus</div>
       <div style={{ fontSize: "18px", padding: "0 8px" }}>
-        {passivePreception}
+        {passivePerception}
       </div>
-      <div>Passive Wisdom (Perception)</div>
+      <div>passive wisdom (perception)</div>
     </div>
   );
 }

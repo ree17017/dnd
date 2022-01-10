@@ -37,7 +37,6 @@ export default function Stats(props) {
     }
   };
   const handleOtherModifierChange = (event) => {
-    console.log("otherModifierChange", event);
     switch (event.target.name) {
       case "Strength":
         setStr({ ...str, otherModifier: event.target.value });
