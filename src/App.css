@@ -280,3 +280,8 @@ img {
 .proficiency-font {
     font-size: 18px;
 }
+
+.attack_titles {
+    border: solid 1px black;
+    padding: 8px;
+}

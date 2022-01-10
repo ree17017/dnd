@@ -192,8 +192,12 @@ function SpellInfo({
   return (
     <table key={`spell-${spellLevel}-${title}`} className="spell-info">
       <tr>
-        <th>D:</th>
-        <th>P:</th>
+        {spellLevel !== "Cantrip" && (
+          <>
+            <th>D:</th>
+            <th>P:</th>
+          </>
+        )}
         <th>Name:</th>
         <th>Casting Time:</th>
         <th>Range</th>
@@ -207,26 +211,34 @@ function SpellInfo({
         <th>Notes</th>
       </tr>
       <tr>
-        <td>
-          <input
-            type="checkbox"
-            onChange={handlePreparedDomainSpells}
-            name={`spell-${spellLevel}-${title}-domain`}
-            checked={isDomainChecked(`spell-${spellLevel}-${title}-domain`)}
-            disabled={isPreparedChecked(
-              `spell-${spellLevel}-${title}-prepared`
-            )}
-          />
-        </td>
-        <td>
-          <input
-            type="checkbox"
-            onChange={handlePreparedDomainSpells}
-            name={`spell-${spellLevel}-${title}-prepared`}
-            disabled={isDomainChecked(`spell-${spellLevel}-${title}-domain`)}
-            checked={isPreparedChecked(`spell-${spellLevel}-${title}-prepared`)}
-          />
-        </td>
+        {spellLevel !== "Cantrip" && (
+          <>
+            <td>
+              <input
+                type="checkbox"
+                onChange={handlePreparedDomainSpells}
+                name={`spell-${spellLevel}-${title}-domain`}
+                checked={isDomainChecked(`spell-${spellLevel}-${title}-domain`)}
+                disabled={isPreparedChecked(
+                  `spell-${spellLevel}-${title}-prepared`
+                )}
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                onChange={handlePreparedDomainSpells}
+                name={`spell-${spellLevel}-${title}-prepared`}
+                disabled={isDomainChecked(
+                  `spell-${spellLevel}-${title}-domain`
+                )}
+                checked={isPreparedChecked(
+                  `spell-${spellLevel}-${title}-prepared`
+                )}
+              />
+            </td>
+          </>
+        )}
         <td>
           <input
             type="text"
