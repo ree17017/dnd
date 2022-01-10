@@ -41,6 +41,9 @@ export default function CharacterInfo(props) {
       />
       <button onClick={clearLocalStorage}>Clear your Character</button>
       <button onClick={() => setIsOpen(true)}>Edit Character Info</button>
+      <div>
+        If you find you need to email the creator: reed.josh.r@gmail.com
+      </div>
       <ReactModal isOpen={isOpen}>
         <h1>Edit Character Info</h1>
         <div>
