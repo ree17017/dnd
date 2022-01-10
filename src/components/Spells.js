@@ -159,7 +159,7 @@ function SpellsList({
   const spellCont = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   return (
     <div>
-      <div>
+      <div className="spell-level_h1">
         <h1>{spellLevel}:</h1>
       </div>
       <div className="spell-level">
