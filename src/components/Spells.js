@@ -15,10 +15,14 @@ export default function Spells(props) {
   const [spellList, setSpellList] = useLocalStorage("spellList");
   const [preparedCount, setPreparedCount] =
     useLocalStorage("preparedSpellCount");
+  const [domainSpells, setDomainSpells] = useLocalStorage("domainSpells");
 
   const handleSpellList = (event) => {
     setSpellList({ ...spellList, [event.target.name]: event.target.value });
+  };
 
+  const handlePreparedDomainSpells = (event) => {
+    // prepared spells list
     if (event.target.name.indexOf("prepared") !== -1) {
       if (preparedCount.indexOf(event.target.name) === -1) {
         setPreparedCount([...preparedCount, event.target.name]);
@@ -31,6 +35,21 @@ export default function Spells(props) {
         (preparedName) => preparedName !== event.target.name
       );
       setPreparedCount(saveThis);
+    }
+
+    // Domain spell list
+    if (event.target.name.indexOf("domain") !== -1) {
+      if (domainSpells.indexOf(event.target.name) === -1) {
+        setDomainSpells([...domainSpells, event.target.name]);
+        return;
+      }
+    }
+
+    if (domainSpells.indexOf(event.target.name) > -1) {
+      let saveThis = domainSpells.filter(
+        (domainName) => domainName !== event.target.name
+      );
+      setDomainSpells(saveThis);
     }
   };
 
@@ -66,6 +85,8 @@ export default function Spells(props) {
             spellList={spellList}
             spellLevel={level}
             preparedCount={preparedCount}
+            domainSpells={domainSpells}
+            handlePreparedDomainSpells={handlePreparedDomainSpells}
           />
         </div>
       ))}
@@ -132,6 +153,8 @@ function SpellsList({
   spellList,
   spellLevel,
   title,
+  domainSpells,
+  handlePreparedDomainSpells,
 }) {
   const spellCont = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   return (
@@ -145,6 +168,8 @@ function SpellsList({
             handleSpellList={handleSpellList}
             spellLevel={spellLevel}
             preparedCount={preparedCount}
+            domainSpells={domainSpells}
+            handlePreparedDomainSpells={handlePreparedDomainSpells}
           />
         </div>
       ))}
@@ -158,14 +183,12 @@ function SpellInfo({
   preparedCount,
   spellList,
   spellLevel,
+  domainSpells,
+  handlePreparedDomainSpells,
 }) {
-  const isDomainChecked = (name) => spellList[name] === "true";
+  const isDomainChecked = (name) => domainSpells.indexOf(name) > -1;
   const isPreparedChecked = (name) => preparedCount.indexOf(name) > -1;
-  const checkValue = (name) => {
-    return spellList[name] === "false" || spellList[name] !== undefined
-      ? true
-      : false;
-  };
+
   return (
     <table key={`spell-${spellLevel}-${title}`} className="spell-info">
       <tr>
@@ -187,19 +210,20 @@ function SpellInfo({
         <td>
           <input
             type="checkbox"
-            onChange={handleSpellList}
+            onChange={handlePreparedDomainSpells}
             name={`spell-${spellLevel}-${title}-domain`}
-            value={checkValue(`spell-${spellLevel}-${title}-domain`)}
             checked={isDomainChecked(`spell-${spellLevel}-${title}-domain`)}
+            disabled={isPreparedChecked(
+              `spell-${spellLevel}-${title}-prepared`
+            )}
           />
         </td>
         <td>
           <input
             type="checkbox"
-            onChange={handleSpellList}
-            value={checkValue(`spell-${spellLevel}-${title}-prepared`)}
+            onChange={handlePreparedDomainSpells}
             name={`spell-${spellLevel}-${title}-prepared`}
-            // disabled={isDomainChecked(`spell-${spellLevel}-${title}-domain`)}
+            disabled={isDomainChecked(`spell-${spellLevel}-${title}-domain`)}
             checked={isPreparedChecked(`spell-${spellLevel}-${title}-prepared`)}
           />
         </td>
