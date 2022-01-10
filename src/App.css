@@ -265,6 +265,7 @@ img {
     margin: 8px;
     flex-direction: column;
     width: 250px;
+    box-shadow: 4px 3px 8px 1px #969696;
 }
 
 .spell-info_textarea {
