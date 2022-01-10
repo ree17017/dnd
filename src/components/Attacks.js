@@ -45,6 +45,16 @@ export default function Attacks(props) {
     type6: "",
   });
 
+  const [attackProficiency, setAttackProficiency] = useLocalStorage(
+    "attackProficiency",
+    []
+  );
+
+  const [attackModifier, setAttackModifier] = useLocalStorage(
+    "attackModifier",
+    []
+  );
+
   //{"attackName1":"","attackRange1":"","attackBonus1":"","damage1":"","type1":""}
   const handleAttacks = (event) => {
     switch (event.target.title) {
@@ -71,43 +81,107 @@ export default function Attacks(props) {
     }
   };
 
+  const handleAttackProficiency = (event) => {
+    if (attackProficiency.indexOf(event.target.name) === -1) {
+      setAttackProficiency([...attackProficiency, event.target.name]);
+      return;
+    }
+
+    if (attackProficiency.indexOf(event.target.name) > -1) {
+      let saveThis = attackProficiency.filter(
+        (attackName) => attackName !== event.target.name
+      );
+      setAttackProficiency(saveThis);
+    }
+  };
+
+  const handleAttackModifier = (event) => {
+    if (attackModifier.indexOf(event.target.name) === -1) {
+      setAttackModifier([...attackModifier, event.target.name]);
+      return;
+    }
+
+    if (attackModifier.indexOf(event.target.name) > -1) {
+      let saveThis = attackModifier.filter(
+        (attackName) => attackName !== event.target.name
+      );
+      setAttackModifier(saveThis);
+    }
+  };
+
   return (
     <div className="attacks">
       <Attack
         handleAttacks={handleAttacks}
         attackValue={attack1}
         attackNumber={1}
+        handleAttackProficiency={handleAttackProficiency}
+        attackProficiency={attackProficiency}
+        attackModifier={attackModifier}
+        handleAttackModifier={handleAttackModifier}
       />
       <Attack
         attackNumber={2}
         handleAttacks={handleAttacks}
         attackValue={attack2}
+        handleAttackProficiency={handleAttackProficiency}
+        attackProficiency={attackProficiency}
+        attackModifier={attackModifier}
+        handleAttackModifier={handleAttackModifier}
       />
       <Attack
         attackNumber={3}
         handleAttacks={handleAttacks}
         attackValue={attack3}
+        handleAttackProficiency={handleAttackProficiency}
+        attackProficiency={attackProficiency}
+        attackModifier={attackModifier}
+        handleAttackModifier={handleAttackModifier}
       />
       <Attack
         attackNumber={4}
         handleAttacks={handleAttacks}
         attackValue={attack4}
+        handleAttackProficiency={handleAttackProficiency}
+        attackProficiency={attackProficiency}
+        attackModifier={attackModifier}
+        handleAttackModifier={handleAttackModifier}
       />
       <Attack
         attackNumber={5}
         handleAttacks={handleAttacks}
         attackValue={attack5}
+        handleAttackProficiency={handleAttackProficiency}
+        attackProficiency={attackProficiency}
+        attackModifier={attackModifier}
+        handleAttackModifier={handleAttackModifier}
       />
       <Attack
         attackNumber={6}
         handleAttacks={handleAttacks}
         attackValue={attack6}
+        handleAttackProficiency={handleAttackProficiency}
+        attackProficiency={attackProficiency}
+        attackModifier={attackModifier}
+        handleAttackModifier={handleAttackModifier}
       />
     </div>
   );
 }
 
-function Attack({ attackValue, attackNumber, handleAttacks }) {
+function Attack({
+  attackValue,
+  attackNumber,
+  handleAttacks,
+  handleAttackProficiency,
+  attackProficiency,
+  handleAttackModifier,
+  attackModifier,
+}) {
+  const isAttackProficiencyChecked =
+    attackProficiency.indexOf(`attackProficiency${attackNumber}`) > -1;
+  const isAttackModifierChecked = (name) =>
+    attackModifier.indexOf(`modeType${attackNumber}-${name}`) > -1;
   return (
     <table className="attack_titles">
       <tr>
@@ -140,14 +214,45 @@ function Attack({ attackValue, attackNumber, handleAttacks }) {
           />
         </td>
         <td>
-          <input type="checkbox" name="attackProficiency" />
-          <input type="radio" value="str" name="modType" />
+          <input
+            type="checkbox"
+            name={`attackProficiency${attackNumber}`}
+            onChange={handleAttackProficiency}
+            checked={isAttackProficiencyChecked}
+          />
+          <input
+            type="checkbox"
+            name={`modeType${attackNumber}-str`}
+            onChange={handleAttackModifier}
+            checked={isAttackModifierChecked("str")}
+            disabled={
+              isAttackModifierChecked("dex") ||
+              isAttackModifierChecked("spell-power")
+            }
+          />
         </td>
         <td>
-          <input type="radio" value="dex" name="modType" />
+          <input
+            type="checkbox"
+            name={`modeType${attackNumber}-dex`}
+            onChange={handleAttackModifier}
+            checked={isAttackModifierChecked("dex")}
+            disabled={
+              isAttackModifierChecked("str") ||
+              isAttackModifierChecked("spell-power")
+            }
+          />
         </td>
         <td>
-          <input type="radio" value="spellPower" name="modType" />
+          <input
+            type="checkbox"
+            name={`modeType${attackNumber}-spell-power`}
+            onChange={handleAttackModifier}
+            checked={isAttackModifierChecked("spell-power")}
+            disabled={
+              isAttackModifierChecked("str") || isAttackModifierChecked("dex")
+            }
+          />
         </td>
       </tr>
       <tr>
@@ -178,11 +283,21 @@ function Attack({ attackValue, attackNumber, handleAttacks }) {
             name={`type${attackNumber}`}
           />
         </td>
+        <td>
+          <textarea
+            type="text"
+            value={attackValue[`type${attackNumber}`]}
+            onChange={handleAttacks}
+            title={attackNumber}
+            name={`notes${attackNumber}`}
+          />
+        </td>
       </tr>
       <tr className="attack_titles">
         <td style={{ marginRight: "80px" }}>Atk Bonus</td>
         <td style={{ marginRight: "94px" }}>Damage</td>
         <td>Type / Weight</td>
+        <td>Notes</td>
       </tr>
     </table>
   );
