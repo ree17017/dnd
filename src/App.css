@@ -68,11 +68,14 @@
     grid-area: spells;
     border: 1px dashed black;
     padding-left: 12px;
-    margin-left: 12px;
+    margin: 4px;
 }
 
 .wornArmor {
     grid-area: wornArmor;
+    border: 1px dashed black;
+    padding-left: 12px;
+    margin: 4px;
 }
 
 .footer {
@@ -214,6 +217,7 @@ img {
     text-align: center;
     margin: 8px 4px 8px 4px;
     height: 105px;
+    box-shadow: 4px 3px 8px 1px #969696;
 }
 
 .hitpoints {
@@ -225,6 +229,7 @@ img {
     text-align: center;
     margin: 8px 4px 8px 4px;
     height: 155px;
+    box-shadow: 4px 3px 8px 1px #969696;
 }
 
 .armorClass_AC {
@@ -249,6 +254,7 @@ img {
     border-radius: 10px;
     padding: 4px;
     margin-bottom: 16px;
+    box-shadow: 4px 3px 8px 1px #969696;
 }
 
 .spell-level {
@@ -291,6 +297,7 @@ img {
     font-size: 10px;
     color: gray;
     width: 200px;
+    overflow: hidden;
 }
 
 .proficiency-font {
@@ -300,4 +307,6 @@ img {
 .attack_titles {
     border: solid 1px black;
     padding: 8px;
+    box-shadow: 4px 3px 8px 1px #969696;
+    margin: 8px;
 }
