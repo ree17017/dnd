@@ -234,7 +234,7 @@ function SpellsList({
   return (
     <div>
       <div className="spell-level_h1">
-        <h1>{spellLevel}:</h1>
+        <h1>Spell Level: {spellLevel === "0" ? "Cantrip" : spellLevel}</h1>
       </div>
       <button onClick={(event) => handleHideSpellList(event)} id={spellLevel}>
         {isSpellListHidden[spellLevel] ? "Hide" : "Show"}
@@ -287,7 +287,7 @@ function SpellInfo({
         Remove spell
       </button>
       <div>
-        {spellLevel !== "Cantrip" && (
+        {spellLevel !== "0" && (
           <>
             <span>Domain:</span>
             <input
