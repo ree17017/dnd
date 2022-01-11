@@ -406,8 +406,8 @@ function SpellInfo({
             name={`spell-${spellLevel}-${title}-dice-number`}
             value={spellList[`spell-${spellLevel}-${title}-dice-number`]}
             className="input_small"
-          />
-          D
+          />{" "}
+          d{" "}
           <input
             type="text"
             className="input_small"
