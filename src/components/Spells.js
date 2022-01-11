@@ -376,6 +376,16 @@ function SpellInfo({
             value={spellList[`spell-${spellLevel}-${title}-components`]}
             className="spell-info_input"
           />
+          <div>Advanced Components</div>
+          <textarea
+            type="text"
+            onChange={handleSpellList}
+            name={`spell-${spellLevel}-${title}-advanced-components`}
+            value={
+              spellList[`spell-${spellLevel}-${title}-advanced-components`]
+            }
+            className="spell-info_input"
+          />
         </div>
 
         <div>
