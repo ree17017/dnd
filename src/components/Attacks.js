@@ -56,9 +56,12 @@ export default function Attacks(props) {
   const handleAddAction = () =>
     setActionList([...actionList, +actionList[actionList.length - 1] + 1]);
   const handleRemoveAction = (removeNumber) => {
-    if (actionList.length > 0) {
-      let saveThis = actionList.filter((action) => action !== removeNumber);
-      setActionList(saveThis);
+    // eslint-disable-next-line no-restricted-globals
+    if (confirm("Are you sure you want to remove this action?")) {
+      if (actionList.length > 0) {
+        let saveThis = actionList.filter((action) => action !== removeNumber);
+        setActionList(saveThis);
+      }
     }
   };
 
