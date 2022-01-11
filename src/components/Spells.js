@@ -318,6 +318,7 @@ function SpellInfo({
             onChange={handleSpellList}
             name={`spell-${spellLevel}-${title}-name`}
             value={spellList[`spell-${spellLevel}-${title}-name`]}
+            className="spell-info_input"
           />
         </div>
       </div>
@@ -329,6 +330,7 @@ function SpellInfo({
             onChange={handleSpellList}
             name={`spell-${spellLevel}-${title}-casting-time`}
             value={spellList[`spell-${spellLevel}-${title}-casting-time`]}
+            className="spell-info_input"
           />
         </div>
 
@@ -339,6 +341,7 @@ function SpellInfo({
             onChange={handleSpellList}
             name={`spell-${spellLevel}-${title}-range`}
             value={spellList[`spell-${spellLevel}-${title}-range`]}
+            className="spell-info_input"
           />
         </div>
         <div>
@@ -348,6 +351,7 @@ function SpellInfo({
             onChange={handleSpellList}
             name={`spell-${spellLevel}-${title}-duration`}
             value={spellList[`spell-${spellLevel}-${title}-duration`]}
+            className="spell-info_input"
           />
         </div>
         <div>
@@ -357,6 +361,7 @@ function SpellInfo({
             onChange={handleSpellList}
             name={`spell-${spellLevel}-${title}-damage-type`}
             value={spellList[`spell-${spellLevel}-${title}-damage-type`]}
+            className="spell-info_input"
           />
         </div>
       </div>
@@ -369,6 +374,7 @@ function SpellInfo({
             onChange={handleSpellList}
             name={`spell-${spellLevel}-${title}-components`}
             value={spellList[`spell-${spellLevel}-${title}-components`]}
+            className="spell-info_input"
           />
         </div>
 
@@ -379,6 +385,7 @@ function SpellInfo({
             onChange={handleSpellList}
             name={`spell-${spellLevel}-${title}-save-type`}
             value={spellList[`spell-${spellLevel}-${title}-save-type`]}
+            className="spell-info_input"
           />
         </div>
         <div>

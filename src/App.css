@@ -274,6 +274,10 @@ img {
     box-shadow: 4px 3px 8px 1px #969696;
 }
 
+.spell-info_input {
+    width: 18em;
+}
+
 .spell-info_textarea {
     height: 430px;
     width: 245px;
