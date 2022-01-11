@@ -19,6 +19,18 @@ export default function Spells(props) {
   const handleSpellList = (event) => {
     setSpellList({ ...spellList, [event.target.name]: event.target.value });
   };
+  const [spellCount, setSpellCount] = useLocalStorage("spellCount", {
+    0: [0],
+    1: [0],
+    2: [0],
+    3: [0],
+    4: [0],
+    5: [0],
+    6: [0],
+    7: [0],
+    8: [0],
+    9: [0],
+  });
   const [isSpellListHidden, setIsSpellListHidden] = useState({
     cantrip: false,
     1: false,
@@ -88,7 +100,37 @@ export default function Spells(props) {
     }
   };
 
-  const spellLevels = ["Cantrip", 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const handleAddSpell = (event) => {
+    setSpellCount({
+      ...spellCount,
+      [event.target.title]: [
+        ...spellCount[event.target.title],
+        +spellCount[event.target.title][
+          spellCount[event.target.title].length - 1
+        ] + 1,
+      ],
+    });
+  };
+
+  const handleRemoveSpell = (event) => {
+    console.log(event.target.title);
+    console.log(event.target.id);
+    console.log("spellcount[event.target.id]", spellCount[event.target.id]);
+    // eslint-disable-next-line no-restricted-globals
+    if (confirm("Are you sure you want to remove this spell?")) {
+      if (spellCount[event.target.id].length > 0) {
+        let saveThis = spellCount[event.target.id].filter((spell) => {
+          console.log(spell, event.target.title);
+          return spell !== +event.target.title;
+        });
+        console.log("savethis", saveThis);
+        setSpellCount({
+          ...spellCount,
+          [event.target.id]: saveThis,
+        });
+      }
+    }
+  };
 
   return (
     <div>
@@ -98,21 +140,26 @@ export default function Spells(props) {
         classStats={classStats(characterClass, level)}
         preparedCount={preparedCount}
       />
-      {spellLevels.map((level, index) => (
-        <div key={`${level}-${index}`}>
-          <SpellsList
-            handleSpellList={handleSpellList}
-            spellList={spellList}
-            spellLevel={level}
-            preparedCount={preparedCount}
-            domainSpells={domainSpells}
-            handlePreparedDomainSpells={handlePreparedDomainSpells}
-            title={index}
-            handleHideSpellList={handleHideSpellList}
-            isSpellListHidden={isSpellListHidden}
-          />
-        </div>
-      ))}
+      {Object.keys(spellCount).map((level, index) => {
+        return (
+          <div key={`${level}-${index}`}>
+            <SpellsList
+              handleSpellList={handleSpellList}
+              spellList={spellList}
+              spellLevel={level}
+              preparedCount={preparedCount}
+              domainSpells={domainSpells}
+              handlePreparedDomainSpells={handlePreparedDomainSpells}
+              title={index}
+              handleHideSpellList={handleHideSpellList}
+              isSpellListHidden={isSpellListHidden}
+              spellCont={spellCount}
+              handleAddSpell={handleAddSpell}
+              handleRemoveSpell={handleRemoveSpell}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -180,8 +227,10 @@ function SpellsList({
   handlePreparedDomainSpells,
   handleHideSpellList,
   isSpellListHidden,
+  spellCont,
+  handleAddSpell,
+  handleRemoveSpell,
 }) {
-  const spellCont = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   return (
     <div>
       <div className="spell-level_h1">
@@ -190,9 +239,12 @@ function SpellsList({
       <button onClick={(event) => handleHideSpellList(event)} id={spellLevel}>
         {isSpellListHidden[spellLevel] ? "Hide" : "Show"}
       </button>
+      <button title={spellLevel} onClick={(event) => handleAddSpell(event)}>
+        Add Spell
+      </button>
       {isSpellListHidden[spellLevel] && (
         <div id={`${spellLevel}`} className="spell-level">
-          {spellCont.map((count) => (
+          {spellCont[spellLevel].map((count) => (
             <SpellInfo
               title={count}
               spellList={spellList}
@@ -203,6 +255,7 @@ function SpellsList({
               handlePreparedDomainSpells={handlePreparedDomainSpells}
               handleHideSpellList={handleHideSpellList}
               isSpellListHidden={isSpellListHidden}
+              handleRemoveSpell={handleRemoveSpell}
             />
           ))}
         </div>
@@ -219,12 +272,20 @@ function SpellInfo({
   spellLevel,
   domainSpells,
   handlePreparedDomainSpells,
+  handleRemoveSpell,
 }) {
   const isDomainChecked = (name) => domainSpells.indexOf(name) > -1;
   const isPreparedChecked = (name) => preparedCount.indexOf(name) > -1;
 
   return (
     <div key={`spell-${spellLevel}-${title}`} className="spell-info">
+      <button
+        onClick={(event) => handleRemoveSpell(event)}
+        title={title}
+        id={spellLevel}
+      >
+        Remove spell
+      </button>
       <div>
         {spellLevel !== "Cantrip" && (
           <>

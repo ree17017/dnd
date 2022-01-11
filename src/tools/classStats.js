@@ -1,6 +1,5 @@
 import { cleric } from "../components/classes/cleric";
 export default function classStats(characterClass = "cleric", level = 1) {
-  console.log(characterClass);
   let tempClass = characterClass ? "cleric" : "cleric";
   switch (tempClass) {
     case "cleric":
