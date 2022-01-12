@@ -107,14 +107,31 @@ function Attack({
       )}
       <table className="attack_titles">
         <tr>
-          <th style={{ marginRight: "112px" }}>Name</th>
+          <th>Name</th>
           <th>Range</th>
-          <th>
-            <span>Prof</span>
-            <span>Str</span>
-          </th>
-          <th>Dex</th>
-          <th>Spell Power</th>
+          <td className="attack-title">
+            <div>
+              Proficient
+              <input
+                type="checkbox"
+                name={`attackProficiency${attackNumber}`}
+                onChange={handleAttackProficiency}
+                checked={isAttackProficiencyChecked}
+              />
+            </div>
+          </td>
+          <td className="attack-title">
+            Spell Power
+            <input
+              type="checkbox"
+              name={`modeType${attackNumber}-spell-power`}
+              onChange={handleAttackModifier}
+              checked={isAttackModifierChecked("spell-power")}
+              disabled={
+                isAttackModifierChecked("str") || isAttackModifierChecked("dex")
+              }
+            />
+          </td>
         </tr>
         <tr>
           <td>
@@ -135,15 +152,11 @@ function Attack({
               title={attackNumber}
             />
           </td>
-          <td>
+          <td className="attack-title">
+            Str
             <input
               type="checkbox"
-              name={`attackProficiency${attackNumber}`}
-              onChange={handleAttackProficiency}
-              checked={isAttackProficiencyChecked}
-            />
-            <input
-              type="checkbox"
+              style={{ marginLeft: "55px" }}
               name={`modeType${attackNumber}-str`}
               onChange={handleAttackModifier}
               checked={isAttackModifierChecked("str")}
@@ -153,8 +166,10 @@ function Attack({
               }
             />
           </td>
-          <td>
+          <td className="attack-title">
+            Dex
             <input
+              style={{ marginLeft: "61px" }}
               type="checkbox"
               name={`modeType${attackNumber}-dex`}
               onChange={handleAttackModifier}
@@ -162,17 +177,6 @@ function Attack({
               disabled={
                 isAttackModifierChecked("str") ||
                 isAttackModifierChecked("spell-power")
-              }
-            />
-          </td>
-          <td>
-            <input
-              type="checkbox"
-              name={`modeType${attackNumber}-spell-power`}
-              onChange={handleAttackModifier}
-              checked={isAttackModifierChecked("spell-power")}
-              disabled={
-                isAttackModifierChecked("str") || isAttackModifierChecked("dex")
               }
             />
           </td>

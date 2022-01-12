@@ -78,13 +78,36 @@
     margin: 4px;
 }
 
+.feats {
+    grid-area: feats;
+    border: 1px dashed black;
+    padding: 4px;
+    margin: 4px;
+}
+
+.feats-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.feat {
+    border: 1px solid black;
+    box-shadow: 4px 3px 8px 1px #969696;
+    display: flex;
+    flex-direction: column;
+    margin: 0 8px;
+    padding: 8px;
+    width: 257px;
+    height: 255px
+}
+
 .footer {
     grid-area: footer;
 }
 
 .grid-container {
     display: grid;
-    grid-template-areas: "header header header header header" "stat savingthrows health health personality" "stat skill health health personality" "stat skill health health personality" "wornArmor wornArmor wornArmor wornArmor wornArmor" "spells spells spells spells spells " "footer footer footer footer footer";
+    grid-template-areas: "header header header header header" "stat savingthrows health health personality" "stat skill health health personality" "stat skill health health personality" "wornArmor wornArmor feats feats feats" "spells spells spells spells spells " "footer footer footer footer footer";
 }
 
 .grid-container>div {
@@ -255,6 +278,10 @@ img {
     padding: 4px;
     margin-bottom: 16px;
     box-shadow: 4px 3px 8px 1px #969696;
+}
+
+.attack-title>div {
+    display: flex;
 }
 
 .spell-level {
