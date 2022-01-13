@@ -170,9 +170,9 @@ function CharacterSpellInfo({
   classStats,
   preparedCount,
 }) {
-  const totalSpellAbilityModifier =
-    8 + +spellAbilityModifier + classStats.proficiency;
-  const spellAttackModifier = classStats.proficiency + +spellAbilityModifier;
+  const proficiency = classStats?.proficiency ? classStats.proficiency : 0;
+  const totalSpellAbilityModifier = 8 + +spellAbilityModifier + proficiency;
+  const spellAttackModifier = proficiency + +spellAbilityModifier;
   const preparedSpells = +spellAbilityModifier + classStats.level;
   return (
     <div className="characterSpellInfo">

@@ -8,9 +8,7 @@ export default function Proficiency(props) {
   const [characterClass] = useLocalStorage("class", "cleric");
   const [level] = useLocalStorage("level", 1);
   const currentClass = classStats(characterClass, 1);
-  console.log(currentClass);
 
-  console.log(modifier(wis.stat));
   const passivePerception =
     10 +
     +modifier(wis.stat || 0) +

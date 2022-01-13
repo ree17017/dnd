@@ -20,7 +20,6 @@ export default function HitPoints(props) {
   };
 
   const totalHitPoints = +hitPoints.hp + (+hitPoints.temp | 0);
-  console.log(totalHitPoints);
 
   return (
     <div className="hitpoints">

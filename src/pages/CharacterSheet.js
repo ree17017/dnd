@@ -8,6 +8,7 @@ import WornArmor from "../components/WornArmor";
 import Personality from "../components/Personality";
 import Spells from "../components/Spells";
 import Feats from "../components/Feats";
+import OtherProficiencies from "../components/OtherProficiencies";
 
 function CharacterSheet(props) {
   return (
@@ -29,6 +30,7 @@ function CharacterSheet(props) {
       </div>
       <div className="personality">
         <Personality />
+        <OtherProficiencies />
       </div>
       <div className="wornArmor">
         <WornArmor />

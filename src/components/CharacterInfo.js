@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import useLocalStorage from "react-localstorage-hook";
 import ReactModal from "react-modal";
+import { ToastContainer, toast } from "react-toastify";
 
 export default function CharacterInfo(props) {
   const [characterName, setCharacterName] = useLocalStorage("characterInfo");
@@ -26,8 +27,24 @@ export default function CharacterInfo(props) {
     }
   };
 
+  const handleLevel = (event) => {
+    if (level === "" || level <= 0 || level > 10 || level === undefined) {
+      toast(
+        "Please enter level between level 0 and 10. Use the arrow keys to change"
+      );
+      setLevel(1);
+    } else {
+      if (event.target.name === "minus" && level <= 9 && level >= 1) {
+        setLevel(Math.round(level - 1));
+      } else if (event.target.name === "plus" && level <= 9 && level >= 1) {
+        setLevel(Math.round(level + 1));
+      }
+    }
+  };
+
   return (
     <div>
+      <ToastContainer />
       <CharacterInfoLayout
         characterName={characterName}
         characterclass={characterclass}
@@ -70,13 +87,26 @@ export default function CharacterInfo(props) {
             </li>
             <li className="modal_li">
               Level:
+              <button
+                name="minus"
+                className="modal_input"
+                onClick={(event) => handleLevel(event)}
+              >
+                -
+              </button>
               <input
                 type="number"
+                max="10"
+                step="1"
+                min="1"
                 name="level"
+                readOnly
                 value={level}
-                onChange={(event) => setLevel(event.target.value)}
-                className="modal_input"
+                onChange={(event) => handleLevel(event)}
               />
+              <button name="plus" onClick={(event) => handleLevel(event)}>
+                +
+              </button>
             </li>
             <li className="modal_li">
               Background:

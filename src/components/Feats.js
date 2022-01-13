@@ -33,7 +33,7 @@ export default function Feats() {
       <button onClick={addFeats}>Add Feat</button>
 
       {featList.map((featId) => (
-        <div className="feat">
+        <div className="feat" key={featId}>
           {featId !== 0 && (
             <button onClick={() => handleRemoveFeat(featId)}>
               Remove Feat

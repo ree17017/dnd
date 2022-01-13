@@ -4,7 +4,6 @@ import Attacks from "../components/Attacks";
 import DeathSaves from "../components/DeathSaves";
 import HitDice from "../components/HitDice";
 import HitPoints from "../components/HitPoints";
-import Personality from "../components/Personality";
 import Proficiency from "../components/Proficiency";
 
 export default function Vitals(props) {
