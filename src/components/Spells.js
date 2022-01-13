@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import useLocalStorage from "react-localstorage-hook";
 import { modifier } from "../tools/modifier";
-import classStats from "../tools/classStats";
+// import classStats from "../tools/classStats";
 
 export default function Spells(props) {
   const [spellCastingAbility, setSpellCastingAbility] = useLocalStorage(
@@ -13,6 +13,7 @@ export default function Spells(props) {
   const [level] = useLocalStorage("level");
   const [characterClass] = useLocalStorage("class");
   const [spellList, setSpellList] = useLocalStorage("spellList");
+  const [proficiency] = useLocalStorage("proficiency");
   const [preparedCount, setPreparedCount] =
     useLocalStorage("preparedSpellCount");
   const [domainSpells, setDomainSpells] = useLocalStorage("domainSpells");
@@ -137,8 +138,9 @@ export default function Spells(props) {
       <CharacterSpellInfo
         handleSpellCastingAbility={handleSpellCastingAbility}
         spellAbilityModifier={spellcastingModifier()}
-        classStats={classStats(characterClass, level)}
         preparedCount={preparedCount}
+        level={level}
+        proficiency={proficiency}
       />
       {Object.keys(spellCount).map((level, index) => {
         return (
@@ -167,13 +169,13 @@ export default function Spells(props) {
 function CharacterSpellInfo({
   handleSpellCastingAbility,
   spellAbilityModifier,
-  classStats,
+  level,
+  proficiency,
   preparedCount,
 }) {
-  const proficiency = classStats?.proficiency ? classStats.proficiency : 0;
   const totalSpellAbilityModifier = 8 + +spellAbilityModifier + proficiency;
   const spellAttackModifier = proficiency + +spellAbilityModifier;
-  const preparedSpells = +spellAbilityModifier + classStats.level;
+  const preparedSpells = +spellAbilityModifier + level;
   return (
     <div className="characterSpellInfo">
       <div>

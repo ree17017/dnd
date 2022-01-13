@@ -28,17 +28,10 @@ export default function CharacterInfo(props) {
   };
 
   const handleLevel = (event) => {
-    if (level === "" || level <= 0 || level > 10 || level === undefined) {
-      toast(
-        "Please enter level between level 0 and 10. Use the arrow keys to change"
-      );
-      setLevel(1);
-    } else {
-      if (event.target.name === "minus" && level <= 9 && level >= 1) {
-        setLevel(Math.round(level - 1));
-      } else if (event.target.name === "plus" && level <= 9 && level >= 1) {
-        setLevel(Math.round(level + 1));
-      }
+    if (event.target.name === "minus") {
+      setLevel(Math.round(+level - 1));
+    } else if (event.target.name === "plus") {
+      setLevel(Math.round(+level + 1));
     }
   };
 
