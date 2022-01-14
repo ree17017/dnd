@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import useLocalStorage from "react-localstorage-hook";
 import { modifier } from "../tools/modifier";
-// import classStats from "../tools/classStats";
 
 export default function Spells(props) {
   const [spellCastingAbility, setSpellCastingAbility] = useLocalStorage(
@@ -11,7 +10,6 @@ export default function Spells(props) {
   const [wis] = useLocalStorage("wis");
   const [int] = useLocalStorage("int");
   const [level] = useLocalStorage("level");
-  const [characterClass] = useLocalStorage("class");
   const [spellList, setSpellList] = useLocalStorage("spellList");
   const [proficiency] = useLocalStorage("proficiency");
   const [preparedCount, setPreparedCount] =
