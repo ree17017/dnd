@@ -24,6 +24,7 @@ export default function CharacterInfo(props) {
     if (confirm("Are you sure?")) {
       localStorage.clear();
       window.location.reload();
+      toast("Information cleared");
     }
   };
 
@@ -163,7 +164,14 @@ export default function CharacterInfo(props) {
             </li>
           </ul>
         </div>
-        <button onClick={() => setIsOpen(false)}>Save/Close</button>
+        <button
+          onClick={() => {
+            toast("Character Saved");
+            setIsOpen(false);
+          }}
+        >
+          Save/Close
+        </button>
       </ReactModal>
     </div>
   );
