@@ -8,16 +8,17 @@ export default function OtherProficiencies() {
     "armorProficiencies",
     []
   );
-
   const [weaponProficiencies, setWeaponProficiencies] = useLocalStorage(
     "weaponProficiencies",
     []
   );
-
+  const [savingThrow, setSavingThrow] = useLocalStorage("savingThrow", []);
   const [armor, setArmor] = useState("");
   const [weapon, setWeapon] = useState("");
+  const [save, setSave] = useState("");
 
   const handleAddProficiencies = (event) => {
+    console.log(event.target.name, event.target.id);
     switch (event.target.name) {
       case "armor":
         if (armorProficiencies.find((value) => value === armor)) {
@@ -35,23 +36,37 @@ export default function OtherProficiencies() {
         setWeaponProficiencies([...weaponProficiencies, weapon]);
         break;
 
+      case "savingThrow":
+        console.log(save);
+        if (savingThrow.find((value) => value === save)) {
+          toast(`${save} is already on the list.`);
+          return;
+        }
+        setSavingThrow([...savingThrow, save]);
+        break;
+
       default:
     }
   };
 
   const handleRemoveProficiencies = (event) => {
+    console.log(event.target.name);
     switch (event.target.name) {
       case "armor":
         let armorList = armorProficiencies.filter(
-          (armor) => armor !== event.target.name
+          (armor) => armor !== event.target.id
         );
         setArmorProficiencies(armorList);
         break;
       case "weapon":
         let weaponList = weaponProficiencies.filter(
-          (weapon) => weapon !== event.target.name
+          (weapon) => weapon !== event.target.id
         );
         setWeaponProficiencies(weaponList);
+        break;
+      case "savingThrow":
+        let saving = savingThrow.filter((saving) => saving !== event.target.id);
+        setSavingThrow(saving);
         break;
       default:
         console.log("ERROR: ", event.target.name);
@@ -60,6 +75,7 @@ export default function OtherProficiencies() {
   return (
     <div>
       <ToastContainer />
+      <h3>Proficiencies</h3>
       <div>Armor:</div>
       <input type="text" onChange={(event) => setArmor(event.target.value)} />
       <button name="armor" onClick={(event) => handleAddProficiencies(event)}>
@@ -72,6 +88,7 @@ export default function OtherProficiencies() {
               {armor}
               <button
                 name="armor"
+                id={armor}
                 onClick={(event) => handleRemoveProficiencies(event)}
               >
                 {" "}
@@ -92,6 +109,7 @@ export default function OtherProficiencies() {
               {weapon}
               <button
                 name="weapon"
+                id={weapon}
                 onClick={(event) => handleRemoveProficiencies(event)}
               >
                 {" "}
@@ -101,14 +119,29 @@ export default function OtherProficiencies() {
           ))}
       </ul>
       <div>Saving Throws:</div>
-      <input type="text" onChange={handleAddProficiencies} />
+      <input type="text" onChange={(event) => setSave(event.target.name)} />
       <button
-        name="savingThrows"
+        name="savingThrow"
         onClick={(event) => handleAddProficiencies(event)}
       >
         Add
       </button>
-      <ul></ul>
+      <ul>
+        {savingThrow.length > 0 &&
+          savingThrow.map((saving) => (
+            <li key={saving}>
+              {saving}
+              <button
+                name="savingThrow"
+                id={saving}
+                onClick={(event) => handleRemoveProficiencies(event)}
+              >
+                {" "}
+                X{" "}
+              </button>
+            </li>
+          ))}
+      </ul>
       <div>Skills:</div>
       <input type="text" onChange={handleAddProficiencies} />
       <button name="skills" onClick={(event) => handleAddProficiencies(event)}>

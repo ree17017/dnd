@@ -24,7 +24,7 @@ export default function Proficiency(props) {
       <div style={{ fontSize: "18px", padding: "0 8px" }}>
         {passivePerception}
       </div>
-      <div>passive wisdom (perception)</div>
+      <div>Passive Wisdom (Perception)</div>
     </div>
   );
 }
