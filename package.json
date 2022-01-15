@@ -27,9 +27,7 @@
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "postinstall": "husky install",
-        "prepublishOnly": "pinst --disable",
-        "postpublish": "pinst --enable"
+        "postinstall": "husky install"
     },
     "eslintConfig": {
         "extends": [
