@@ -1,11 +1,11 @@
-import React from "react";
-import useLocalStorage from "react-localstorage-hook";
-import { modifier } from "../tools/modifier";
+import React from 'react';
+import useLocalStorage from 'react-localstorage-hook';
+import { modifier } from '../tools/modifier';
 
-export default function ArmorClass(props) {
-  const [dex] = useLocalStorage("dex");
-  const [wornArmor] = useLocalStorage("wornArmor");
-  const [acBonus, setAcBonus] = useLocalStorage("acBonus");
+export default function ArmorClass({ dex, wornArmor, acBonus, setAcBonus }) {
+  // const [dex] = useLocalStorage('dex');
+  // const [wornArmor] = useLocalStorage('wornArmor');
+  // const [acBonus, setAcBonus] = useLocalStorage('acBonus');
 
   const dexModifierTotal = +modifier(dex.stat) + +dex.otherModifier;
   const armor_AC = wornArmor.armor_AC >= 0 ? wornArmor.armor_AC : 0;
@@ -13,14 +13,14 @@ export default function ArmorClass(props) {
   const wornArmorTotal = armor_AC > 0 ? +armor_AC + +shield_AC : 10;
   const total = dexModifierTotal + wornArmorTotal + +acBonus;
 
-  const armorType = armor_AC ? "armor" : "natural";
+  const armorType = armor_AC ? 'armor' : 'natural';
 
   return (
     <div className="armorClass">
       <div className="armorClass_AC">{total}</div>
       <hr />
       <div>
-        dex: {dexModifierTotal} + {armorType}: {wornArmorTotal} + spell bonus{" "}
+        dex: {dexModifierTotal} + {armorType}: {wornArmorTotal} + spell bonus{' '}
         <input
           type="text"
           name="acBonus"

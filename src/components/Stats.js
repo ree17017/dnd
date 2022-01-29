@@ -1,63 +1,71 @@
-import React from "react";
-import { modifier } from "../tools/modifier";
-import useLocalStorage from "react-localstorage-hook";
+import React from 'react';
+import { modifier } from '../tools/modifier';
+import useLocalStorage from 'react-localstorage-hook';
 
 export default function Stats(props) {
-  const [str, setStr] = useLocalStorage("str", { stat: 0, otherModifier: 0 });
-  const [dex, setDex] = useLocalStorage("dex", { stat: 0, otherModifier: 0 });
-  const [con, setCon] = useLocalStorage("con", { stat: 0, otherModifier: 0 });
-  const [int, setInt] = useLocalStorage("int", { stat: 0, otherModifier: 0 });
-  const [wis, setWis] = useLocalStorage("wis", { stat: 0, otherModifier: 0 });
-  const [cha, setCha] = useLocalStorage("cha", { stat: 0, otherModifier: 0 });
-  const [lockStats, setLockStats] = useLocalStorage("lockStats", false);
+  const {
+    cha,
+    con,
+    dex,
+    int,
+    lockStats,
+    setCha,
+    setCon,
+    setDex,
+    setInt,
+    setLockStats,
+    setStr,
+    setWis,
+    str,
+    wis,
+  } = props;
 
   const handleStatChange = (event) => {
-    console.log("StatChange", event);
     switch (event.target.name) {
-      case "Strength":
+      case 'Strength':
         setStr({ ...str, stat: event.target.value });
         break;
-      case "Dexterity":
+      case 'Dexterity':
         setDex({ ...dex, stat: event.target.value });
         break;
-      case "Constitution":
+      case 'Constitution':
         setCon({ ...con, stat: event.target.value });
         break;
-      case "Intelligence":
+      case 'Intelligence':
         setInt({ ...int, stat: event.target.value });
         break;
-      case "Wisdom":
+      case 'Wisdom':
         setWis({ ...wis, stat: event.target.value });
         break;
-      case "Charisma":
+      case 'Charisma':
         setCha({ ...cha, stat: event.target.value });
         break;
       default:
-        console.error("Something went wrong", event);
+        console.error('Something went wrong', event);
     }
   };
   const handleOtherModifierChange = (event) => {
     switch (event.target.name) {
-      case "Strength":
+      case 'Strength':
         setStr({ ...str, otherModifier: event.target.value });
         break;
-      case "Dexterity":
+      case 'Dexterity':
         setDex({ ...dex, otherModifier: event.target.value });
         break;
-      case "Constitution":
+      case 'Constitution':
         setCon({ ...con, otherModifier: event.target.value });
         break;
-      case "Intelligence":
+      case 'Intelligence':
         setInt({ ...int, otherModifier: event.target.value });
         break;
-      case "Wisdom":
+      case 'Wisdom':
         setWis({ ...wis, otherModifier: event.target.value });
         break;
-      case "Charisma":
+      case 'Charisma':
         setCha({ ...cha, otherModifier: event.target.value });
         break;
       default:
-        console.error("Something went wrong", event);
+        console.error('Something went wrong', event);
     }
   };
 
@@ -65,14 +73,15 @@ export default function Stats(props) {
     setLockStats(!lockStats);
   };
 
-  const isLocked = lockStats ? "Locked" : "Unlock";
-
+  const isLocked = lockStats ? 'Locked' : 'Unlocked';
   return (
     <div>
-      <button onClick={handleLockStats}>{isLocked}</button>
+      <button aria-label="lock" onClick={handleLockStats}>
+        {isLocked}
+      </button>
       <ul>
         <Stat
-          name={"Strength"}
+          name={'Strength'}
           modifier={+modifier(str.stat) + +str.otherModifier}
           handleStatChange={handleStatChange}
           handleOtherModifierChange={handleOtherModifierChange}
@@ -81,7 +90,7 @@ export default function Stats(props) {
           lockStats={lockStats}
         />
         <Stat
-          name={"Dexterity"}
+          name={'Dexterity'}
           modifier={+modifier(dex.stat) + +dex.otherModifier}
           handleStatChange={handleStatChange}
           handleOtherModifierChange={handleOtherModifierChange}
@@ -90,7 +99,7 @@ export default function Stats(props) {
           lockStats={lockStats}
         />
         <Stat
-          name={"Constitution"}
+          name={'Constitution'}
           modifier={+modifier(con.stat) + +con.otherModifier}
           handleStatChange={handleStatChange}
           handleOtherModifierChange={handleOtherModifierChange}
@@ -99,7 +108,7 @@ export default function Stats(props) {
           lockStats={lockStats}
         />
         <Stat
-          name={"Intelligence"}
+          name={'Intelligence'}
           modifier={+modifier(int.stat) + +int.otherModifier}
           handleStatChange={handleStatChange}
           handleOtherModifierChange={handleOtherModifierChange}
@@ -108,7 +117,7 @@ export default function Stats(props) {
           lockStats={lockStats}
         />
         <Stat
-          name={"Wisdom"}
+          name={'Wisdom'}
           modifier={+modifier(wis.stat) + +wis.otherModifier}
           handleStatChange={handleStatChange}
           handleOtherModifierChange={handleOtherModifierChange}
@@ -117,7 +126,7 @@ export default function Stats(props) {
           lockStats={lockStats}
         />
         <Stat
-          name={"Charisma"}
+          name={'Charisma'}
           modifier={+modifier(cha.stat) + +cha.otherModifier}
           handleStatChange={handleStatChange}
           handleOtherModifierChange={handleOtherModifierChange}
@@ -144,7 +153,9 @@ function Stat({
   return (
     <li key={name} className="stats_padding">
       <div>{name} </div>
-      <div className="big-font">{modifier}</div>
+      <div className="big-font" aria-label={name}>
+        {modifier}
+      </div>
       <div className="stats_input-border">
         <input
           type="number"
