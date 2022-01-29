@@ -1,6 +1,5 @@
 import React from 'react';
 import { modifier } from '../tools/modifier';
-import useLocalStorage from 'react-localstorage-hook';
 
 export default function Stats(props) {
   const {

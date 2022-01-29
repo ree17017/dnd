@@ -1,5 +1,4 @@
 import React from 'react';
-import useLocalStorage from 'react-localstorage-hook';
 import { modifier } from '../tools/modifier';
 
 export default function ArmorClass({ dex, wornArmor, acBonus, setAcBonus }) {
