@@ -18,7 +18,7 @@ export default function OtherProficiencies() {
   const [save, setSave] = useState("");
 
   const handleAddProficiencies = (event) => {
-    console.log(event.target.name, event.target.id);
+    
     switch (event.target.name) {
       case "armor":
         if (armorProficiencies.find((value) => value === armor)) {
@@ -37,7 +37,7 @@ export default function OtherProficiencies() {
         break;
 
       case "savingThrow":
-        console.log(save);
+        
         if (savingThrow.find((value) => value === save)) {
           toast(`${save} is already on the list.`);
           return;
@@ -50,7 +50,7 @@ export default function OtherProficiencies() {
   };
 
   const handleRemoveProficiencies = (event) => {
-    console.log(event.target.name);
+    
     switch (event.target.name) {
       case "armor":
         let armorList = armorProficiencies.filter(
@@ -69,7 +69,7 @@ export default function OtherProficiencies() {
         setSavingThrow(saving);
         break;
       default:
-        console.log("ERROR: ", event.target.name);
+        
     }
   };
   return (
