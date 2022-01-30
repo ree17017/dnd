@@ -81,7 +81,7 @@ export default function Stats(props) {
       <ul>
         <Stat
           name={'Strength'}
-          modifier={Number(modifier(str.stat)) + +str.otherModifier}
+          modifier={Number(modifier(str.stat)) + Number(str.otherModifier)}
           handleStatChange={handleStatChange}
           handleOtherModifierChange={handleOtherModifierChange}
           stat={str.stat}
