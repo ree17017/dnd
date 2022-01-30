@@ -1,6 +1,6 @@
 import React from 'react';
-import Stat from './Stat'
-import PropType from 'prop-types'
+import Stat from './Stat';
+import PropTypes from 'prop-types';
 import { modifier } from '../tools/modifier';
 
 export default function Stats(props) {
@@ -77,7 +77,7 @@ export default function Stats(props) {
   const isLocked = lockStats ? 'Locked' : 'Unlocked';
   return (
     <div>
-      <button type='button' aria-label="lock" onClick={handleLockStats}>
+      <button type="button" aria-label="lock" onClick={handleLockStats}>
         {isLocked}
       </button>
       <ul>
@@ -140,20 +140,19 @@ export default function Stats(props) {
   );
 }
 
-
 Stats.prototype = {
-    cha: PropType.string.require,
-    con: PropType.string.require,
-    dex: PropType.string.require,
-    int: PropType.string.require,
-    lockStats: PropType.boolean.require,
-    setCha: PropType.func.require,
-    setCon: PropType.func.require,
-    setDex: PropType.func.require,
-    setInt: PropType.func.require,
-    setLockStats: func.string.require,
-    setStr: PropType.func.require,
-    setWis: PropType.func.require,
-    str: PropType.string.require,
-    wis: PropType.string.require,
-}
+  cha: PropTypes.string.require,
+  con: PropTypes.string.require,
+  dex: PropTypes.string.require,
+  int: PropTypes.string.require,
+  lockStats: PropTypes.boolean.require,
+  setCha: PropTypes.func.require,
+  setCon: PropTypes.func.require,
+  setDex: PropTypes.func.require,
+  setInt: PropTypes.func.require,
+  setLockStats: PropTypes.string.require,
+  setStr: PropTypes.func.require,
+  setWis: PropTypes.func.require,
+  str: PropTypes.string.require,
+  wis: PropTypes.string.require,
+};
