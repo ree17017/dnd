@@ -1,14 +1,14 @@
-import React from 'react';
-import SavingThrows from '../components/SavingThrows';
-import Stats from '../components/Stats';
-import Skills from '../components/Skills';
 import CharacterInfo from '../components/CharacterInfo';
-import Vitals from './Vitals';
-import WornArmor from '../components/WornArmor';
-import Personality from '../components/Personality';
-import Spells from '../components/Spells';
 import Feats from '../components/Feats';
 import OtherProficiencies from '../components/OtherProficiencies';
+import Personality from '../components/Personality';
+import React from 'react';
+import SavingThrows from '../components/SavingThrows';
+import Skills from '../components/Skills';
+import Spells from '../components/Spells';
+import Stats from '../components/Stats';
+import Vitals from './Vitals';
+import WornArmor from '../components/WornArmor';
 import useLocalStorage from 'react-localstorage-hook';
 
 function CharacterSheet(props) {

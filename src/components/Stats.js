@@ -1,5 +1,6 @@
 import React from 'react';
 import Stat from './Stat'
+import PropType from 'prop-types'
 import { modifier } from '../tools/modifier';
 
 export default function Stats(props) {
@@ -76,7 +77,7 @@ export default function Stats(props) {
   const isLocked = lockStats ? 'Locked' : 'Unlocked';
   return (
     <div>
-      <button aria-label="lock" onClick={handleLockStats}>
+      <button type='button' aria-label="lock" onClick={handleLockStats}>
         {isLocked}
       </button>
       <ul>
@@ -140,3 +141,19 @@ export default function Stats(props) {
 }
 
 
+Stats.prototype = {
+    cha: PropType.string.require,
+    con: PropType.string.require,
+    dex: PropType.string.require,
+    int: PropType.string.require,
+    lockStats: PropType.boolean.require,
+    setCha: PropType.func.require,
+    setCon: PropType.func.require,
+    setDex: PropType.func.require,
+    setInt: PropType.func.require,
+    setLockStats: func.string.require,
+    setStr: PropType.func.require,
+    setWis: PropType.func.require,
+    str: PropType.string.require,
+    wis: PropType.string.require,
+}
