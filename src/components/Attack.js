@@ -17,7 +17,7 @@ export default function Attack({
   return (
     <>
       {attackNumber !== 0 && (
-        <button onClick={() => handleRemoveAction(attackNumber)}>
+        <button type="button" onClick={() => handleRemoveAction(attackNumber)}>
           Remove Action
         </button>
       )}

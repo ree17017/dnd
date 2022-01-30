@@ -1,6 +1,6 @@
+import Attack from './Attack';
 import React from 'react';
 import useLocalStorage from 'react-localstorage-hook';
-import Attack from './Attack';
 
 export default function Attacks(props) {
   const [attacks, setAttacks] = useLocalStorage('attack1', {

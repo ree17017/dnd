@@ -1,4 +1,3 @@
-import React from 'react';
 import ArmorClass from '../components/ArmorClass';
 import Attacks from '../components/Attacks';
 import DeathSaves from '../components/DeathSaves';
@@ -6,6 +5,7 @@ import HitDice from '../components/HitDice';
 import HitPoints from '../components/HitPoints';
 import Proficiency from '../components/Proficiency';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 export default function Vitals(props) {
   const { dex, wornArmor, acBonus, setAcBonus } = props;
