@@ -46,8 +46,8 @@ export default function Spells(props) {
   });
 
   const handleHideSpellList = (event) => {
-    console.log(event);
-    console.log(event.target.id);
+    
+    
     setIsSpellListHidden({
       ...isSpellListHidden,
       [event.target.id]: !isSpellListHidden[event.target.id],
@@ -97,7 +97,7 @@ export default function Spells(props) {
       case 'int':
         return +modifier(int.stat) + +int.otherModifier;
       default:
-        console.log('Error', spellCastingAbility);
+        
     }
   };
 
@@ -114,17 +114,17 @@ export default function Spells(props) {
   };
 
   const handleRemoveSpell = (event) => {
-    console.log(event.target.title);
-    console.log(event.target.id);
-    console.log('spellcount[event.target.id]', spellCount[event.target.id]);
+    
+    
+    
     // eslint-disable-next-line no-restricted-globals
     if (confirm('Are you sure you want to remove this spell?')) {
       if (spellCount[event.target.id].length > 0) {
         let saveThis = spellCount[event.target.id].filter((spell) => {
-          console.log(spell, event.target.title);
+          
           return spell !== +event.target.title;
         });
-        console.log('savethis', saveThis);
+        
         setSpellCount({
           ...spellCount,
           [event.target.id]: saveThis,

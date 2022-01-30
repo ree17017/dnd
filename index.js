@@ -13,6 +13,6 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.listen(port, (err) => {
-  if (err) return console.log(err);
-  console.log("Service running on port:", port);
+  if (err) return 
+  
 });

@@ -22,6 +22,7 @@ export default function Stats(props) {
   } = props;
 
   const handleStatChange = (event) => {
+    
     switch (event.target.name) {
       case 'Strength':
         setStr({ ...str, stat: event.target.value });
@@ -42,7 +43,7 @@ export default function Stats(props) {
         setCha({ ...cha, stat: event.target.value });
         break;
       default:
-        console.error('Something went wrong', event);
+        
     }
   };
   const handleOtherModifierChange = (event) => {
@@ -66,7 +67,7 @@ export default function Stats(props) {
         setCha({ ...cha, otherModifier: event.target.value });
         break;
       default:
-        console.error('Something went wrong', event);
+        
     }
   };
 
