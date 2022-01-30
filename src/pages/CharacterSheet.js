@@ -72,7 +72,7 @@ function CharacterSheet(props) {
       <div className="spells">
         <Spells />
       </div>
-      <div className="footer"></div>
+      <div className="footer" />
     </div>
   );
 }
