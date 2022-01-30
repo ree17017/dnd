@@ -71,7 +71,7 @@ export default function Attacks(props) {
       <button onClick={handleAddAction}>Add Action</button>
       {actionList.map((action) => (
         <Attack
-          key={attacks}
+          key={`attack-${action}`}
           handleAttacks={handleAttacks}
           attackValue={attacks}
           attackNumber={action}

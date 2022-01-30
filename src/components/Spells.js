@@ -4,7 +4,7 @@ import SpellsList from './SpellList';
 import useLocalStorage from 'react-localstorage-hook';
 import { modifier } from '../tools/modifier';
 
-export default function Spells(props) {
+export default function Spells() {
   const [spellCastingAbility, setSpellCastingAbility] = useLocalStorage(
     'spellCastingAbility',
     'wis'
