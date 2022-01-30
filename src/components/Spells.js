@@ -139,18 +139,18 @@ export default function Spells(props) {
         return (
           <div key={`${level}-${index}`}>
             <SpellsList
-              handleSpellList={handleSpellList}
-              spellList={spellList}
-              spellLevel={level}
-              preparedCount={preparedCount}
               domainSpells={domainSpells}
-              handlePreparedDomainSpells={handlePreparedDomainSpells}
-              title={index}
-              handleHideSpellList={handleHideSpellList}
-              isSpellListHidden={isSpellListHidden}
-              spellCont={spellCount}
               handleAddSpell={handleAddSpell}
+              handleHideSpellList={handleHideSpellList}
+              handlePreparedDomainSpells={handlePreparedDomainSpells}
               handleRemoveSpell={handleRemoveSpell}
+              handleSpellList={handleSpellList}
+              isSpellListHidden={isSpellListHidden}
+              preparedCount={preparedCount}
+              spellCont={spellCount}
+              spellLevel={level}
+              spellList={spellList}
+              title={index}
             />
           </div>
         );
