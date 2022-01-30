@@ -11,7 +11,7 @@ import Vitals from './Vitals';
 import WornArmor from '../components/WornArmor';
 import useLocalStorage from 'react-localstorage-hook';
 
-function CharacterSheet(props) {
+function CharacterSheet() {
   const [wornArmor] = useLocalStorage('wornArmor');
   const [acBonus, setAcBonus] = useLocalStorage('acBonus');
   const [str, setStr] = useLocalStorage('str', { stat: 0, otherModifier: 0 });

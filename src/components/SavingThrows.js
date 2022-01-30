@@ -1,16 +1,16 @@
-import React from "react";
-import useLocalStorage from "react-localstorage-hook";
-import { modifier } from "../tools/modifier";
+import React from 'react';
+import useLocalStorage from 'react-localstorage-hook';
+import { modifier } from '../tools/modifier';
 
-export default function SavingThrows(props) {
-  const [str] = useLocalStorage("str");
-  const [dex] = useLocalStorage("dex");
-  const [con] = useLocalStorage("con");
-  const [int] = useLocalStorage("int");
-  const [wis] = useLocalStorage("wis");
-  const [cha] = useLocalStorage("cha");
-  const [proficiency] = useLocalStorage("proficiency");
-  const [saves, setSaves] = useLocalStorage("saves", []);
+export default function SavingThrows() {
+  const [str] = useLocalStorage('str');
+  const [dex] = useLocalStorage('dex');
+  const [con] = useLocalStorage('con');
+  const [int] = useLocalStorage('int');
+  const [wis] = useLocalStorage('wis');
+  const [cha] = useLocalStorage('cha');
+  const [proficiency] = useLocalStorage('proficiency');
+  const [saves, setSaves] = useLocalStorage('saves', []);
 
   const index = (name) => saves.indexOf(name);
 
@@ -49,72 +49,72 @@ export default function SavingThrows(props) {
           <input
             type="checkbox"
             onChange={(event) => handleChecked(event)}
-            checked={isChecked("str")}
+            checked={isChecked('str')}
             id="str"
             name="str"
             value={str.stat}
           />
-          <div> {saveStat("str", str)} </div>
+          <div> {saveStat('str', str)} </div>
         </li>
         <li className="savingthrows_flex-container">
           <div> Dexterity </div>
           <input
             type="checkbox"
             onChange={(event) => handleChecked(event)}
-            checked={isChecked("dex")}
+            checked={isChecked('dex')}
             id="dex"
             name="dex"
             value={dex.stat}
           />
-          <div> {saveStat("dex", dex)} </div>
+          <div> {saveStat('dex', dex)} </div>
         </li>
         <li className="savingthrows_flex-container">
           <div> Constitution </div>
           <input
             type="checkbox"
             onChange={(event) => handleChecked(event)}
-            checked={isChecked("con")}
+            checked={isChecked('con')}
             id="con"
             name="con"
             value={con.stat}
           />
-          <div> {saveStat("con", con)} </div>
+          <div> {saveStat('con', con)} </div>
         </li>
         <li className="savingthrows_flex-container">
           <div> Intelligence </div>
           <input
             type="checkbox"
             onChange={(event) => handleChecked(event)}
-            checked={isChecked("int")}
+            checked={isChecked('int')}
             id="int"
             name="int"
             value={int.stat}
           />
-          <div> {saveStat("int", int)} </div>
+          <div> {saveStat('int', int)} </div>
         </li>
         <li className="savingthrows_flex-container">
           <div> Wisdom </div>
           <input
             type="checkbox"
             onChange={(event) => handleChecked(event)}
-            checked={isChecked("wis")}
+            checked={isChecked('wis')}
             id="wis"
             name="wis"
             value={wis.stat}
           />
-          <div> {saveStat("wis", wis)} </div>
+          <div> {saveStat('wis', wis)} </div>
         </li>
         <li className="savingthrows_flex-container">
           <div> Charisma </div>
           <input
             type="checkbox"
             onChange={(event) => handleChecked(event)}
-            checked={isChecked("cha")}
+            checked={isChecked('cha')}
             id="cha"
             name="cha"
             value={cha.stat}
           />
-          <div> {saveStat("cha", cha)} </div>
+          <div> {saveStat('cha', cha)} </div>
         </li>
       </ul>
     </div>

@@ -1,8 +1,8 @@
-import React from "react";
-import useLocalStorage from "react-localstorage-hook";
+import React from 'react';
+import useLocalStorage from 'react-localstorage-hook';
 
-export default function WornArmor(props) {
-  const [wornArmor, setWornArmor] = useLocalStorage("wornArmor", {});
+export default function WornArmor() {
+  const [wornArmor, setWornArmor] = useLocalStorage('wornArmor', {});
 
   const handleWornArmor = (event) => {
     const value = event.target.value;
