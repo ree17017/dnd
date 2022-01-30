@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types'
 export default function SpellInfo({
   title,
   handleSpellList,
@@ -187,4 +187,15 @@ export default function SpellInfo({
       </div>
     </div>
   );
+}
+
+SpellInfo.prototype = {
+  title: PropTypes.string,
+  handleSpellList: PropTypes.func,
+  preparedCount: PropTypes.array,
+  spellList: PropTypes.array,
+  spellLevel: PropTypes.string,
+  domainSpells: PropTypes.array,
+  handlePreparedDomainSpells: PropTypes.func,
+  handleRemoveSpell: PropTypes.func,
 }

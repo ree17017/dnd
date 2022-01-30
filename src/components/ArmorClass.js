@@ -2,10 +2,6 @@ import React from 'react';
 import { modifier } from '../tools/modifier';
 
 export default function ArmorClass({ dex, wornArmor, acBonus, setAcBonus }) {
-  // const [dex] = useLocalStorage('dex');
-  // const [wornArmor] = useLocalStorage('wornArmor');
-  // const [acBonus, setAcBonus] = useLocalStorage('acBonus');
-
   const dexModifierTotal = +modifier(dex.stat) + +dex.otherModifier;
   const armor_AC = wornArmor.armor_AC >= 0 ? wornArmor.armor_AC : 0;
   const shield_AC = wornArmor.shield_AC >= 0 ? wornArmor.shield_AC : 0;

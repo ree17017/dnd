@@ -18,39 +18,37 @@ export default function OtherProficiencies() {
   const [save, setSave] = useState('');
 
   const handleAddProficiencies = (event) => {
-    
     switch (event.target.name) {
-      case 'armor':
+      case 'armor': {
         if (armorProficiencies.find((value) => value === armor)) {
           toast(`${armor} is already on the list.`);
           return;
         }
         setArmorProficiencies([...armorProficiencies, armor]);
         break;
-
-      case 'weapon':
+      }
+      case 'weapon': {
         if (weaponProficiencies.find((value) => value === weapon)) {
           toast(`${weapon} is already on the list.`);
           return;
         }
         setWeaponProficiencies([...weaponProficiencies, weapon]);
         break;
-
-      case "savingThrow":
-        
+      }
+      case 'savingThrow': {
         if (savingThrow.find((value) => value === save)) {
           toast(`${save} is already on the list.`);
           return;
         }
         setSavingThrow([...savingThrow, save]);
         break;
-
+      }
       default:
+        break;
     }
   };
 
   const handleRemoveProficiencies = (event) => {
-    
     switch (event.target.name) {
       case 'armor':
         let armorList = armorProficiencies.filter(
@@ -69,7 +67,6 @@ export default function OtherProficiencies() {
         setSavingThrow(saving);
         break;
       default:
-        
     }
   };
   return (

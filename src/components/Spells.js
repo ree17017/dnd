@@ -1,4 +1,5 @@
 import CharacterSpellInfo from './CharacterSpellInfo';
+import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import SpellsList from './SpellList';
 import useLocalStorage from 'react-localstorage-hook';
@@ -158,3 +159,12 @@ export default function Spells() {
     </div>
   );
 }
+
+Spells.prototype = {
+  preparedCount: PropTypes.array,
+  handleRemoveSpell: PropTypes.func,
+  handlePreparedDomainSpells: PropTypes.func,
+  domainSpells: PropTypes.array,
+  spellLevel: PropTypes.string,
+  spellList: PropTypes.array,
+};
