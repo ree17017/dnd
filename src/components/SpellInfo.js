@@ -16,9 +16,10 @@ export default function SpellInfo({
   return (
     <div key={`spell-${spellLevel}-${title}`} className="spell-info">
       <button
+        id={spellLevel}
         onClick={(event) => handleRemoveSpell(event)}
         title={title}
-        id={spellLevel}
+        type="button"
       >
         Remove spell
       </button>
@@ -101,7 +102,6 @@ export default function SpellInfo({
           />
         </div>
       </div>
-      <div></div>
       <div>
         <div>
           <div>Components</div>

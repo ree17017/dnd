@@ -6,7 +6,6 @@ export default function SpellsList({
   preparedCount,
   spellList,
   spellLevel,
-  title,
   domainSpells,
   handlePreparedDomainSpells,
   handleHideSpellList,
@@ -20,16 +19,17 @@ export default function SpellsList({
       <div className="spell-level_h1">
         <h1>Spell Level: {spellLevel === '0' ? 'Cantrip' : spellLevel}</h1>
       </div>
-      <button onClick={(event) => handleHideSpellList(event)} id={spellLevel}>
+      <button type="button" onClick={(event) => handleHideSpellList(event)} id={spellLevel}>
         {isSpellListHidden[spellLevel] ? 'Hide' : 'Show'}
       </button>
-      <button title={spellLevel} onClick={(event) => handleAddSpell(event)}>
+      <button type="button" title={spellLevel} onClick={(event) => handleAddSpell(event)}>
         Add Spell
       </button>
       {isSpellListHidden[spellLevel] && (
         <div id={`${spellLevel}`} className="spell-level">
           {spellCont[spellLevel].map((count) => (
             <SpellInfo
+              key={count}
               title={count}
               spellList={spellList}
               handleSpellList={handleSpellList}

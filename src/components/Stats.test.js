@@ -1,6 +1,6 @@
 import React from 'react';
 import Stats from './Stats';
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 describe('Stats Unit Tests', () => {
   const props = {

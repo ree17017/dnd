@@ -22,7 +22,6 @@ export default function Stats(props) {
   } = props;
 
   const handleStatChange = (event) => {
-    
     switch (event.target.name) {
       case 'Strength':
         setStr({ ...str, stat: event.target.value });
@@ -43,7 +42,6 @@ export default function Stats(props) {
         setCha({ ...cha, stat: event.target.value });
         break;
       default:
-        
     }
   };
   const handleOtherModifierChange = (event) => {
@@ -67,7 +65,6 @@ export default function Stats(props) {
         setCha({ ...cha, otherModifier: event.target.value });
         break;
       default:
-        
     }
   };
 
@@ -84,7 +81,7 @@ export default function Stats(props) {
       <ul>
         <Stat
           name={'Strength'}
-          modifier={+modifier(str.stat) + +str.otherModifier}
+          modifier={Number(modifier(str.stat)) + +str.otherModifier}
           handleStatChange={handleStatChange}
           handleOtherModifierChange={handleOtherModifierChange}
           stat={str.stat}
@@ -93,7 +90,7 @@ export default function Stats(props) {
         />
         <Stat
           name={'Dexterity'}
-          modifier={+modifier(dex.stat) + +dex.otherModifier}
+          modifier={Number(modifier(dex.stat)) + Number(dex.otherModifier)}
           handleStatChange={handleStatChange}
           handleOtherModifierChange={handleOtherModifierChange}
           stat={dex.stat}
@@ -102,7 +99,7 @@ export default function Stats(props) {
         />
         <Stat
           name={'Constitution'}
-          modifier={+modifier(con.stat) + +con.otherModifier}
+          modifier={Number(modifier(con.stat)) + Number(con.otherModifier)}
           handleStatChange={handleStatChange}
           handleOtherModifierChange={handleOtherModifierChange}
           stat={con.stat}
@@ -111,7 +108,7 @@ export default function Stats(props) {
         />
         <Stat
           name={'Intelligence'}
-          modifier={+modifier(int.stat) + +int.otherModifier}
+          modifier={Number(modifier(int.stat)) + Number(int.otherModifier)}
           handleStatChange={handleStatChange}
           handleOtherModifierChange={handleOtherModifierChange}
           stat={int.stat}
@@ -120,7 +117,7 @@ export default function Stats(props) {
         />
         <Stat
           name={'Wisdom'}
-          modifier={+modifier(wis.stat) + +wis.otherModifier}
+          modifier={Number(modifier(wis.stat)) + Number(wis.otherModifier)}
           handleStatChange={handleStatChange}
           handleOtherModifierChange={handleOtherModifierChange}
           stat={wis.stat}
@@ -129,7 +126,7 @@ export default function Stats(props) {
         />
         <Stat
           name={'Charisma'}
-          modifier={+modifier(cha.stat) + +cha.otherModifier}
+          modifier={Number(modifier(cha.stat)) + Number(cha.otherModifier)}
           handleStatChange={handleStatChange}
           handleOtherModifierChange={handleOtherModifierChange}
           stat={cha.stat}
@@ -147,6 +144,7 @@ Stats.prototype = {
   dex: PropTypes.string.require,
   int: PropTypes.string.require,
   lockStats: PropTypes.boolean,
+  otherModifier: PropTypes.string,
   setCha: PropTypes.func,
   setCon: PropTypes.func,
   setDex: PropTypes.func,
@@ -154,6 +152,8 @@ Stats.prototype = {
   setLockStats: PropTypes.string,
   setStr: PropTypes.func,
   setWis: PropTypes.func,
+  stat: PropTypes.string,
   str: PropTypes.string.require,
   wis: PropTypes.string.require,
+  modifier: PropTypes.string,
 };

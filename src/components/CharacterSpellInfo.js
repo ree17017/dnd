@@ -7,9 +7,10 @@ export default function CharacterSpellInfo({
   proficiency,
   preparedCount,
 }) {
-  const totalSpellAbilityModifier = 8 + +spellAbilityModifier + proficiency;
-  const spellAttackModifier = proficiency + +spellAbilityModifier;
-  const preparedSpells = +spellAbilityModifier + level;
+  const totalSpellAbilityModifier =
+    8 + Number(spellAbilityModifier) + proficiency;
+  const spellAttackModifier = proficiency + Number(spellAbilityModifier);
+  const preparedSpells = Number(spellAbilityModifier) + level;
   return (
     <div className="characterSpellInfo">
       <div>
