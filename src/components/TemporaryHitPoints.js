@@ -1,8 +1,8 @@
-import React from "react";
-import useLocalStorage from "react-localstorage-hook";
+import React from 'react';
+import useLocalStorage from 'react-localstorage-hook';
 
-export default function TemporaryHitPoints(props) {
-  const [hitPoints, setHitPoints] = useLocalStorage("hitpoints");
+export default function TemporaryHitPoints() {
+  const [hitPoints, setHitPoints] = useLocalStorage('hitpoints');
   return (
     <div className="temporaryHitPoints">
       <input

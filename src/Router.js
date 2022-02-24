@@ -1,5 +1,6 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import CharacterSheet from "./pages/CharacterSheet";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import CharacterSheet from './pages/CharacterSheet';
+import React from 'react';
 
 export default function Router() {
   return (

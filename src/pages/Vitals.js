@@ -1,17 +1,24 @@
-import React from "react";
-import ArmorClass from "../components/ArmorClass";
-import Attacks from "../components/Attacks";
-import DeathSaves from "../components/DeathSaves";
-import HitDice from "../components/HitDice";
-import HitPoints from "../components/HitPoints";
-import Proficiency from "../components/Proficiency";
+import ArmorClass from '../components/ArmorClass';
+import Attacks from '../components/Attacks';
+import DeathSaves from '../components/DeathSaves';
+import HitDice from '../components/HitDice';
+import HitPoints from '../components/HitPoints';
+import Proficiency from '../components/Proficiency';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 export default function Vitals(props) {
+  const { dex, wornArmor, acBonus, setAcBonus } = props;
   return (
     <div>
       <div className="vitals">
         <div>
-          <ArmorClass />
+          <ArmorClass
+            dex={dex}
+            wornArmor={wornArmor}
+            acBonus={acBonus}
+            setAcBonus={setAcBonus}
+          />
           <Proficiency />
         </div>
         <div>
@@ -26,3 +33,10 @@ export default function Vitals(props) {
     </div>
   );
 }
+
+Vitals.prototype = {
+  dex: PropTypes.string,
+  wornArmor: PropTypes.string,
+  acBonus: PropTypes.string,
+  setAcBonus: PropTypes.func,
+};

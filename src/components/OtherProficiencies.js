@@ -1,75 +1,72 @@
-import React, { useState } from "react";
-import useLocalStorage from "react-localstorage-hook";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import React, { useState } from 'react';
+import useLocalStorage from 'react-localstorage-hook';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function OtherProficiencies() {
   const [armorProficiencies, setArmorProficiencies] = useLocalStorage(
-    "armorProficiencies",
+    'armorProficiencies',
     []
   );
   const [weaponProficiencies, setWeaponProficiencies] = useLocalStorage(
-    "weaponProficiencies",
+    'weaponProficiencies',
     []
   );
-  const [savingThrow, setSavingThrow] = useLocalStorage("savingThrow", []);
-  const [armor, setArmor] = useState("");
-  const [weapon, setWeapon] = useState("");
-  const [save, setSave] = useState("");
+  const [savingThrow, setSavingThrow] = useLocalStorage('savingThrow', []);
+  const [armor, setArmor] = useState('');
+  const [weapon, setWeapon] = useState('');
+  const [save, setSave] = useState('');
 
   const handleAddProficiencies = (event) => {
-    
     switch (event.target.name) {
-      case "armor":
+      case 'armor': {
         if (armorProficiencies.find((value) => value === armor)) {
           toast(`${armor} is already on the list.`);
           return;
         }
         setArmorProficiencies([...armorProficiencies, armor]);
         break;
-
-      case "weapon":
+      }
+      case 'weapon': {
         if (weaponProficiencies.find((value) => value === weapon)) {
           toast(`${weapon} is already on the list.`);
           return;
         }
         setWeaponProficiencies([...weaponProficiencies, weapon]);
         break;
-
-      case "savingThrow":
-        
+      }
+      case 'savingThrow': {
         if (savingThrow.find((value) => value === save)) {
           toast(`${save} is already on the list.`);
           return;
         }
         setSavingThrow([...savingThrow, save]);
         break;
-
+      }
       default:
+        break;
     }
   };
 
   const handleRemoveProficiencies = (event) => {
-    
     switch (event.target.name) {
-      case "armor":
+      case 'armor':
         let armorList = armorProficiencies.filter(
           (armor) => armor !== event.target.id
         );
         setArmorProficiencies(armorList);
         break;
-      case "weapon":
+      case 'weapon':
         let weaponList = weaponProficiencies.filter(
           (weapon) => weapon !== event.target.id
         );
         setWeaponProficiencies(weaponList);
         break;
-      case "savingThrow":
+      case 'savingThrow':
         let saving = savingThrow.filter((saving) => saving !== event.target.id);
         setSavingThrow(saving);
         break;
       default:
-        
     }
   };
   return (
@@ -91,8 +88,8 @@ export default function OtherProficiencies() {
                 id={armor}
                 onClick={(event) => handleRemoveProficiencies(event)}
               >
-                {" "}
-                X{" "}
+                {' '}
+                X{' '}
               </button>
             </li>
           ))}
@@ -112,8 +109,8 @@ export default function OtherProficiencies() {
                 id={weapon}
                 onClick={(event) => handleRemoveProficiencies(event)}
               >
-                {" "}
-                X{" "}
+                {' '}
+                X{' '}
               </button>
             </li>
           ))}
@@ -136,8 +133,8 @@ export default function OtherProficiencies() {
                 id={saving}
                 onClick={(event) => handleRemoveProficiencies(event)}
               >
-                {" "}
-                X{" "}
+                {' '}
+                X{' '}
               </button>
             </li>
           ))}
@@ -147,13 +144,15 @@ export default function OtherProficiencies() {
       <button name="skills" onClick={(event) => handleAddProficiencies(event)}>
         Add
       </button>
-      <ul></ul>
+      <div>Not Working yet.</div>
+      {/* <ul></ul> */}
       <div>Other:</div>
       <input type="text" onChange={handleAddProficiencies} />
       <button name="other" onClick={(event) => handleAddProficiencies(event)}>
         Add
       </button>
-      <ul></ul>
+      <div>Not Working yet.</div>
+      {/* <ul></ul> */}
     </div>
   );
 }

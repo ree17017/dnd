@@ -1,8 +1,8 @@
-import React from "react";
-import useLocalStorage from "react-localstorage-hook";
+import React from 'react';
+import useLocalStorage from 'react-localstorage-hook';
 
-export default function DeathSaves(props) {
-  const [deathSaves, setDeathSaves] = useLocalStorage("deathSaves");
+export default function DeathSaves() {
+  const [deathSaves, setDeathSaves] = useLocalStorage('deathSaves');
 
   const handleDeathSaves = (event) => {
     if (deathSaves.indexOf(event.target.name) > -1) {
@@ -25,19 +25,19 @@ export default function DeathSaves(props) {
         <input
           type="checkbox"
           name="successes_1"
-          checked={isDeathSaveChecked("successes_1")}
+          checked={isDeathSaveChecked('successes_1')}
           onChange={handleDeathSaves}
         />
         <input
           type="checkbox"
           name="successes_2"
-          checked={isDeathSaveChecked("successes_2")}
+          checked={isDeathSaveChecked('successes_2')}
           onChange={handleDeathSaves}
         />
         <input
           type="checkbox"
           name="successes_3"
-          checked={isDeathSaveChecked("successes_3")}
+          checked={isDeathSaveChecked('successes_3')}
           onChange={handleDeathSaves}
         />
       </div>
@@ -46,19 +46,19 @@ export default function DeathSaves(props) {
         <input
           type="checkbox"
           name="failed_1"
-          checked={isDeathSaveChecked("failed_1")}
+          checked={isDeathSaveChecked('failed_1')}
           onChange={handleDeathSaves}
         />
         <input
           type="checkbox"
           name="failed_2"
-          checked={isDeathSaveChecked("failed_2")}
+          checked={isDeathSaveChecked('failed_2')}
           onChange={handleDeathSaves}
         />
         <input
           type="checkbox"
           name="failed_3"
-          checked={isDeathSaveChecked("failed_3")}
+          checked={isDeathSaveChecked('failed_3')}
           onChange={handleDeathSaves}
         />
       </div>

@@ -1,343 +1,352 @@
 * {
-    font-family: "Merriweather Sans", sans-serif;
+  font-family: "Merriweather Sans", sans-serif;
 }
 
 .header {
-    grid-area: header;
-    text-align: center;
+  grid-area: header;
+  text-align: center;
 }
 
 .header button {
-    margin-bottom: 8px;
+  margin-bottom: 8px;
 }
 
 .stats {
-    grid-area: stat;
-    text-align: center;
-    border: 1px dashed black;
-    margin: 0 16px 0 4px;
-    padding: 0 8px 0 0;
+  grid-area: stat;
+  text-align: center;
+  border: 1px dashed black;
+  margin: 0 16px 0 4px;
+  padding: 0 8px 0 0;
 }
 
 .stats li {
-    display: flex;
-    flex-flow: column;
-    flex-wrap: nowrap;
-    align-content: center;
-    justify-content: flex-end;
-    align-items: center;
+  display: flex;
+  flex-flow: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .input_small {
-    width: 40px;
-    text-align: center;
+  width: 40px;
+  text-align: center;
 }
 
 .savingthrows {
-    grid-area: savingthrows;
-    border: 1px dashed black;
-    padding-left: 12px;
-    padding-top: 8px;
-    margin-bottom: 4px;
-    display: flex;
+  grid-area: savingthrows;
+  border: 1px dashed black;
+  padding-left: 12px;
+  padding-top: 8px;
+  margin-bottom: 4px;
+  display: flex;
 }
 
 .skills {
-    grid-area: skill;
-    border: 1px dashed black;
-    padding-left: 8px;
-    padding-top: 8px;
-    margin-top: 4px;
+  grid-area: skill;
+  border: 1px dashed black;
+  padding-left: 8px;
+  padding-top: 8px;
+  margin-top: 4px;
 }
 
 .health {
-    grid-area: health;
-    border: 1px dashed black;
-    padding-left: 12px;
-    margin-left: 12px;
+  grid-area: health;
+  border: 1px dashed black;
+  padding-left: 12px;
+  margin-left: 12px;
 }
 
 .personality {
-    grid-area: personality;
-    border: 1px dashed black;
-    padding-left: 12px;
-    margin-left: 12px;
+  grid-area: personality;
+  border: 1px dashed black;
+  padding-left: 12px;
+  margin-left: 12px;
 }
 
 .spells {
-    grid-area: spells;
-    border: 1px dashed black;
-    padding-left: 12px;
-    margin: 4px;
+  grid-area: spells;
+  border: 1px dashed black;
+  padding-left: 12px;
+  margin: 4px;
 }
 
 .wornArmor {
-    grid-area: wornArmor;
-    border: 1px dashed black;
-    padding-left: 12px;
-    margin: 4px;
+  grid-area: wornArmor;
+  border: 1px dashed black;
+  padding-left: 12px;
+  margin: 4px;
 }
 
 .feats {
-    grid-area: feats;
-    border: 1px dashed black;
-    padding: 4px;
-    margin: 4px;
+  grid-area: feats;
+  border: 1px dashed black;
+  padding: 4px;
+  margin: 4px;
 }
 
 .feats-container {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .feat {
-    border: 1px solid black;
-    box-shadow: 4px 3px 8px 1px #969696;
-    display: flex;
-    flex-direction: column;
-    margin: 0 8px;
-    padding: 8px;
-    width: 257px;
-    height: 255px
+  border: 1px solid black;
+  box-shadow: 4px 3px 8px 1px #969696;
+  display: flex;
+  flex-direction: column;
+  margin: 0 8px;
+  padding: 8px;
+  width: 257px;
+  height: 255px;
 }
 
 .footer {
-    grid-area: footer;
+  grid-area: footer;
 }
 
 .grid-container {
-    display: grid;
-    grid-template-areas: "header header header header header" "stat savingthrows health health personality" "stat skill health health personality" "stat skill health health personality" "wornArmor wornArmor feats feats feats" "spells spells spells spells spells " "footer footer footer footer footer";
+  display: grid;
+  grid-template-areas: "header header header header header" "stat savingthrows health health personality" "stat skill health health personality" "stat skill health health personality" "wornArmor wornArmor feats feats feats" "spells spells spells spells spells " "footer footer footer footer footer";
 }
 
-.grid-container>div {
-    background-color: rgba(255, 255, 255, 0.8);
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 ul {
-    list-style-type: none;
+  list-style-type: none;
 }
 
-.skill>span {
-    display: flex;
-    justify-content: space-between;
+.skill > span {
+  display: flex;
+  justify-content: space-between;
 }
 
 h4 {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .character-flex-container {
-    display: flex;
-    flex-wrap: nowrap;
+  display: flex;
+  flex-wrap: nowrap;
 }
 
-.character-flex-container>div {
-    text-align: center;
-    font-size: 30px;
-    padding: 8px;
+.character-flex-container > div {
+  text-align: center;
+  font-size: 30px;
+  padding: 8px;
 }
 
 .name-text {
-    text-align: left;
-    font-size: 15px;
+  text-align: left;
+  font-size: 15px;
 }
 
 .item-text {
-    border-bottom: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 .character-info-flex-container {
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
 }
 
-.character-info-flex-container>div {
-    margin-top: 40px;
-    display: flex;
-    text-align: center;
-    font-size: 30px;
-    flex-direction: row;
+.character-info-flex-container > div {
+  margin-top: 40px;
+  display: flex;
+  text-align: center;
+  font-size: 30px;
+  flex-direction: row;
 }
 
-.character-info-flex-container>div>ul {
-    margin: 0;
+.character-info-flex-container > div > ul {
+  margin: 0;
 }
 
 img {
-    width: 300px;
-    margin-left: 16px;
+  width: 300px;
+  margin-left: 16px;
 }
 
 .modal_li {
-    padding: 12px;
+  padding: 12px;
 }
 
 .modal_input {
-    margin-left: 12px;
+  margin-left: 12px;
 }
 
 .skill_title {
-    background: lightgray;
-    text-align: left;
-    padding: 4px;
+  background: lightgray;
+  text-align: left;
+  padding: 4px;
 }
 
 .skill_flex-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-end;
-    width: 250px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  width: 250px;
 }
 
-.skill_flex-container>div:nth-child(2) {
-    margin-left: 24px;
-    margin-right: 8px;
+.skill_flex-container > div:nth-child(2) {
+  margin-left: 24px;
+  margin-right: 8px;
 }
 
-.skill_flex-container>div:nth-child(3) {
-    font-size: 1.3em;
-    margin-right: 8px;
+.skill_flex-container > div:nth-child(3) {
+  font-size: 1.3em;
+  margin-right: 8px;
 }
 
 .savingthrows_flex-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-end;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
 }
 
 .big-font {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .stats_padding {
-    margin: 8px 0;
-    padding: 8px 0;
-    border: 2px black solid;
-    border-radius: 10px;
+  margin: 8px 0;
+  padding: 8px 0;
+  border: 2px black solid;
+  border-radius: 10px;
 }
 
 .stats_input-border {
-    border: 1px black solid;
-    border-radius: 40px;
-    padding: 8px;
-    font-size: 12px;
+  border: 1px black solid;
+  border-radius: 40px;
+  padding: 8px;
+  font-size: 12px;
 }
 
 .hitDice,
 .deathSaves,
 .proficiency,
 .armorClass {
-    border: 1px black solid;
-    border-radius: 20px;
-    padding: 8px;
-    font-size: 12px;
-    width: 124px;
-    text-align: center;
-    margin: 8px 4px 8px 4px;
-    height: 105px;
-    box-shadow: 4px 3px 8px 1px #969696;
+  border: 1px black solid;
+  border-radius: 20px;
+  padding: 8px;
+  font-size: 12px;
+  width: 124px;
+  text-align: center;
+  margin: 8px 4px 8px 4px;
+  height: 105px;
+  box-shadow: 4px 3px 8px 1px #969696;
 }
 
 .hitpoints {
-    border: 1px black solid;
-    border-radius: 20px;
-    padding: 8px;
-    font-size: 12px;
-    width: 124px;
-    text-align: center;
-    margin: 8px 4px 8px 4px;
-    height: 155px;
-    box-shadow: 4px 3px 8px 1px #969696;
+  border: 1px black solid;
+  border-radius: 20px;
+  padding: 8px;
+  font-size: 12px;
+  width: 124px;
+  text-align: center;
+  margin: 8px 4px 8px 4px;
+  height: 155px;
+  box-shadow: 4px 3px 8px 1px #969696;
 }
 
 .armorClass_AC {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .vitals,
 .shield,
 .armor {
-    margin: 8px;
-    display: flex;
-    flex-flow: row;
+  margin: 8px;
+  display: flex;
+  flex-flow: row;
 }
 
-.armor>div,
-.shield>div {
-    padding: 0 8px;
-}
-
-.attack {
-    border: solid 1px black;
-    border-radius: 10px;
-    padding: 4px;
-    margin-bottom: 16px;
-    box-shadow: 4px 3px 8px 1px #969696;
-}
-
-.attack-title>div {
-    display: flex;
+.armor > div,
+.shield > div {
+  padding: 0 8px;
 }
 
 .spell-level {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .spell-info {
-    display: flex;
-    justify-content: flex-start;
-    border: solid 1px black;
-    border-radius: 10px;
-    padding: 8px;
-    margin: 8px;
-    flex-direction: column;
-    width: 250px;
-    box-shadow: 4px 3px 8px 1px #969696;
+  display: flex;
+  justify-content: flex-start;
+  border: solid 1px black;
+  border-radius: 10px;
+  padding: 8px;
+  margin: 8px;
+  flex-direction: column;
+  width: 250px;
+  box-shadow: 4px 3px 8px 1px #969696;
 }
 
 .spell-info_input {
-    width: 18em;
+  width: 18em;
 }
 
 .spell-info_textarea {
-    height: 430px;
-    width: 245px;
+  height: 430px;
+  width: 245px;
 }
 
 .spell-level_h1 {
-    background-color: gray;
-    height: 50px;
+  background-color: gray;
+  height: 50px;
 }
 
 .characterSpellInfo {
-    display: flex;
+  display: flex;
 }
 
-.characterSpellInfo>div {
-    margin: 8px;
+.characterSpellInfo > div {
+  margin: 8px;
 }
 
 .characterSpellInfo-info {
-    margin-top: 4px;
-    font-size: 10px;
-    color: gray;
-    width: 200px;
-    overflow: hidden;
+  margin-top: 4px;
+  font-size: 10px;
+  color: gray;
+  width: 200px;
+  overflow: hidden;
 }
 
 .proficiency-font {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 .attack_titles {
-    border: solid 1px black;
-    padding: 8px;
-    box-shadow: 4px 3px 8px 1px #969696;
-    margin: 8px;
+  border: solid 1px black;
+  padding: 8px;
+  box-shadow: 4px 3px 8px 1px #969696;
+  margin: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.attack_titles > textarea,
+.attack_titles > input {
+  margin: 4px;
+}
+
+.attack_titles > hr {
+  width: 100%;
+}
+
+.attack_titles > div {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+
+.attack_titles > div > div > input {
+  margin-left: 4px;
 }

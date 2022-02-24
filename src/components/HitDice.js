@@ -1,10 +1,10 @@
-import React from "react";
-import useLocalStorage from "react-localstorage-hook";
+import React from 'react';
+import useLocalStorage from 'react-localstorage-hook';
 
-export default function HitDice(props) {
-  const [hitDice, setHitDice] = useLocalStorage("hitDice", {
+export default function HitDice() {
+  const [hitDice, setHitDice] = useLocalStorage('hitDice', {
     count: 0,
-    dice: "d0",
+    dice: 'd0',
   });
   const handleHitDice = (event) => {
     setHitDice({ ...hitDice, [event.target.name]: event.target.value });

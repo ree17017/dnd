@@ -2,7 +2,7 @@ import React from "react";
 import useLocalStorage from "react-localstorage-hook";
 import TemporaryHitPoints from "./TemporaryHitPoints";
 
-export default function HitPoints(props) {
+export default function HitPoints() {
   const [hitPoints, setHitPoints] = useLocalStorage("hitpoints", {
     hp: 0,
     max: 0,

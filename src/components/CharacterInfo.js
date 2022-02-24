@@ -3,7 +3,7 @@ import useLocalStorage from "react-localstorage-hook";
 import ReactModal from "react-modal";
 import { ToastContainer, toast } from "react-toastify";
 
-export default function CharacterInfo(props) {
+export default function CharacterInfo() {
   const [characterName, setCharacterName] = useLocalStorage("characterInfo");
   const [characterclass, setCharacterClass] = useLocalStorage(
     "class",

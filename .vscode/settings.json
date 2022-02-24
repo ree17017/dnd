@@ -1,3 +1,4 @@
 {
-  "cSpell.words": ["characterclass", "pinst", "Toastify"]
+  "cSpell.words": ["characterclass", "pinst", "Toastify"],
+  "jest.jestCommandLine": "yarn run test --watch"
 }

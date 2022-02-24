@@ -1,17 +1,17 @@
-import React from "react";
-import useLocalStorage from "react-localstorage-hook";
-import { modifier } from "../tools/modifier";
-import { SkillsEnum } from "./enums";
+import React from 'react';
+import useLocalStorage from 'react-localstorage-hook';
+import { modifier } from '../tools/modifier';
+import { SkillsEnum } from './enums';
 
-export default function Skills(props) {
-  const [str] = useLocalStorage("str");
-  const [dex] = useLocalStorage("dex");
-  const [int] = useLocalStorage("int");
-  const [wis] = useLocalStorage("wis");
-  const [cha] = useLocalStorage("cha");
-  const [proficiency] = useLocalStorage("proficiency");
-  const [skills, setSkills] = useLocalStorage("skills");
-  const [expertise, setExpertise] = useLocalStorage("expertise");
+export default function Skills() {
+  const [str] = useLocalStorage('str');
+  const [dex] = useLocalStorage('dex');
+  const [int] = useLocalStorage('int');
+  const [wis] = useLocalStorage('wis');
+  const [cha] = useLocalStorage('cha');
+  const [proficiency] = useLocalStorage('proficiency');
+  const [skills, setSkills] = useLocalStorage('skills');
+  const [expertise, setExpertise] = useLocalStorage('expertise');
 
   const skillIndex = (name) => skills.indexOf(name);
   const expertiseIndex = (name) => expertise.indexOf(name);
@@ -72,7 +72,7 @@ export default function Skills(props) {
   };
 
   return (
-    <div style={{ width: "250px" }}>
+    <div style={{ width: '250px' }}>
       <div className="skill_title">Strength</div>
       {Object.keys(SkillsEnum.str).map((skill) => {
         return (
