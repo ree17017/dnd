@@ -1,4 +1,4 @@
-const SkillsEnum = {
+const SkillsEnum: any = {
   str: {
     athletics: "Athletics",
   },

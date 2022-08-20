@@ -4,17 +4,17 @@ import useLocalStorage from 'react-localstorage-hook';
 export default function DeathSaves() {
   const [deathSaves, setDeathSaves] = useLocalStorage('deathSaves');
 
-  const handleDeathSaves = (event) => {
+  const handleDeathSaves = (event: any) => {
     if (deathSaves.indexOf(event.target.name) > -1) {
       let saveDeathSaves = deathSaves.filter(
-        (deathSaves) => deathSaves !== event.target.name
+        (deathSaves: any) => deathSaves !== event.target.name
       );
       setDeathSaves([...saveDeathSaves]);
       return;
     }
     setDeathSaves([...deathSaves, event.target.name]);
   };
-  const isDeathSaveChecked = (name) => deathSaves.indexOf(name) > -1;
+  const isDeathSaveChecked = (name: any) => deathSaves.indexOf(name) > -1;
 
   return (
     <div className="deathSaves">

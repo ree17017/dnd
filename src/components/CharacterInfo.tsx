@@ -28,7 +28,7 @@ export default function CharacterInfo() {
     }
   };
 
-  const handleLevel = (event) => {
+  const handleLevel = (event: any) => {
     if (event.target.name === "minus") {
       setLevel(Math.round(+level - 1));
     } else if (event.target.name === "plus") {
@@ -177,6 +177,18 @@ export default function CharacterInfo() {
   );
 }
 
+interface CharacterInfoLayoutProps {
+  characterName: any,
+  characterclass: any,
+  level: any,
+  background: any,
+  playerName: any,
+  race: any,
+  speed: any,
+  alignment: any,
+  experience: any,
+}
+
 function CharacterInfoLayout({
   characterName,
   characterclass,
@@ -187,7 +199,7 @@ function CharacterInfoLayout({
   speed,
   alignment,
   experience,
-}) {
+}: CharacterInfoLayoutProps) {
   return (
     <div style={{ display: "flex", height: "204px" }}>
       <div className="character-flex-container">
@@ -216,7 +228,12 @@ function CharacterInfoLayout({
   );
 }
 
-function DisplayInfo({ item, title }) {
+interface DisplayInfoProps {
+  item: any;
+  title: any;
+}
+
+function DisplayInfo({ item, title }: DisplayInfoProps) {
   return (
     <ul data-testid={`${item}-${title}-ul`}>
       <li className="item-text">{item}</li>

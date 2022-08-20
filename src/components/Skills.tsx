@@ -13,13 +13,13 @@ export default function Skills() {
   const [skills, setSkills] = useLocalStorage('skills');
   const [expertise, setExpertise] = useLocalStorage('expertise');
 
-  const skillIndex = (name) => skills.indexOf(name);
-  const expertiseIndex = (name) => expertise.indexOf(name);
-  const isSkillChecked = (name) => skills.indexOf(name) > -1;
-  const isExpertiseChecked = (name) =>
+  const skillIndex = (name: string) => skills.indexOf(name);
+  const expertiseIndex = (name: string) => expertise.indexOf(name);
+  const isSkillChecked = (name: string) => skills.indexOf(name) > -1;
+  const isExpertiseChecked = (name: string) =>
     expertise.indexOf(`expertise-${name}`) > -1;
 
-  const skillTotal = (skill, stat) => {
+  const skillTotal = (skill: any, stat: any) => {
     let total = 0;
     if (skillIndex(skill) > -1) {
       total += +proficiency;
@@ -32,28 +32,28 @@ export default function Skills() {
     return +modifier(stat.stat) + +stat.otherModifier + +total;
   };
 
-  const handleSkillChange = (event) => {
+  const handleSkillChange = (event: any) => {
     if (skillIndex(event.target.name) === -1) {
       setSkills([...skills, event.target.name]);
       return;
     }
 
     if (skillIndex(event.target.name) > -1) {
-      let saveThis = skills.filter((skills) => skills !== event.target.name);
+      let saveThis = skills.filter((skills: any) => skills !== event.target.name);
 
       setSkills(saveThis);
     }
 
     if (expertiseIndex(`expertise-${event.target.name}`) > -1) {
       let saveThis = expertise.filter(
-        (expertise) => expertise !== `expertise-${event.target.name}`
+        (expertise: any) => expertise !== `expertise-${event.target.name}`
       );
 
       setExpertise(saveThis);
     }
   };
 
-  const handleExpertiseChange = (event) => {
+  const handleExpertiseChange = (event: any) => {
     if (
       expertiseIndex(event.target.name) === -1 &&
       skillIndex(event.target.name) === -1
@@ -64,7 +64,7 @@ export default function Skills() {
 
     if (expertiseIndex(event.target.name) > -1) {
       let saveThis = expertise.filter(
-        (expertise) => expertise !== event.target.name
+        (expertise: any) => expertise !== event.target.name
       );
 
       setExpertise(saveThis);
@@ -88,7 +88,7 @@ export default function Skills() {
           />
         );
       })}
-      <div colSpan="3" className="skill_title">
+      <div className="skill_title">
         Dexterity
       </div>
       {Object.keys(SkillsEnum.dex).map((skill) => {
@@ -105,7 +105,7 @@ export default function Skills() {
           />
         );
       })}
-      <div colSpan={3} className="skill_title">
+      <div className="skill_title">
         Intelligence
       </div>
       {Object.keys(SkillsEnum.int).map((skill) => {
@@ -122,7 +122,7 @@ export default function Skills() {
           />
         );
       })}
-      <div colSpan={3} className="skill_title">
+      <div className="skill_title">
         Wisdom
       </div>
       {Object.keys(SkillsEnum.wis).map((skill) => {
@@ -139,7 +139,7 @@ export default function Skills() {
           />
         );
       })}
-      <div colSpan={3} className="skill_title">
+      <div className="skill_title">
         Charisma
       </div>
       {Object.keys(SkillsEnum.cha).map((skill) => {
@@ -160,6 +160,16 @@ export default function Skills() {
   );
 }
 
+interface SkillProps {
+  name: any;
+  skill: any;
+  handleExpertiseChange: any;
+  handleSkillChange: any;
+  isSkillChecked: any;
+  isExpertiseChecked: any;
+  stat: any;
+}
+
 function Skill({
   name,
   skill,
@@ -168,7 +178,7 @@ function Skill({
   isSkillChecked,
   isExpertiseChecked,
   stat,
-}) {
+}: SkillProps) {
   return (
     <div className="skill_flex-container">
       <div> {name} </div>

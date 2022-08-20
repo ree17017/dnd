@@ -4,7 +4,7 @@ import useLocalStorage from 'react-localstorage-hook';
 export default function WornArmor() {
   const [wornArmor, setWornArmor] = useLocalStorage('wornArmor', {});
 
-  const handleWornArmor = (event) => {
+  const handleWornArmor = (event: any) => {
     const value = event.target.value;
     setWornArmor({ ...wornArmor, [event.target.name]: value });
   };

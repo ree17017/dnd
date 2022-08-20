@@ -5,7 +5,7 @@ export default function Feats() {
   const [feats, setFeats] = useLocalStorage("feats");
   const [featList, setFeatList] = useLocalStorage("featList", [0]);
 
-  const handleFeats = (event) => {
+  const handleFeats = (event: any) => {
     setFeats({ ...feats, [event.target.name]: event.target.value });
   };
 
@@ -13,11 +13,11 @@ export default function Feats() {
     setFeatList([...featList, +featList[featList.length - 1] + 1]);
   };
 
-  const handleRemoveFeat = (featId) => {
+  const handleRemoveFeat = (featId: any) => {
     // eslint-disable-next-line no-restricted-globals
     if (confirm("Are you sure you want to remove this feat?")) {
       if (featList.length > 0) {
-        let safeFeats = featList.filter((feat) => feat !== featId);
+        let safeFeats = featList.filter((feat: any) => feat !== featId);
         setFeats({
           ...feats,
           [`featName-${featId}`]: "",
@@ -32,7 +32,7 @@ export default function Feats() {
     <div className="feats-container">
       <button onClick={addFeats}>Add Feat</button>
 
-      {featList.map((featId) => (
+      {featList.map((featId: any) => (
         <div className="feat" key={featId}>
           {featId !== 0 && (
             <button onClick={() => handleRemoveFeat(featId)}>
@@ -50,8 +50,8 @@ export default function Feats() {
           <textarea
             name={`featDescription-${featId}`}
             onChange={handleFeats}
-            cols="30"
-            rows="10"
+            cols={30}
+            rows={10}
             value={feats[`featDescription-${featId}`]}
           />
         </div>

@@ -3,7 +3,27 @@ import React from 'react';
 import Stat from './Stat';
 import { modifier } from '../tools/modifier';
 
-export default function Stats(props) {
+interface StatProps {
+  cha: string,
+  con: string,
+  dex: string,
+  int: string,
+  lockStats: boolean,
+  otherModifier: string,
+  setCha: () => void,
+  setCon: () => void,
+  setDex: () => void,
+  setInt: () => void,
+  setLockStats: string,
+  setStr: () => void,
+  setWis: () => void,
+  stat: string,
+  str: string,
+  wis: string,
+  modifier: string,
+}
+
+export default function Stats(props: any) {
   const {
     cha,
     con,
@@ -21,7 +41,7 @@ export default function Stats(props) {
     wis,
   } = props;
 
-  const handleStatChange = (event) => {
+  const handleStatChange = (event: any) => {
     switch (event.target.name) {
       case 'Strength':
         setStr({ ...str, stat: event.target.value });
@@ -44,7 +64,7 @@ export default function Stats(props) {
       default:
     }
   };
-  const handleOtherModifierChange = (event) => {
+  const handleOtherModifierChange = (event: any) => {
     switch (event.target.name) {
       case 'Strength':
         setStr({ ...str, otherModifier: event.target.value });
@@ -137,23 +157,3 @@ export default function Stats(props) {
     </div>
   );
 }
-
-Stats.prototype = {
-  cha: PropTypes.string.require,
-  con: PropTypes.string.require,
-  dex: PropTypes.string.require,
-  int: PropTypes.string.require,
-  lockStats: PropTypes.boolean,
-  otherModifier: PropTypes.string,
-  setCha: PropTypes.func,
-  setCon: PropTypes.func,
-  setDex: PropTypes.func,
-  setInt: PropTypes.func,
-  setLockStats: PropTypes.string,
-  setStr: PropTypes.func,
-  setWis: PropTypes.func,
-  stat: PropTypes.string,
-  str: PropTypes.string.require,
-  wis: PropTypes.string.require,
-  modifier: PropTypes.string,
-};

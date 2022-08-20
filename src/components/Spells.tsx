@@ -18,7 +18,7 @@ export default function Spells() {
   const [preparedCount, setPreparedCount] =
     useLocalStorage('preparedSpellCount');
   const [domainSpells, setDomainSpells] = useLocalStorage('domainSpells');
-  const handleSpellList = (event) => {
+  const handleSpellList = (event: any) => {
     setSpellList({ ...spellList, [event.target.name]: event.target.value });
   };
   const [spellCount, setSpellCount] = useLocalStorage('spellCount', {
@@ -33,7 +33,7 @@ export default function Spells() {
     8: [0],
     9: [0],
   });
-  const [isSpellListHidden, setIsSpellListHidden] = useState({
+  const [isSpellListHidden, setIsSpellListHidden] = useState<any>({
     cantrip: false,
     1: false,
     2: false,
@@ -46,14 +46,14 @@ export default function Spells() {
     9: false,
   });
 
-  const handleHideSpellList = (event) => {
+  const handleHideSpellList = (event: any) => {
     setIsSpellListHidden({
       ...isSpellListHidden,
       [event.target.id]: !isSpellListHidden[event.target.id],
     });
   };
 
-  const handlePreparedDomainSpells = (event) => {
+  const handlePreparedDomainSpells = (event: any) => {
     // prepared spells list
     if (event.target.name.indexOf('prepared') !== -1) {
       if (preparedCount.indexOf(event.target.name) === -1) {
@@ -64,7 +64,7 @@ export default function Spells() {
 
     if (preparedCount.indexOf(event.target.name) > -1) {
       let saveThis = preparedCount.filter(
-        (preparedName) => preparedName !== event.target.name
+        (preparedName: any) => preparedName !== event.target.name
       );
       setPreparedCount(saveThis);
     }
@@ -79,13 +79,13 @@ export default function Spells() {
 
     if (domainSpells.indexOf(event.target.name) > -1) {
       let saveThis = domainSpells.filter(
-        (domainName) => domainName !== event.target.name
+        (domainName: any) => domainName !== event.target.name
       );
       setDomainSpells(saveThis);
     }
   };
 
-  const handleSpellCastingAbility = (event) => {
+  const handleSpellCastingAbility = (event: any) => {
     setSpellCastingAbility(event.target.value);
   };
 
@@ -99,7 +99,7 @@ export default function Spells() {
     }
   };
 
-  const handleAddSpell = (event) => {
+  const handleAddSpell = (event: any) => {
     setSpellCount({
       ...spellCount,
       [event.target.title]: [
@@ -111,11 +111,11 @@ export default function Spells() {
     });
   };
 
-  const handleRemoveSpell = (event) => {
+  const handleRemoveSpell = (event: any) => {
     // eslint-disable-next-line no-restricted-globals
     if (confirm('Are you sure you want to remove this spell?')) {
       if (spellCount[event.target.id].length > 0) {
-        let saveThis = spellCount[event.target.id].filter((spell) => {
+        let saveThis = spellCount[event.target.id].filter((spell: any) => {
           return spell !== +event.target.title;
         });
 

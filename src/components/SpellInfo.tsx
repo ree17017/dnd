@@ -1,5 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types'
+
+interface SpellInfoProps {
+  title: any;
+  handleSpellList: any;
+  preparedCount: any;
+  spellList: any;
+  spellLevel: any;
+  domainSpells: any;
+  handleHideSpellList: any;
+  handlePreparedDomainSpells: any;
+  handleRemoveSpell: any;
+  isSpellListHidden: any;
+}
+
 export default function SpellInfo({
   title,
   handleSpellList,
@@ -9,9 +23,9 @@ export default function SpellInfo({
   domainSpells,
   handlePreparedDomainSpells,
   handleRemoveSpell,
-}) {
-  const isDomainChecked = (name) => domainSpells.indexOf(name) > -1;
-  const isPreparedChecked = (name) => preparedCount.indexOf(name) > -1;
+}: SpellInfoProps) {
+  const isDomainChecked = (name: string) => domainSpells.indexOf(name) > -1;
+  const isPreparedChecked = (name: string) => preparedCount.indexOf(name) > -1;
 
   return (
     <div key={`spell-${spellLevel}-${title}`} className="spell-info">
@@ -114,7 +128,6 @@ export default function SpellInfo({
           />
           <div>Advanced Components</div>
           <textarea
-            type="text"
             onChange={handleSpellList}
             name={`spell-${spellLevel}-${title}-advanced-components`}
             value={
@@ -157,7 +170,6 @@ export default function SpellInfo({
         <div>
           <div>Description</div>
           <textarea
-            type="text"
             onChange={handleSpellList}
             name={`spell-${spellLevel}-${title}-desc`}
             value={spellList[`spell-${spellLevel}-${title}-desc`]}
@@ -167,7 +179,6 @@ export default function SpellInfo({
         <div>
           <div>At Higher Levels</div>
           <textarea
-            type="text"
             onChange={handleSpellList}
             name={`spell-${spellLevel}-${title}-at-higher-levels`}
             value={spellList[`spell-${spellLevel}-${title}-at-higher-levels`]}
@@ -177,7 +188,6 @@ export default function SpellInfo({
         <div>
           <div>Notes</div>
           <textarea
-            type="text"
             className="spell-info_textarea"
             onChange={handleSpellList}
             name={`spell-${spellLevel}-${title}-notes`}

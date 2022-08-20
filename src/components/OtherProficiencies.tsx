@@ -17,10 +17,10 @@ export default function OtherProficiencies() {
   const [weapon, setWeapon] = useState('');
   const [save, setSave] = useState('');
 
-  const handleAddProficiencies = (event) => {
+  const handleAddProficiencies = (event: any) => {
     switch (event.target.name) {
       case 'armor': {
-        if (armorProficiencies.find((value) => value === armor)) {
+        if (armorProficiencies.find((value: any) => value === armor)) {
           toast(`${armor} is already on the list.`);
           return;
         }
@@ -28,7 +28,7 @@ export default function OtherProficiencies() {
         break;
       }
       case 'weapon': {
-        if (weaponProficiencies.find((value) => value === weapon)) {
+        if (weaponProficiencies.find((value: any) => value === weapon)) {
           toast(`${weapon} is already on the list.`);
           return;
         }
@@ -36,7 +36,7 @@ export default function OtherProficiencies() {
         break;
       }
       case 'savingThrow': {
-        if (savingThrow.find((value) => value === save)) {
+        if (savingThrow.find((value: any) => value === save)) {
           toast(`${save} is already on the list.`);
           return;
         }
@@ -48,22 +48,22 @@ export default function OtherProficiencies() {
     }
   };
 
-  const handleRemoveProficiencies = (event) => {
+  const handleRemoveProficiencies = (event: any) => {
     switch (event.target.name) {
       case 'armor':
         let armorList = armorProficiencies.filter(
-          (armor) => armor !== event.target.id
+          (armor: any) => armor !== event.target.id
         );
         setArmorProficiencies(armorList);
         break;
       case 'weapon':
         let weaponList = weaponProficiencies.filter(
-          (weapon) => weapon !== event.target.id
+          (weapon: any) => weapon !== event.target.id
         );
         setWeaponProficiencies(weaponList);
         break;
       case 'savingThrow':
-        let saving = savingThrow.filter((saving) => saving !== event.target.id);
+        let saving = savingThrow.filter((saving: any) => saving !== event.target.id);
         setSavingThrow(saving);
         break;
       default:
@@ -80,7 +80,7 @@ export default function OtherProficiencies() {
       </button>
       <ul>
         {armorProficiencies.length > 0 &&
-          armorProficiencies.map((armor) => (
+          armorProficiencies.map((armor: any) => (
             <li key={armor}>
               {armor}
               <button
@@ -101,7 +101,7 @@ export default function OtherProficiencies() {
       </button>
       <ul>
         {weaponProficiencies.length > 0 &&
-          weaponProficiencies.map((weapon) => (
+          weaponProficiencies.map((weapon: any) => (
             <li key={weapon}>
               {weapon}
               <button
@@ -125,7 +125,7 @@ export default function OtherProficiencies() {
       </button>
       <ul>
         {savingThrow.length > 0 &&
-          savingThrow.map((saving) => (
+          savingThrow.map((saving: any) => (
             <li key={saving}>
               {saving}
               <button

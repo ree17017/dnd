@@ -22,11 +22,11 @@ export default function Attacks() {
   );
 
   //{"attackName1":"","attackRange1":"","attackBonus1":"","damage1":"","type1":""}
-  const handleAttacks = (event) => {
+  const handleAttacks = (event: any) => {
     setAttacks({ ...attacks, [event.target.name]: event.target.value });
   };
 
-  const handleAttackProficiency = (event) => {
+  const handleAttackProficiency = (event: any) => {
     if (attackProficiency.indexOf(event.target.name) === -1) {
       setAttackProficiency([...attackProficiency, event.target.name]);
       return;
@@ -34,13 +34,13 @@ export default function Attacks() {
 
     if (attackProficiency.indexOf(event.target.name) > -1) {
       const saveThis = attackProficiency.filter(
-        (attackName) => attackName !== event.target.name
+        (attackName: any) => attackName !== event.target.name
       );
       setAttackProficiency(saveThis);
     }
   };
 
-  const handleAttackModifier = (event) => {
+  const handleAttackModifier = (event: any) => {
     if (attackModifier.indexOf(event.target.name) === -1) {
       setAttackModifier([...attackModifier, event.target.name]);
       return;
@@ -48,7 +48,7 @@ export default function Attacks() {
 
     if (attackModifier.indexOf(event.target.name) > -1) {
       let saveThis = attackModifier.filter(
-        (attackName) => attackName !== event.target.name
+        (attackName: any) => attackName !== event.target.name
       );
       setAttackModifier(saveThis);
     }
@@ -56,11 +56,11 @@ export default function Attacks() {
 
   const handleAddAction = () =>
     setActionList([...actionList, +actionList[actionList.length - 1] + 1]);
-  const handleRemoveAction = (removeNumber) => {
+  const handleRemoveAction = (removeNumber: any) => {
     // eslint-disable-next-line no-restricted-globals
     if (confirm('Are you sure you want to remove this action?')) {
       if (actionList.length > 0) {
-        let saveThis = actionList.filter((action) => action !== removeNumber);
+        let saveThis = actionList.filter((action: any) => action !== removeNumber);
         setActionList(saveThis);
       }
     }
@@ -69,7 +69,7 @@ export default function Attacks() {
   return (
     <div className="attacks">
       <button onClick={handleAddAction}>Add Action</button>
-      {actionList.map((action) => (
+      {actionList.map((action: any) => (
         <Attack
           key={`attack-${action}`}
           handleAttacks={handleAttacks}

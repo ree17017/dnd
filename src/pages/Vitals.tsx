@@ -7,7 +7,15 @@ import Proficiency from '../components/Proficiency';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-export default function Vitals(props) {
+interface VitalsProps {
+  dex: string,
+  wornArmor: string,
+  acBonus: string,
+  setAcBonus: () => void,
+
+}
+
+export default function Vitals(props: any) {
   const { dex, wornArmor, acBonus, setAcBonus } = props;
   return (
     <div>

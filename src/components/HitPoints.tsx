@@ -9,11 +9,11 @@ export default function HitPoints() {
     temp: 0,
   });
 
-  const handleHitPoints = (event) => {
+  const handleHitPoints = (event: any) => {
     setHitPoints({ ...hitPoints, [event.target.name]: event.target.value });
   };
 
-  const handleHitPointChange = (event) => {
+  const handleHitPointChange = (event: any) => {
     event.target.name === "plus"
       ? setHitPoints({ ...hitPoints, hp: hitPoints.hp + 1 })
       : setHitPoints({ ...hitPoints, hp: hitPoints.hp - 1 });

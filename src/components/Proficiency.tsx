@@ -17,7 +17,7 @@ export default function Proficiency() {
           min="0"
           step="1"
           className="input_small"
-          onChange={(event) => setProficiency(Math.round(event.target.value))}
+          onChange={(event) => setProficiency(Math.round(parseFloat(event.target.value)))}
         />
       </div>
       <div style={{ padding: '8px' }}>Proficiency Bonus</div>

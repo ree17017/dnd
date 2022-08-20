@@ -12,9 +12,9 @@ export default function SavingThrows() {
   const [proficiency] = useLocalStorage('proficiency');
   const [saves, setSaves] = useLocalStorage('saves', []);
 
-  const index = (name) => saves.indexOf(name);
+  const index = (name: string) => saves.indexOf(name);
 
-  const handleChecked = (event) => {
+  const handleChecked = (event: any) => {
     if (index(event.target.name) === -1) {
       setSaves([...saves, event.target.name]);
       return;
@@ -28,17 +28,17 @@ export default function SavingThrows() {
     }
   };
 
-  const add = (num1, num2) => {
+  const add = (num1: number, num2: number) => {
     return +num1 + +num2;
   };
 
-  const saveStat = (name, stat) => {
+  const saveStat = (name: string, stat: any) => {
     return isChecked(name)
       ? add(modifier(stat.stat), proficiency) + +stat.otherModifier
       : modifier(stat.stat) + +stat.otherModifier;
   };
 
-  const isChecked = (name) => index(name) > -1;
+  const isChecked = (name: string) => index(name) > -1;
 
   return (
     <div>

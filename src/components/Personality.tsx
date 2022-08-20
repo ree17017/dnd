@@ -1,14 +1,14 @@
 import React from "react";
 import useLocalStorage from "react-localstorage-hook";
 
-export default function Personality(props) {
+export default function Personality(props: any) {
   const [personality, setPersonality] = useLocalStorage("personality", {
     traits: "",
     ideals: "",
     bonds: "",
     flaws: "",
   });
-  const handlePersonalityChange = (event) => {
+  const handlePersonalityChange = (event: any) => {
     setPersonality({ ...personality, [event.target.name]: event.target.value });
   };
   return (
@@ -17,8 +17,8 @@ export default function Personality(props) {
       <textarea
         name="traits"
         id=""
-        cols="30"
-        rows="5"
+        cols={30}
+        rows={5}
         value={personality.traits}
         onChange={handlePersonalityChange}
       />
@@ -26,8 +26,8 @@ export default function Personality(props) {
       <textarea
         name="ideals"
         id=""
-        cols="30"
-        rows="5"
+        cols={30}
+        rows={5}
         value={personality.ideals}
         onChange={handlePersonalityChange}
       />
@@ -35,8 +35,8 @@ export default function Personality(props) {
       <textarea
         name="bonds"
         id=""
-        cols="30"
-        rows="5"
+        cols={30}
+        rows={5}
         value={personality.bonds}
         onChange={handlePersonalityChange}
       />
@@ -44,8 +44,8 @@ export default function Personality(props) {
       <textarea
         name="flaws"
         id=""
-        cols="30"
-        rows="5"
+        cols={30}
+        rows={5}
         value={personality.flaws}
         onChange={handlePersonalityChange}
       />

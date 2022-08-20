@@ -1,5 +1,15 @@
 import React from 'react';
 
+interface StatProps {
+  name: any;
+  lockStats: any;
+  modifier: any;
+  stat: any;
+  handleStatChange: any;
+  handleOtherModifierChange: any;
+  otherModifier: any;
+}
+
 export default function Stat({
   name,
   lockStats,
@@ -8,9 +18,9 @@ export default function Stat({
   handleStatChange,
   handleOtherModifierChange,
   otherModifier,
-}) {
-  const statChange = (event) => handleStatChange(event);
-  const otherModifierChange = (event) => handleOtherModifierChange(event);
+}: StatProps) {
+  const statChange = (event: any) => handleStatChange(event);
+  const otherModifierChange = (event: any) => handleOtherModifierChange(event);
   return (
     <li key={name} className="stats_padding">
       <div>{name} </div>

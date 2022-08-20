@@ -6,7 +6,7 @@ export default function HitDice() {
     count: 0,
     dice: 'd0',
   });
-  const handleHitDice = (event) => {
+  const handleHitDice = (event: any) => {
     setHitDice({ ...hitDice, [event.target.name]: event.target.value });
   };
   return (

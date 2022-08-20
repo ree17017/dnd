@@ -1,4 +1,11 @@
 import React from 'react';
+interface CharacterSpellInfoProps {
+  handleSpellCastingAbility: any;
+  spellAbilityModifier: any;
+  level: any;
+  proficiency: any;
+  preparedCount: any;
+}
 
 export default function CharacterSpellInfo({
   handleSpellCastingAbility,
@@ -6,7 +13,7 @@ export default function CharacterSpellInfo({
   level,
   proficiency,
   preparedCount,
-}) {
+}: CharacterSpellInfoProps) {
   const totalSpellAbilityModifier =
     8 + Number(spellAbilityModifier) + proficiency;
   const spellAttackModifier = proficiency + Number(spellAbilityModifier);
