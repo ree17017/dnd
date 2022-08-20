@@ -1,18 +1,15 @@
-const express = require("express");
+const express =  require("express");
+const { resolve } = require("path");
+
 const app = express();
-
-const path = require("path");
-
 const port = process.env.PORT || 5000;
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("build"));
-  app.get("*", (req) => {
-    req.sendFile(path.resolve(__dirname, "build", "index.html"));
-  });
-}
+if (process.env.NODE_ENV !== "production") throw Error(`NODE_ENV must be 'production'. Use 'yarn dev' for development.`);
 
-app.listen(port, (err) => {
-  if (err) return 
-  
+app.use(express.static("build"));
+
+app.get("*", (req, res) => {
+  res.sendFile(resolve(__dirname, "build", "index.html"));
 });
+
+app.listen(port, () => console.log(`Serving on port: ${port}`));
