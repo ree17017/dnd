@@ -1,5 +1,16 @@
 import React from 'react';
 
+interface AttackProps {
+  attackValue: any,
+  attackNumber: any,
+  handleAttacks: any,
+  handleAttackProficiency: any,
+  attackProficiency: any,
+  handleAttackModifier: any,
+  attackModifier: any,
+  handleRemoveAction: any,
+}
+
 export default function Attack({
   attackValue,
   attackNumber,
@@ -9,11 +20,13 @@ export default function Attack({
   handleAttackModifier,
   attackModifier,
   handleRemoveAction,
-}) {
+}: AttackProps) {
   const isAttackProficiencyChecked =
     attackProficiency.indexOf(`attackProficiency${attackNumber}`) > -1;
-  const isAttackModifierChecked = (name) =>
+  const isAttackModifierChecked = (name: any) =>
     attackModifier.indexOf(`modeType${attackNumber}-${name}`) > -1;
+
+
   return (
     <>
       {attackNumber !== 0 && (
@@ -111,7 +124,6 @@ export default function Attack({
         />
         Notes
         <textarea
-          type="text"
           value={attackValue[`notes${attackNumber}`]}
           onChange={handleAttacks}
           name={`notes${attackNumber}`}
