@@ -1,7 +1,7 @@
-import React, { ChangeEvent, useEffect } from 'react';
+import React, { ChangeEvent } from 'react';
 import useLocalStorage from 'react-localstorage-hook';
 import { calculateModifier } from '../tools/calculateModifier';
-import SmallNumberInput, { SmallNumberInputProps, useWithSmallNumberInput } from './form/SmallNumberInput';
+import SmallNumberInput, { SmallNumberInputProps } from './form/SmallNumberInput';
 
 export interface StatProps {
   name: string;
@@ -44,8 +44,6 @@ export const useWithStat = ({
   isLocked = false,
 }: UseWithStatArgs): StatProps => {
   const [storage, setStorage] = useLocalStorage(id, { stat: 0, otherModifier: 0 });
-
-
 
   const stat: SmallNumberInputProps = {
     name,
