@@ -19,7 +19,6 @@ function CharacterSheet() {
   const stats = useWithStats();
   
   const dexModifier = +calculateModifier(stats.dex.stat.value) + +stats.dex.otherModifier.value;
-  const wisModifier = +calculateModifier(stats.dex.stat.value) + +stats.dex.otherModifier.value;
 
   return (
     <div className="grid-container">
@@ -39,7 +38,6 @@ function CharacterSheet() {
         <Vitals
           acBonus={acBonus}
           dexModifier={dexModifier}
-          wisModifier={wisModifier}
           setAcBonus={setAcBonus}
           wornArmor={wornArmor}
         />

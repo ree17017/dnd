@@ -9,14 +9,13 @@ import React from 'react';
 
 interface VitalsProps {
   dexModifier: number;
-  wisModifier: number;
   wornArmor: string;
   acBonus: string;
   setAcBonus: () => void;
 }
 
 export default function Vitals(props: VitalsProps) {
-  const { wornArmor, acBonus, dexModifier, wisModifier, setAcBonus } = props;
+  const { wornArmor, acBonus, dexModifier, setAcBonus } = props;
   
   return (
     <div>
