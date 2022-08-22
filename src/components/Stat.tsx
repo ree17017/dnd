@@ -1,7 +1,10 @@
 import React, { ChangeEvent } from 'react';
-import useLocalStorage from 'react-localstorage-hook';
+import SmallNumberInput, {
+  SmallNumberInputProps,
+} from './form/SmallNumberInput';
+
 import { calculateModifier } from '../tools/calculateModifier';
-import SmallNumberInput, { SmallNumberInputProps } from './form/SmallNumberInput';
+import useLocalStorage from 'react-localstorage-hook';
 
 export interface StatProps {
   name: string;
@@ -9,12 +12,8 @@ export interface StatProps {
   otherModifier: SmallNumberInputProps;
 }
 
-export default function Stat({
-  name,
-  stat,
-  otherModifier,
-}: StatProps) {
-  const modifier = calculateModifier(stat.value) + otherModifier.value;
+export default function Stat({ name, stat, otherModifier }: StatProps) {
+  const modifier = calculateModifier(stat.value) + Number(otherModifier.value);
 
   return (
     <li key={name} className="stats_padding">
@@ -35,43 +34,45 @@ type UseWithStatArgs = {
   id: string;
   name: string;
   isLocked?: boolean;
-}
+};
 
-
-export const useWithStat = ({ 
+export const useWithStat = ({
   id,
-  name, 
+  name,
   isLocked = false,
 }: UseWithStatArgs): StatProps => {
-  const [storage, setStorage] = useLocalStorage(id, { stat: 0, otherModifier: 0 });
+  const [storage, setStorage] = useLocalStorage(id, {
+    stat: 0,
+    otherModifier: 0,
+  });
 
   const stat: SmallNumberInputProps = {
     name,
     isLocked,
     value: storage.stat,
     onChange: function (event: ChangeEvent<HTMLInputElement>): void {
-      setStorage({ 
+      setStorage({
         ...storage,
         stat: event.target.value,
-      })
-    }
-  }
+      });
+    },
+  };
 
   const otherModifier: SmallNumberInputProps = {
     name,
     isLocked: false,
     value: storage.otherModifier,
     onChange: function (event: ChangeEvent<HTMLInputElement>): void {
-      setStorage({ 
+      setStorage({
         ...storage,
         otherModifier: event.target.value,
-      })
-    }
-  }
+      });
+    },
+  };
 
   return {
     name,
     stat,
     otherModifier,
-  }
-}
+  };
+};

@@ -4,7 +4,6 @@ import DeathSaves from '../components/DeathSaves';
 import HitDice from '../components/HitDice';
 import HitPoints from '../components/HitPoints';
 import Proficiency from '../components/Proficiency';
-import PropTypes from 'prop-types';
 import React from 'react';
 
 interface VitalsProps {
@@ -16,7 +15,7 @@ interface VitalsProps {
 
 export default function Vitals(props: VitalsProps) {
   const { wornArmor, acBonus, dexModifier, setAcBonus } = props;
-  
+
   return (
     <div>
       <div className="vitals">
@@ -41,10 +40,3 @@ export default function Vitals(props: VitalsProps) {
     </div>
   );
 }
-
-Vitals.prototype = {
-  dex: PropTypes.string,
-  wornArmor: PropTypes.string,
-  acBonus: PropTypes.string,
-  setAcBonus: PropTypes.func,
-};

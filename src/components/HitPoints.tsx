@@ -1,9 +1,9 @@
-import React from "react";
-import useLocalStorage from "react-localstorage-hook";
-import TemporaryHitPoints from "./TemporaryHitPoints";
+import React from 'react';
+import TemporaryHitPoints from './TemporaryHitPoints';
+import useLocalStorage from 'react-localstorage-hook';
 
 export default function HitPoints() {
-  const [hitPoints, setHitPoints] = useLocalStorage("hitpoints", {
+  const [hitPoints, setHitPoints] = useLocalStorage('hitpoints', {
     hp: 0,
     max: 0,
     temp: 0,
@@ -14,7 +14,7 @@ export default function HitPoints() {
   };
 
   const handleHitPointChange = (event: any) => {
-    event.target.name === "plus"
+    event.target.name === 'plus'
       ? setHitPoints({ ...hitPoints, hp: hitPoints.hp + 1 })
       : setHitPoints({ ...hitPoints, hp: hitPoints.hp - 1 });
   };
@@ -25,7 +25,7 @@ export default function HitPoints() {
     <div className="hitpoints">
       <div>HP</div>
       <div>
-        {hitPoints.hp} + {hitPoints.temp} =
+        {hitPoints.hp} + {hitPoints.temp} = {totalHitPoints}
       </div>
       <button onClick={handleHitPointChange} name="minus">
         -
