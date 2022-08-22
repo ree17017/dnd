@@ -1,159 +1,88 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import Stat from './Stat';
-import { modifier } from '../tools/modifier';
+import LockButton, { LockButtonProps, useWithLockButton } from './form/LockButton';
+import Stat, { StatProps, useWithStat } from './Stat';
 
-interface StatProps {
-  cha: string,
-  con: string,
-  dex: string,
-  int: string,
-  lockStats: boolean,
-  otherModifier: string,
-  setCha: () => void,
-  setCon: () => void,
-  setDex: () => void,
-  setInt: () => void,
-  setLockStats: string,
-  setStr: () => void,
-  setWis: () => void,
-  stat: string,
-  str: string,
-  wis: string,
-  modifier: string,
+export interface StatsProps {
+  lock: LockButtonProps; 
+  str: StatProps; 
+  dex: StatProps;
+  con: StatProps; 
+  int: StatProps;
+  wis: StatProps;
+  cha: StatProps;
 }
 
-export default function Stats(props: any) {
-  const {
-    cha,
-    con,
-    dex,
-    int,
-    lockStats,
-    setCha,
-    setCon,
-    setDex,
-    setInt,
-    setLockStats,
-    setStr,
-    setWis,
-    str,
-    wis,
-  } = props;
+export default function Stats({
+  lock,
+  str,
+  dex,
+  con,
+  int,
+  wis,
+  cha,
+}: StatsProps) {
 
-  const handleStatChange = (event: any) => {
-    switch (event.target.name) {
-      case 'Strength':
-        setStr({ ...str, stat: event.target.value });
-        break;
-      case 'Dexterity':
-        setDex({ ...dex, stat: event.target.value });
-        break;
-      case 'Constitution':
-        setCon({ ...con, stat: event.target.value });
-        break;
-      case 'Intelligence':
-        setInt({ ...int, stat: event.target.value });
-        break;
-      case 'Wisdom':
-        setWis({ ...wis, stat: event.target.value });
-        break;
-      case 'Charisma':
-        setCha({ ...cha, stat: event.target.value });
-        break;
-      default:
-    }
-  };
-  const handleOtherModifierChange = (event: any) => {
-    switch (event.target.name) {
-      case 'Strength':
-        setStr({ ...str, otherModifier: event.target.value });
-        break;
-      case 'Dexterity':
-        setDex({ ...dex, otherModifier: event.target.value });
-        break;
-      case 'Constitution':
-        setCon({ ...con, otherModifier: event.target.value });
-        break;
-      case 'Intelligence':
-        setInt({ ...int, otherModifier: event.target.value });
-        break;
-      case 'Wisdom':
-        setWis({ ...wis, otherModifier: event.target.value });
-        break;
-      case 'Charisma':
-        setCha({ ...cha, otherModifier: event.target.value });
-        break;
-      default:
-    }
-  };
-
-  const handleLockStats = () => {
-    setLockStats(!lockStats);
-  };
-
-  const isLocked = lockStats ? 'Locked' : 'Unlocked';
   return (
     <div>
-      <button type="button" aria-label="lock" onClick={handleLockStats}>
-        {isLocked}
-      </button>
+      <LockButton {...lock} />
       <ul>
-        <Stat
-          name={'Strength'}
-          modifier={Number(modifier(str.stat)) + Number(str.otherModifier)}
-          handleStatChange={handleStatChange}
-          handleOtherModifierChange={handleOtherModifierChange}
-          stat={str.stat}
-          otherModifier={str.otherModifier}
-          lockStats={lockStats}
-        />
-        <Stat
-          name={'Dexterity'}
-          modifier={Number(modifier(dex.stat)) + Number(dex.otherModifier)}
-          handleStatChange={handleStatChange}
-          handleOtherModifierChange={handleOtherModifierChange}
-          stat={dex.stat}
-          otherModifier={dex.otherModifier}
-          lockStats={lockStats}
-        />
-        <Stat
-          name={'Constitution'}
-          modifier={Number(modifier(con.stat)) + Number(con.otherModifier)}
-          handleStatChange={handleStatChange}
-          handleOtherModifierChange={handleOtherModifierChange}
-          stat={con.stat}
-          otherModifier={con.otherModifier}
-          lockStats={lockStats}
-        />
-        <Stat
-          name={'Intelligence'}
-          modifier={Number(modifier(int.stat)) + Number(int.otherModifier)}
-          handleStatChange={handleStatChange}
-          handleOtherModifierChange={handleOtherModifierChange}
-          stat={int.stat}
-          otherModifier={int.otherModifier}
-          lockStats={lockStats}
-        />
-        <Stat
-          name={'Wisdom'}
-          modifier={Number(modifier(wis.stat)) + Number(wis.otherModifier)}
-          handleStatChange={handleStatChange}
-          handleOtherModifierChange={handleOtherModifierChange}
-          stat={wis.stat}
-          otherModifier={wis.otherModifier}
-          lockStats={lockStats}
-        />
-        <Stat
-          name={'Charisma'}
-          modifier={Number(modifier(cha.stat)) + Number(cha.otherModifier)}
-          handleStatChange={handleStatChange}
-          handleOtherModifierChange={handleOtherModifierChange}
-          stat={cha.stat}
-          otherModifier={cha.otherModifier}
-          lockStats={lockStats}
-        />
+        <Stat {...str} />
+        <Stat {...dex} />
+        <Stat {...con} />
+        <Stat {...int} />
+        <Stat {...wis} />
+        <Stat {...cha} />
       </ul>
     </div>
   );
+}
+
+export const useWithStats = () => {
+  const lock = useWithLockButton();
+
+  const str = useWithStat({ 
+    id: 'str',
+    name: 'Strength', 
+    isLocked: lock.isLocked,
+  });
+
+  const dex = useWithStat({ 
+    id: 'dex',
+    name: 'Dexterity', 
+    isLocked: lock.isLocked,
+  });
+
+  const con = useWithStat({ 
+    id: 'con',
+    name: 'Constitution', 
+    isLocked: lock.isLocked,
+  });
+  
+  const int = useWithStat({ 
+    id: 'int',
+    name: 'Intelligence', 
+    isLocked: lock.isLocked,
+  });
+
+  const wis  = useWithStat({ 
+    id: 'wis',
+    name: 'Wisdom', 
+    isLocked: lock.isLocked,
+  });
+  
+  const cha = useWithStat({ 
+    id: 'cha',
+    name: 'Charisma', 
+    isLocked: lock.isLocked,
+  });
+  
+  return {
+    lock,
+    str,
+    dex,
+    con,
+    int,
+    wis,
+    cha,
+  }
 }

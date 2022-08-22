@@ -1,19 +1,17 @@
 import React from 'react';
-import { modifier } from '../tools/modifier';
 
 interface ArmorClassProps {
-  dex: any, 
+  dexModifier: number, 
   wornArmor: any, 
   acBonus: any, 
   setAcBonus: any,
 }
 
-export default function ArmorClass({ dex, wornArmor, acBonus, setAcBonus }: ArmorClassProps) {
-  const dexModifierTotal = +modifier(dex.stat) + +dex.otherModifier;
+export default function ArmorClass({ wornArmor, acBonus, dexModifier, setAcBonus }: ArmorClassProps) {
   const armor_AC = wornArmor.armor_AC >= 0 ? wornArmor.armor_AC : 0;
   const shield_AC = wornArmor.shield_AC >= 0 ? wornArmor.shield_AC : 0;
   const wornArmorTotal = armor_AC > 0 ? +armor_AC + +shield_AC : 10;
-  const total = dexModifierTotal + wornArmorTotal + +acBonus;
+  const total = dexModifier + wornArmorTotal + +acBonus;
 
   const armorType = armor_AC ? 'armor' : 'natural';
 
@@ -22,7 +20,7 @@ export default function ArmorClass({ dex, wornArmor, acBonus, setAcBonus }: Armo
       <div className="armorClass_AC">{total}</div>
       <hr />
       <div>
-        dex: {dexModifierTotal} + {armorType}: {wornArmorTotal} + spell bonus{' '}
+        dex: {dexModifier} + {armorType}: {wornArmorTotal} + spell bonus{' '}
         <input
           type="text"
           name="acBonus"

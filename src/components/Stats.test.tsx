@@ -1,37 +1,63 @@
 import React from 'react';
-import Stats from './Stats';
+import { SmallNumberInputProps } from './form/SmallNumberInput';
+import Stats, { StatsProps } from './Stats';
 import { render, screen } from '@testing-library/react';
+import { StatProps } from './Stat';
+
+const names = {
+  str: 'Strength',
+  dex: 'Dexterity',
+  con: 'Constitution',
+  int: 'Intelligence',
+  wis: 'Wisdom',
+  cha: 'Charisma',
+}
+
+const inputProps: SmallNumberInputProps = {
+  name: '',
+  isLocked: false,
+  value: 0,
+  onChange: () => {}
+}
+
+const generateStatProps = (stat: number, othMod: number, name: string, isLocked: boolean): StatProps => {
+  return {
+    name, 
+    stat: {
+      name,
+      isLocked: false,
+      value: stat,
+      onChange: () => {}
+    },
+    otherModifier: {
+      name,
+      isLocked: false,
+      value: othMod,
+      onChange: () => {}
+    },
+  }
+}
+
+const generateStatsProps = (stat: number, othMod: number, isLocked: boolean): StatsProps => {
+  return {
+    str: generateStatProps(stat, othMod, names.str, isLocked),
+    dex: generateStatProps(stat, othMod, names.dex, isLocked),
+    con: generateStatProps(stat, othMod, names.con, isLocked),
+    int: generateStatProps(stat, othMod, names.int, isLocked),
+    wis: generateStatProps(stat, othMod, names.wis, isLocked),
+    cha: generateStatProps(stat, othMod, names.cha, isLocked),
+    lock: { 
+      isLocked: false, 
+      onClick: () => {},
+    }
+  }
+}
 
 describe('Stats Unit Tests', () => {
-  const props = {
-    str: { stat: 0, otherModifier: 0 },
-    dex: { stat: 0, otherModifier: 0 },
-    con: { stat: 0, otherModifier: 0 },
-    int: { stat: 0, otherModifier: 0 },
-    wis: { stat: 0, otherModifier: 0 },
-    cha: { stat: 0, otherModifier: 0 },
-    lockStats: false,
-  };
-
-  const props10 = {
-    str: { stat: 10, otherModifier: 0 },
-    dex: { stat: 10, otherModifier: 0 },
-    con: { stat: 10, otherModifier: 0 },
-    int: { stat: 10, otherModifier: 0 },
-    wis: { stat: 10, otherModifier: 0 },
-    cha: { stat: 10, otherModifier: 0 },
-    lockStats: false,
-  };
-
-  const props11 = {
-    str: { stat: 10, otherModifier: 1 },
-    dex: { stat: 10, otherModifier: 1 },
-    con: { stat: 10, otherModifier: 1 },
-    int: { stat: 10, otherModifier: 1 },
-    wis: { stat: 10, otherModifier: 1 },
-    cha: { stat: 10, otherModifier: 1 },
-    lockStats: false,
-  };
+  const props: StatsProps = generateStatsProps(0, 0, false);
+  const props10: StatsProps = generateStatsProps(10, 0, false);
+  const props11: StatsProps = generateStatsProps(10, 1, false);
+  
   it('should render -5 for a new user', () => {
     render(<Stats {...props} />);
 
@@ -66,9 +92,12 @@ describe('Stats Unit Tests', () => {
   });
 
   it('should render Locked', async () => {
-    const propsForTest = {
+    const propsForTest: StatsProps = {
       ...props,
-      lockStats: true,
+      lock: { 
+        ...props.lock,
+        isLocked: true, 
+      }
     };
     render(<Stats {...propsForTest} />);
 
@@ -76,9 +105,12 @@ describe('Stats Unit Tests', () => {
   });
 
   it('should render Unlocked', async () => {
-    const propsForTest = {
+    const propsForTest: StatsProps = {
       ...props,
-      lockStats: false,
+      lock: { 
+        ...props.lock,
+        isLocked: false, 
+      }
     };
     render(<Stats {...propsForTest} />);
 

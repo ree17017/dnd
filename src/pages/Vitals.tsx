@@ -8,21 +8,22 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 interface VitalsProps {
-  dex: string,
-  wornArmor: string,
-  acBonus: string,
-  setAcBonus: () => void,
-
+  dexModifier: number;
+  wisModifier: number;
+  wornArmor: string;
+  acBonus: string;
+  setAcBonus: () => void;
 }
 
-export default function Vitals(props: any) {
-  const { dex, wornArmor, acBonus, setAcBonus } = props;
+export default function Vitals(props: VitalsProps) {
+  const { wornArmor, acBonus, dexModifier, wisModifier, setAcBonus } = props;
+  
   return (
     <div>
       <div className="vitals">
         <div>
           <ArmorClass
-            dex={dex}
+            dexModifier={dexModifier}
             wornArmor={wornArmor}
             acBonus={acBonus}
             setAcBonus={setAcBonus}

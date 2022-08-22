@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import SpellsList from './SpellList';
 import useLocalStorage from 'react-localstorage-hook';
-import { modifier } from '../tools/modifier';
+import { calculateModifier } from '../tools/calculateModifier';
 
 export default function Spells() {
   const [spellCastingAbility, setSpellCastingAbility] = useLocalStorage(
@@ -92,9 +92,9 @@ export default function Spells() {
   const spellcastingModifier = () => {
     switch (spellCastingAbility) {
       case 'wis':
-        return +modifier(wis.stat) + +wis.otherModifier;
+        return +calculateModifier(wis.stat) + +wis.otherModifier;
       case 'int':
-        return +modifier(int.stat) + +int.otherModifier;
+        return +calculateModifier(int.stat) + +int.otherModifier;
       default:
     }
   };

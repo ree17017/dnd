@@ -1,13 +1,13 @@
 import React from 'react';
 import useLocalStorage from 'react-localstorage-hook';
-import { modifier } from '../tools/modifier';
+import { calculateModifier } from '../tools/calculateModifier';
 
 export default function Proficiency() {
   const [wis] = useLocalStorage('wis', { stat: 0, otherModifier: 0 });
   const [proficiency, setProficiency] = useLocalStorage('proficiency');
 
   const passivePerception =
-    10 + +modifier(wis.stat || 0) + +wis.otherModifier + +proficiency;
+    10 + +calculateModifier(wis.stat || 0) + +wis.otherModifier + +proficiency;
   return (
     <div className="proficiency">
       <div className="proficiency-font">

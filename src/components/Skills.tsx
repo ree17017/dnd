@@ -1,6 +1,6 @@
 import React from 'react';
 import useLocalStorage from 'react-localstorage-hook';
-import { modifier } from '../tools/modifier';
+import { calculateModifier } from '../tools/calculateModifier';
 import { SkillsEnum } from './enums';
 
 export default function Skills() {
@@ -29,7 +29,7 @@ export default function Skills() {
       total += +proficiency;
     }
 
-    return +modifier(stat.stat) + +stat.otherModifier + +total;
+    return +calculateModifier(stat.stat) + +stat.otherModifier + +total;
   };
 
   const handleSkillChange = (event: any) => {

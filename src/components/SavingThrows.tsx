@@ -1,6 +1,6 @@
 import React from 'react';
 import useLocalStorage from 'react-localstorage-hook';
-import { modifier } from '../tools/modifier';
+import { calculateModifier } from '../tools/calculateModifier';
 
 export default function SavingThrows() {
   const [str] = useLocalStorage('str');
@@ -34,8 +34,8 @@ export default function SavingThrows() {
 
   const saveStat = (name: string, stat: any) => {
     return isChecked(name)
-      ? add(modifier(stat.stat), proficiency) + +stat.otherModifier
-      : modifier(stat.stat) + +stat.otherModifier;
+      ? add(calculateModifier(stat.stat), proficiency) + +stat.otherModifier
+      : calculateModifier(stat.stat) + +stat.otherModifier;
   };
 
   const isChecked = (name: string) => index(name) > -1;
