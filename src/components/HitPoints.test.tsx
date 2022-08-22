@@ -14,6 +14,6 @@ describe('HitPoint Unit Tests', () => {
 
     fireEvent.click(maxInput);
 
-    expect(screen.getByText(' 1 + 0 = 1')).toBeInTheDocument();
+    expect(screen.getByText('1 + 0 = 1')).toBeInTheDocument();
   });
 });
