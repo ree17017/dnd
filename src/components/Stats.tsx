@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import Stat from './Stat';
 import { modifier } from '../tools/modifier';
