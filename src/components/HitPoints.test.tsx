@@ -10,7 +10,7 @@ describe('HitPoint Unit Tests', () => {
 
     expect(screen.getByText('0 + 0 = 0')).toBeInTheDocument();
 
-    const maxInput = screen.getByRole('plus');
+    const maxInput = screen.getByTestId('plus-button');
 
     fireEvent.click(maxInput);
 
