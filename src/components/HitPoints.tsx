@@ -27,7 +27,7 @@ export default function HitPoints() {
       <div>
         {hitPoints.hp} + {hitPoints.temp} = {totalHitPoints}
       </div>
-      <button onClick={handleHitPointChange} name="minus">
+      <button type="button" onClick={handleHitPointChange} name="minus">
         -
       </button>
       <input
@@ -42,6 +42,7 @@ export default function HitPoints() {
         onClick={handleHitPointChange}
         name="plus"
         data-testid="plus-button"
+        type="button"
       >
         +
       </button>
