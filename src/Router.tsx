@@ -1,5 +1,7 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 import CharacterSheet from './pages/CharacterSheet';
+import CombatTracker from './pages/CombatTracker';
 import React from 'react';
 
 export default function Router() {
@@ -7,6 +9,7 @@ export default function Router() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<CharacterSheet />}></Route>
+        <Route path="/combattracker" element={<CombatTracker />}></Route>
       </Routes>
     </BrowserRouter>
   );
