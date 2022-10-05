@@ -1,3 +1,5 @@
+import Stats, { useWithStats } from '../components/Stats';
+
 import CharacterInfo from '../components/CharacterInfo';
 import Feats from '../components/Feats';
 import OtherProficiencies from '../components/OtherProficiencies';
@@ -6,19 +8,20 @@ import React from 'react';
 import SavingThrows from '../components/SavingThrows';
 import Skills from '../components/Skills';
 import Spells from '../components/Spells';
-import Stats, { useWithStats } from '../components/Stats';
 import Vitals from './Vitals';
 import WornArmor from '../components/WornArmor';
-import useLocalStorage from 'react-localstorage-hook';
 import { calculateModifier } from '../tools/calculateModifier';
+import useLocalStorage from 'react-localstorage-hook';
 
 function CharacterSheet() {
   const [wornArmor] = useLocalStorage('wornArmor');
   const [acBonus, setAcBonus] = useLocalStorage('acBonus');
 
   const stats = useWithStats();
-  
-  const dexModifier = +calculateModifier(stats.dex.stat.value) + +stats.dex.otherModifier.value;
+
+  const dexModifier =
+    Number(calculateModifier(stats.dex.stat.value)) +
+    Number(stats.dex.otherModifier.value);
 
   return (
     <div className="grid-container">
